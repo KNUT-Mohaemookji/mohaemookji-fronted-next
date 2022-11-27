@@ -1,4 +1,4 @@
-import { ChildrenProps } from '../../../types/interface';
+import { ChildrenProps } from '../../types/interface';
 
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
@@ -22,7 +22,7 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                     <div className="content__container__text">오늘 { bracketStart }</div>
                         <ul className="content__container__list" ref={ item }>
                             {
-                                li_text.map((text, index) => {
+                                li_text && li_text.map((text, index) => {
                                     return (
                                         <li className="content__container__list_item" key={index}>{ text }</li>
                                     )

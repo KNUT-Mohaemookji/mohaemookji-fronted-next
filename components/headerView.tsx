@@ -1,14 +1,17 @@
-import styles from '../../styles/components/Header.module.scss';
+import styles from '../styles/components/Header.module.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   // transform 으로 내려오는 작업 해주기
-  // const [headerState, setHeaderState] = useState(false);
-  const [headerList, setHeaderList] = useState(['Home', 'About', 'Work', 'Contact']);
+  const [headerList, setHeaderList] = useState(['Home', 'About', 'Video', 'Contact']);
+  const [urlLink, setUrlLink] = useState(['/', '/about', '/video', '/contact']);
   const [menuState, setMenuState] = useState(false);
   const hamburger = useRef<HTMLDivElement | null>(null);
   const overlay = useRef<HTMLDivElement | null>(null);
+
+  const router = useRouter();
 
   const headerMove = () => {
     setMenuState(!menuState);
@@ -20,8 +23,13 @@ const Header = () => {
       overlay.current!.style.transform = 'translateY(0%)';
       document.getElementById('toggle')?.classList.add('active');
     }
-
   }
+
+  // url pathname이 바뀌면 header class remove 시켜주기
+  useEffect(() => {
+    overlay.current!.style.transform = 'translateY(100%)';
+    document.getElementById('toggle')?.classList.remove('active');
+  }, [router.pathname]);
   return (
       <>
         <div className={styles.container} ref={ hamburger }>
@@ -30,25 +38,19 @@ const Header = () => {
             <span className={styles.middle}></span>
             <span className={styles.bottom}></span>
         </div>
-
-        {/* {
-          headerState === false
-          ? null
-          :  */}
           <div className={styles.overlay} ref={overlay} id="overlay">
             <nav className={styles.overlayMenu}>
               <ul>
               {
-                headerList.map((item, index) => {
+                headerList && headerList.map((item, index) => {
                   return (
-                    <li key={index}><Link href={'#'}>{item}</Link></li>
+                    <li key={index}><Link href={urlLink[index]}>{item}</Link></li>
                   )
                 })
               }    
               </ul>
             </nav>
           </div>
-        {/* } */}
         </div>
       </>
   );

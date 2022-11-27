@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import MainTextView from '../view/mainTextView';
+import MainTextView from '../../view/mainTextView';
 
 const MainText = () => {
     const [li_text, setLi_text] = useState(['간식', '운동식', '건강식', '일반식']);
@@ -27,9 +27,9 @@ const MainText = () => {
                 Y = 0;
             }
         }, 3000);
-
-        // setInterval 멈추게 하기
-        if (pathname !== '/') {
+        console.log('pathname은?', pathname);
+        // unmounted되면 setInterval 제거시켜주기.
+        return () => {
             clearInterval(loopSetInterval);
         }
     }, []);
