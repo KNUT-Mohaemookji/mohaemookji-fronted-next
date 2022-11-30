@@ -5,6 +5,7 @@ export interface ChildrenProps {
 
 // cooking-video object type
 export interface ICookingVideo {
+    then(arg: (res: any) => void): unknown;
     channelId: string,
     keyword: number,
     theme: string,

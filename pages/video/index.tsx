@@ -1,25 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { PropsWithChildren } from 'react';
 import VideoListView from '../../components/logic/video/videoList';
+import VideoModal from '../../components/view/video/videoModalView';
 // import { ICookingVideo } from '../../types/interface';
 
-const Video = () => {
-    // api에서 받아온 데이터들 cookingData에 넣어주기
-    // const cookingData: ICookingVideo = fetch('../api/cookingVideo')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         return data;
-    // })
-    useEffect(() => {
+interface IModalProps extends PropsWithChildren{
+    modalState: boolean;
+    // 함수 타입정의
+    modalStateFunc(): void;
+}
 
-    }, []);
+const Video = () => {
+    const [modalState, setModalState] = useState(false);
+    const modalStateFunc = () => {
+        console.log('!');
+        setModalState(!modalState);
+    }
+
+    const modalProps: IModalProps = {
+        modalState,
+        modalStateFunc
+    }
+
+    useEffect(() => {
+        console.log(modalState);
+    }, [modalState]);
     
-    // const props = {
-    //     cookingData
-    // }
     return (
         <>
-            <VideoListView/>
+            <div>
+                <VideoListView {...modalProps} />
+                <VideoModal {...modalProps} />
+            </div>
         </>
     );
 };

@@ -1,11 +1,31 @@
+import React from 'react';
+
 import '../styles/globals.scss'
 import Layout from '../components/layout';
-import type { AppProps } from 'next/app'
+import type { AppProps, AppContext } from 'next/app';
+import App from 'next/app';
 
-export default function App({ Component, pageProps }: AppProps) {
+import { Provider } from 'react-redux';
+import configureStore from '../store/reducers/configureStore';
+
+
+const store = configureStore();
+
+const _App = ({Component, pageProps}: AppProps) => {
   return (
     <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+      </Layout>
+
   )
 }
+
+//  오류 해결하기
+_App.getInitialProps = async (appContext: AppContext) => {
+  const appProps = await App.getInitialProps(appContext);
+  return {...appProps}
+} 
+
+export default _App;
