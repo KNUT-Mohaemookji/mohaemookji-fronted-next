@@ -8,21 +8,19 @@ import App from 'next/app';
 import { Provider } from 'react-redux';
 import configureStore from '../store/reducers/configureStore';
 
-
 const store = configureStore();
 
 const _App = ({Component, pageProps}: AppProps) => {
   return (
     <Layout>
-    <Provider store={store}>
+      <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
-      </Layout>
+    </Layout>
 
   )
 }
 
-//  오류 해결하기
 _App.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext);
   return {...appProps}
