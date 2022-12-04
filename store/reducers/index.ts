@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import testReducer from './testReducer';
+import getVideo from './getVideo';
 
 const rootReducer = combineReducers({
-    testReducer
+    testReducer,
+    getVideo
 })
 
 export default rootReducer;

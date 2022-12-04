@@ -1,20 +1,29 @@
 import React, { PropsWithChildren, useEffect } from 'react';
-// extends PropsWithChildren
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../store/reducers';
+import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 
 const VideoModalView = (props: PropsWithChildren) => {
+    const state = useSelector((state: RootState) => state)
+    const dispatch = useDispatch();
+
     useEffect(() => {
+        console.log('state', state);
+        console.log('dispatch', dispatch(actions.video_modal()));
+        
         console.log(props);
     }, []);
     return (
         <>
             {
-                props.modalState &&
-            <div className="modal_contain">
-                <div className="inner">
-                    <p className="close" onClick={props.modalStateFunc}>X</p>
-                    <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A"/>
+                state.getVideo.modalState === false ?
+                <div className="modal_contain">
+                    <div className="inner">
+                        <p className="close" onClick={() => {dispatch(actions.video_modal())}}>X</p>
+                        <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A"/>
+                    </div>
                 </div>
-            </div>
+                : null
             }
             <style jsx>{`
                 .modal_contain{

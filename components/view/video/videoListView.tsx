@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ICookingVideo } from '../../../types/interface';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
+import { RootState } from '../../../store/reducers';
 
 interface Props {
     cookingData: ICookingVideo
 }
 
 const VideoListView = ({ cookingData }: Props) => {
+    const state = useSelector((state: RootState) => state);
+    const dispatch = useDispatch();
+
     let [getData, setGetData] = useState([]);
 
     useEffect(() => {
@@ -22,7 +28,8 @@ const VideoListView = ({ cookingData }: Props) => {
                 getData && getData.map((data, index) => {
                     return (
                         <>
-                            <div className="item_container">
+                            <div className="item_container"
+                            onClick={() => {dispatch(actions.video_modal())}}>
                                 <picture className="item_image">
                                     {/* <img key={ index } src={data.thumbnail} /> */}
                                     <div style={{ backgroundImage: `url(${data.thumbnail})` }} className="item_image" />
