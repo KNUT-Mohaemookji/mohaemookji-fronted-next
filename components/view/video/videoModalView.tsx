@@ -1,26 +1,72 @@
-import React, { PropsWithChildren, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducers';
-import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
+import { actions, VIDEO_MODAL, GET_VIDEO_LIST, getVideoAPI } from '../../../store/reducers/getVideo';
+import { ICookingVideo } from '../../../types/interface';
+// import { getList } from '../../../store/reducers/getVideo';
 
-const VideoModalView = (props: PropsWithChildren) => {
-    const state = useSelector((state: RootState) => state)
+const VideoModalView = (props: any) => {
+    const state = useSelector((state: RootState) => state.getVideo)
+    // const getStateData = useSelector((state: RootState) => state.getVideo.videoData);
     const dispatch = useDispatch();
+    let [data, setData] = useState();
+    let data2 = {};
 
+
+    // const getData = (useCallback(() => {
+    //     dispatch(actions.get_video_list());
+    //     console.log(state);
+                
+    // }, [dispatch])());
+    
     useEffect(() => {
-        console.log('state', state);
-        console.log('dispatch', dispatch(actions.video_modal()));
+        console.log(state);
         
-        console.log(props);
+        const getData = async () => {
+            return new Promise(resolve => {
+                // resolve(dispatch(actions.get_video_list()));
+                resolve(getVideoAPI());
+            }).then(res => {
+                // console.log(res);
+                console.log(state);
+                setData({ ...state.videoData });
+                data2 = { ...state.videoData };
+                console.log(data2[0]._id);
+                console.log(data);
+            })
+        }
+
+        getData();
+        
+        // dispatch(actions.get_video_list());
+        // console.log(state.videoData[0]);
+        // // setTimeout(() => {
+            
+        //     data2 = state.videoData;
+        //     console.log(data2);
+        // // }, 1000);
+        
     }, []);
+
     return (
         <>
+            <div>
+                {
+                    <p>ㅁㄴ{{ ...data2[0]._id } }</p>
+                    // state.videoData.map((video: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined, index: React.Key | null | undefined) => {
+                    //     return (
+                    //         <p key={index}>{video}</p>
+                    //     )
+                    // })
+                }
+            </div>
             {
-                state.getVideo.modalState === false ?
+                state.modalState === false ?
                 <div className="modal_contain">
                     <div className="inner">
-                        <p className="close" onClick={() => {dispatch(actions.video_modal())}}>X</p>
-                        <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A"/>
+                        <p className="close" onClick={() => { dispatch(actions.video_modal()) }}>X</p>
+                            <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A" />          
                     </div>
                 </div>
                 : null

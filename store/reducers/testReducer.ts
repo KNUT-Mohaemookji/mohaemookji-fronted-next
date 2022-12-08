@@ -29,7 +29,7 @@ export const addText = createAction(ADD_TEXT)<TestReducer>()
 export const removeText = createAction(REMOVE_TEXT)()
 
 // 액션 객체타입
-export const actions = {resetText, addText, removeText}
+export const actions = { resetText, addText, removeText };
 type TestReducerActions = ActionType<typeof actions>;
 
 // 리듀서 추가
