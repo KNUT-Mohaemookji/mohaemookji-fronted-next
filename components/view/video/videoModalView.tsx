@@ -12,60 +12,24 @@ const VideoModalView = (props: any) => {
     const dispatch = useDispatch();
     let [data, setData] = useState();
     let data2 = {};
-
-
-    // const getData = (useCallback(() => {
-    //     dispatch(actions.get_video_list());
-    //     console.log(state);
-                
-    // }, [dispatch])());
     
+    function click(){
+        console.log(state);
+    }
     useEffect(() => {
         console.log(state);
-        
-        const getData = async () => {
-            return new Promise(resolve => {
-                // resolve(dispatch(actions.get_video_list()));
-                resolve(getVideoAPI());
-            }).then(res => {
-                // console.log(res);
-                console.log(state);
-                setData({ ...state.videoData });
-                data2 = { ...state.videoData };
-                console.log(data2[0]._id);
-                console.log(data);
-            })
-        }
-
-        getData();
-        
-        // dispatch(actions.get_video_list());
-        // console.log(state.videoData[0]);
-        // // setTimeout(() => {
-            
-        //     data2 = state.videoData;
-        //     console.log(data2);
-        // // }, 1000);
+        dispatch({type: "GET_VIDEO_LIST"})
         
     }, []);
 
     return (
         <>
-            <div>
-                {
-                    <p>ㅁㄴ{{ ...data2[0]._id } }</p>
-                    // state.videoData.map((video: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined, index: React.Key | null | undefined) => {
-                    //     return (
-                    //         <p key={index}>{video}</p>
-                    //     )
-                    // })
-                }
-            </div>
             {
                 state.modalState === false ?
                 <div className="modal_contain">
                     <div className="inner">
                         <p className="close" onClick={() => { dispatch(actions.video_modal()) }}>X</p>
+                        <button onClick={() => {click()}}>??</button>
                             <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A" />          
                     </div>
                 </div>
@@ -74,6 +38,7 @@ const VideoModalView = (props: any) => {
             <style jsx>{`
                 .modal_contain{
                     position: fixed;
+                    z-index: 100;
                     top: 0;  
                     left: 0;
                     width: 100vw;

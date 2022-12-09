@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
 
+import VideoModal from './videoModalView.tsx';
+
 interface Props {
     cookingData: ICookingVideo
 }
@@ -23,6 +25,7 @@ const VideoListView = ({ cookingData }: Props) => {
     }, [cookingData, getData]);
     return (
         <>
+            <VideoModal/>
             <ul className="items">
             {
                 getData && getData.map((data, index) => {
