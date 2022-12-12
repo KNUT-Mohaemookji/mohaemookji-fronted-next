@@ -4,37 +4,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducers';
 import { actions, VIDEO_MODAL, GET_VIDEO_LIST, getVideoAPI } from '../../../store/reducers/getVideo';
 import { ICookingVideo } from '../../../types/interface';
-// import { getList } from '../../../store/reducers/getVideo';
 
-const VideoModalView = (props: any) => {
-    const state = useSelector((state: RootState) => state.getVideo)
-    // const getStateData = useSelector((state: RootState) => state.getVideo.videoData);
+const VideoModalView = ({getData, clickVideoIndex}) => {
+    const state = useSelector((state: RootState) => state.getVideo);
     const dispatch = useDispatch();
-    let [data, setData] = useState();
-    let data2 = {};
-    
+    let [modalData, setModalData] = useState({});
+    let [loading, setLoading] = useState(true);
+
     function click(){
         console.log(state);
     }
+    
     useEffect(() => {
-        console.log(state);
-        dispatch({type: "GET_VIDEO_LIST"})
-        
-    }, []);
+        setModalData(getData[clickVideoIndex]);
+    }, [getData, modalData]);
 
     return (
         <>
-            {
-                state.modalState === false ?
-                <div className="modal_contain">
-                    <div className="inner">
-                        <p className="close" onClick={() => { dispatch(actions.video_modal()) }}>X</p>
-                        <button onClick={() => {click()}}>??</button>
-                            <video className="video" src="https://www.youtube.com/watch?v=xsI1lO7r9_A" />          
-                    </div>
+            <div className="modal_contain">
+                <div className="inner">
+                    <p className="close" onClick={() => { dispatch(actions.video_modal()) }}>X</p>
+                    
+                    <p className="videoName">{modalData.title}</p>
+                    
                 </div>
-                : null
-            }
+            </div>
             <style jsx>{`
                 .modal_contain{
                     position: fixed;

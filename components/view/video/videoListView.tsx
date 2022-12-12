@@ -4,20 +4,37 @@ import { ICookingVideo } from '../../../types/interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
-
-import VideoModal from './videoModalView.tsx';
+import VideoModal from '../../view/video/videoModalView.tsx';
 
 interface Props {
     cookingData: ICookingVideo
 }
 
+const cookingData = fetch('../api/cookingVideo')
+    .then(res => res.json())
+    .then(res => {
+        return res;
+    })
+
 const VideoListView = ({ cookingData }: Props) => {
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
-
     let [getData, setGetData] = useState([]);
+    let [clickVideoIndex, setClickVideoIndex] = useState(0);
+
+
+    const props = {
+        getData,
+        clickVideoIndex
+    };
+
+    const videoClick = (index) => {
+        dispatch(actions.video_modal());
+        setClickVideoIndex(index);
+    }
 
     useEffect(() => {
+        console.log(cookingData);
         cookingData.then(res => {
             setGetData(res);
         })
@@ -25,14 +42,18 @@ const VideoListView = ({ cookingData }: Props) => {
     }, [cookingData, getData]);
     return (
         <>
-            <VideoModal/>
+            {
+                state.getVideo.modalState === false ?
+                <VideoModal {...props}/>
+                : null
+            }
             <ul className="items">
             {
                 getData && getData.map((data, index) => {
                     return (
                         <>
                             <div className="item_container"
-                            onClick={() => {dispatch(actions.video_modal())}}>
+                            onClick={() => {videoClick(index)}}>
                                 <picture className="item_image">
                                     {/* <img key={ index } src={data.thumbnail} /> */}
                                     <div style={{ backgroundImage: `url(${data.thumbnail})` }} className="item_image" />
