@@ -1,4 +1,4 @@
-import React, { useEffect, PropsWithChildren } from 'react';
+import React, { useState, useEffect, PropsWithChildren } from 'react';
 import VideoListView from '../../view/video/videoListView';
 import { ICookingVideo } from '../../../types/interface';
 
@@ -13,9 +13,12 @@ const VideoList = (prop: PropsWithChildren) => {
             console.log(res);
             return res.data;
     })
+
+    const [category, setCategory] = useState(['간식', '운동식', '건강식', '일반식']);
     
     const props = {
-        cookingData
+        cookingData,
+        category
     }
     return (
         <>

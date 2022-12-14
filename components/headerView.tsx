@@ -32,27 +32,32 @@ const Header = () => {
   }, [router.pathname]);
   return (
       <>
-        <div className={styles.container} ref={ hamburger }>
-          <div className={styles.button_container} id="toggle" onClick={() => {headerMove()}}>
-            <span className={styles.top}></span>
-            <span className={styles.middle}></span>
-            <span className={styles.bottom}></span>
-        </div>
-          <div className={styles.overlay} ref={overlay} id="overlay">
-            <nav className={styles.overlayMenu}>
-              <ul>
-              {
-                headerList && headerList.map((item, index) => {
-                  return (
-                    <li key={index}><Link href={urlLink[index]}>{item}</Link></li>
-                  )
-                })
-              }    
-              </ul>
-            </nav>
+        <header className={styles.container} ref={ hamburger }>
+          <div className={styles.header}>
+            <Link href="/">
+              <p className={styles.logo} onClick={() => {}}>로고</p>
+            </Link>
+            <div className={styles.button_container} id="toggle" onClick={() => {headerMove()}}>
+              <span className={styles.top}></span>
+              <span className={styles.middle}></span>
+              <span className={styles.bottom}></span>
+            </div>
           </div>
+        <div className={styles.overlay} ref={overlay} id="overlay">
+          <nav className={styles.overlayMenu}>
+            <ul>
+            {
+              headerList && headerList.map((item, index) => {
+                return (
+                  <li key={index}><Link href={urlLink[index]}>{item}</Link></li>
+                )
+              })
+            }    
+            </ul>
+          </nav>
         </div>
-      </>
+      </header>
+    </>
   );
 };
 

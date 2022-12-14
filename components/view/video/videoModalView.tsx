@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducers';
 import { actions, VIDEO_MODAL, GET_VIDEO_LIST, getVideoAPI } from '../../../store/reducers/getVideo';
 import { ICookingVideo } from '../../../types/interface';
+import ReactPlayer from 'react-player';
+import { FiX } from 'react-icons/fi';
+
 
 const VideoModalView = ({getData, clickVideoIndex}) => {
     const state = useSelector((state: RootState) => state.getVideo);
@@ -23,10 +26,12 @@ const VideoModalView = ({getData, clickVideoIndex}) => {
         <>
             <div className="modal_contain">
                 <div className="inner">
-                    <p className="close" onClick={() => { dispatch(actions.video_modal()) }}>X</p>
+                    <p className="close" onClick={() => { dispatch(actions.video_modal()) }}><FiX/></p>
                     
                     <p className="videoName">{modalData.title}</p>
-                    
+                    <div className="player">
+                        <ReactPlayer url={modalData.url} width="100%"/>
+                    </div>
                 </div>
             </div>
             <style jsx>{`
@@ -50,14 +55,25 @@ const VideoModalView = ({getData, clickVideoIndex}) => {
                         .close {
                             position: absolute;
                             cursor: pointer;
+                            top: -15px;
                             right: 20px;
-                            font-size: 30px;
-                            font-weight: 700;
+                            font-size: 40px;
                             color: #333;
                         }
-                        .video {
-                            width: 100px;
-                            height: 100px;
+                        .videoName{
+                            margin: 20px auto;
+                            text-align: center;
+                            width: 50%;
+                            font-size: 20px;
+                            font-weight: 700;
+                        }
+                        .player {
+                            width: 80%;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            border-radius: 10px;
                         }
                     }
                 }

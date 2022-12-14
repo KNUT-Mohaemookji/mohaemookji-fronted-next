@@ -16,14 +16,13 @@ const cookingData = fetch('../api/cookingVideo')
         return res;
     })
 
-const VideoListView = ({ cookingData }: Props) => {
+const VideoListView = ({ cookingData, category }: Props) => {
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
     let [getData, setGetData] = useState([]);
     let [clickVideoIndex, setClickVideoIndex] = useState(0);
 
-
-    const props = {
+    const modalProps = {
         getData,
         clickVideoIndex
     };
@@ -34,41 +33,73 @@ const VideoListView = ({ cookingData }: Props) => {
     }
 
     useEffect(() => {
-        console.log(cookingData);
+        console.log(category);
+        
         cookingData.then(res => {
             setGetData(res);
         })
         console.log(getData);
     }, [cookingData, getData]);
+    
     return (
         <>
-            {
-                state.getVideo.modalState === false ?
-                <VideoModal {...props}/>
-                : null
-            }
-            <ul className="items">
-            {
-                getData && getData.map((data, index) => {
-                    return (
-                        <>
-                            <div className="item_container"
-                            onClick={() => {videoClick(index)}}>
-                                <picture className="item_image">
-                                    {/* <img key={ index } src={data.thumbnail} /> */}
-                                    <div style={{ backgroundImage: `url(${data.thumbnail})` }} className="item_image" />
-                                </picture>
-                                <div className="item_content">
-                                    <p className="item_title">{data.title}</p>
-                                    <p className="item_keyword">{data.keyword}</p>
-                                </div>
-                            </div>
-                        </>
-                    )
-                })
-            }
-            </ul>
+            <div className="contain">
+                {
+                    state.getVideo.modalState === false ?
+                    <VideoModal {...modalProps}/>
+                    : null
+                }
+                <ul className="category">
+                {
+                    category.map((item, index) => {
+                        return (
+                            <li className="categoryItem" key={index}>{item}</li>
+                        )
+                    })
+                }
+                </ul>
+                <div className="videos">
+                    <ul className="items">
+                    {
+                        getData && getData.map((data, index) => {
+                            return (
+                                <>
+                                    <div className="item_container"
+                                    onClick={() => {videoClick(index)}}>
+                                        <picture className="item_image">
+                                            {/* <img key={ index } src={data.thumbnail} /> */}
+                                            <div style={{ backgroundImage: `url(${data.thumbnail})` }} className="item_image" />
+                                        </picture>
+                                        <div className="item_content">
+                                            <p className="item_title">{data.title}</p>
+                                            <p className="item_keyword">{data.keyword}</p>
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                        })
+                    }
+                    </ul>
+                </div>
+            </div>
+                        
             <style jsx>{`
+            .contain{
+                position: relative;
+                margin: auto;
+                width: 90%;
+            }
+                .category{
+                    display: flex;
+                    .categoryItem{
+                        list-style: none;
+                        margin-left: 30px;
+                        font-size: 20px;
+                        font-weight: 600;
+                        color: #333;
+                        cursor: pointer;
+                    }
+                }
                 .items{ 
                     display: flex;
                     flex-wrap: wrap;
@@ -77,7 +108,7 @@ const VideoListView = ({ cookingData }: Props) => {
                 .item_container {
                     position: relative;
                     cursor: pointer;
-                    width: 300px;
+                    width: 25%;
                     box-shadow: 4px 12px 30px 6px rgb(231, 231, 231);
                     border-radius: 20px;
                     padding: 20px;
