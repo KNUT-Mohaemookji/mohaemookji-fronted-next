@@ -19,7 +19,7 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
             </Head>
             <div className="content">
                 <div className="content__container">
-                    <div className="content__container__text">오늘 { bracketStart }</div>
+                    <p className="content__container__text">오늘</p>
                         <ul className="content__container__list" ref={ item }>
                             {
                                 li_text && li_text.map((text, index) => {
@@ -29,17 +29,22 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                                 })
                             }
                         </ul>
-                    <div className="content__container__text2">{ bracketEnd }만들어 먹자!</div>
                 </div>
+                <div className="text">만들어 먹자!</div>
                 {/* #ecf0f1 */}
                 <style jsx>{`
-                    .content{
-                        display: flex;
-                        justify-content: center;
+                    .text{
                         position: absolute;
-                        top: 50%;
-                        left: 0;
-                        right: 0;
+                        top: 70px;
+                        left: 40px;
+                        font-size: 50px;
+                        font-weight: 700;
+                    }
+                    .content{
+                        position: relative;
+                        left: -40px;
+                        text-align: left;
+                        display: flex;
                         margin: auto;
                         height: 160px;
                         overflow: hidden;
@@ -48,18 +53,19 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                         line-height: 40px;
                         color: #333;
                     }
-
                     .content__container {
                         display: flex;
                         font-weight: 600;
                         overflow: hidden;
-                        height: 40px;
+                        height: 50px;
                         padding: 0 40px;
+                        
                     }
                     .content__container__text {
                         display: inline;
+                        font-size: 50px;
                         float: left;
-                        margin: 0;
+                        margin: 6px 0;
                     }
                     .content__container__list {
                         margin-top: 0;
@@ -68,7 +74,9 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                     }
                     .content__container__list_item{
                         margin-left: -30px;
-                        width: 100px;
+                        font-size: 50px;
+                        line-height: 1;
+                        width: 130px;
                         text-align: center;
                         
                     }

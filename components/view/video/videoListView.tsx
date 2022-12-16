@@ -16,7 +16,7 @@ const cookingData = fetch('../api/cookingVideo')
         return res;
     })
 
-const VideoListView = ({ cookingData, category }: Props) => {
+const VideoListView = ({ cookingData }: Props) => {
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
     let [getData, setGetData] = useState([]);
@@ -33,8 +33,6 @@ const VideoListView = ({ cookingData, category }: Props) => {
     }
 
     useEffect(() => {
-        console.log(category);
-        
         cookingData.then(res => {
             setGetData(res);
         })
@@ -51,7 +49,7 @@ const VideoListView = ({ cookingData, category }: Props) => {
                 }
                 <ul className="category">
                 {
-                    category.map((item, index) => {
+                    state.getVideo.category.map((item, index) => {
                         return (
                             <li className="categoryItem" key={index}>{item}</li>
                         )
