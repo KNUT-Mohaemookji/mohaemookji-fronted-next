@@ -30,12 +30,15 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                             }
                         </ul>
                 </div>
-                <div className="text">만들어 먹자!</div>
+                <p className="text">만들어 먹자!</p>
+                <div className="sub_text_contain">
+                    <p className="text sub_text">항상 뭐 해먹을지 고민하는 사람들을 위해.</p>
+                </div>
                 {/* #ecf0f1 */}
                 <style jsx>{`
                     .text{
                         position: absolute;
-                        top: 70px;
+                        top: 30px;
                         left: 40px;
                         font-size: 50px;
                         font-weight: 700;
@@ -44,9 +47,9 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                         position: relative;
                         left: -40px;
                         text-align: left;
-                        display: flex;
                         margin: auto;
-                        height: 160px;
+                        width: 500px;
+                        height: 200px;
                         overflow: hidden;
                         font-family: 'Lato', sans-serif;
                         font-size: 35px;
@@ -78,7 +81,14 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                         line-height: 1;
                         width: 130px;
                         text-align: center;
-                        
+                    }
+                    .sub_text_contain{
+                        .sub_text{
+                            // width: px;
+                            font-size: 20px;
+                            font-weight: 600;
+                            margin-top: 140px;
+                        }
                     }
                 `}</style>
             </div>
