@@ -4,6 +4,7 @@ import { ICookingVideo } from '../../../types/interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
+import { useRouter } from 'next/router';
 import VideoModal from '../../view/video/videoModalView.tsx';
 
 interface Props {
@@ -19,6 +20,9 @@ const cookingData = fetch('../api/cookingVideo')
 const VideoListView = ({ cookingData }: Props) => {
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
+    const router = useRouter();
+    const { slug } = router.query;
+
     let [getData, setGetData] = useState([]);
     let [clickVideoIndex, setClickVideoIndex] = useState(0);
 
@@ -33,6 +37,9 @@ const VideoListView = ({ cookingData }: Props) => {
     }
 
     useEffect(() => {
+        // slug 기준으로 영상 랜덤으로 불러오기
+        console.log('route', slug);
+        
         cookingData.then(res => {
             setGetData(res);
         })

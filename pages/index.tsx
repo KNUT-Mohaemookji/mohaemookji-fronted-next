@@ -52,7 +52,6 @@ export default function Home() {
           width: 100vw;
           height: 100vh;
           background-color: #f8f9fa;
-          margin-top: 100px;
           overflow: hidden;
           .innner_line{
             height: 1px;
