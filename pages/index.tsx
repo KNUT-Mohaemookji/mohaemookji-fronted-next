@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import MainText from '../components/logic/main/mainText';
 import MainButton from '../components/view/main/mainButtonView';
 import MainCarousel from '../components/view/main/mainCarousel';
+import MainNotice from '../components/view/main/mainNotice';
 
 export default function Home() {
   return (
@@ -19,27 +20,7 @@ export default function Home() {
             <div className="button_contain">
               <MainButton/>
             </div>
-            {/* <div className="img_contain">
-              <span style={{borderRadius: '50%'}} className="main_img"><Image
-                  src='/img/cooking.jpeg'
-                  alt="!"
-                  width="400"
-                  height="400"
-                  // layout="fill"
-                   objectFit="cover"
-              /></span>
-            </div> */}
-            <div className="img_contain" style={{ borderRadius: '50%', overflow: 'hidden', width: '500px', height: '500px' }}>
-              <Image
-                src="..."
-                objectFit="cover"
-                width="500"
-                height="500"
-                placeholder="blur"
-                blurDataURL='/img/cooking.jpeg'
-                src='/img/cooking.jpeg'
-              />
-            </div>
+            <MainNotice/>
           </div>
           <div className="main_right">
             <MainCarousel/>
@@ -73,15 +54,6 @@ export default function Home() {
               top: 50%;
               animation: main_img_animation 1s;
             }
-          }
-        }
-        @keyframes main_img_animation{
-          from {
-            margin-left: -20%;
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
           }
         }
       `}</style>

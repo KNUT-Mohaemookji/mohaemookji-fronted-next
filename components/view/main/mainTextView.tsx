@@ -32,7 +32,7 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                 </div>
                 <p className="text">만들어 먹자!</p>
                 <div className="sub_text_contain">
-                    <p className="text sub_text">항상 뭐 해먹을지 고민하는 사람들을 위해.</p>
+                    <p className="text sub_text">자취생 요리추천 웹 서비스</p>
                 </div>
                 {/* #ecf0f1 */}
                 <style jsx>{`
@@ -86,8 +86,9 @@ const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
                         .sub_text{
                             // width: px;
                             font-size: 20px;
+                            color: #868e96;
                             font-weight: 600;
-                            margin-top: 140px;
+                            margin-top: 120px;
                         }
                     }
                 `}</style>

@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
 import { useRouter } from 'next/router';
-import VideoModal from '../../view/video/videoModalView.tsx';
+import VideoModal from '../../view/video/videoModalView';
+
+import dummyData from '../../../channerDummyData.json';
 
 interface Props {
     cookingData: ICookingVideo
@@ -17,7 +19,19 @@ const cookingData = fetch('../api/cookingVideo')
         return res;
     })
 
+
+
+// 찾으면 해보기
+// const cookingChannelFilterData: any = () => {
+//     return fetch('../../../channerDummyData.json')
+//     .then(res => res.json()).then(json => {
+//         json.sports 
+//     })
+// }
+
+
 const VideoListView = ({ cookingData }: Props) => {
+
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
     const router = useRouter();
@@ -39,6 +53,9 @@ const VideoListView = ({ cookingData }: Props) => {
     useEffect(() => {
         // slug 기준으로 영상 랜덤으로 불러오기
         console.log('route', slug);
+        // console.log('cookingChannelFilterData', cookingChannelFilterData);
+        console.log('cookingData', cookingData);
+        
         
         cookingData.then(res => {
             setGetData(res);
