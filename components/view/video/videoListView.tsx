@@ -13,12 +13,11 @@ interface Props {
     cookingData: ICookingVideo
 }
 
-const cookingData = fetch('../api/cookingVideo')
-    .then(res => res.json())
-    .then(res => {
-        return res;
-    })
-
+// const cookingData = fetch('../api/cookingVideo')
+//     .then(res => res.json())
+//     .then(res => {
+//         return res;
+//     })
 
 
 // 찾으면 해보기
@@ -53,14 +52,7 @@ const VideoListView = ({ cookingData }: Props) => {
     useEffect(() => {
         // slug 기준으로 영상 랜덤으로 불러오기
         console.log('route', slug);
-        // console.log('cookingChannelFilterData', cookingChannelFilterData);
-        console.log('cookingData', cookingData);
-        
-        
-        cookingData.then(res => {
-            setGetData(res);
-        })
-        console.log(getData);
+        setGetData(cookingData);
     }, [cookingData, getData]);
     
     return (
