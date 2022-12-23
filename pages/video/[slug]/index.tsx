@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropsWithChildren } from 'react';
-import VideoListView from '../../components/view/video/videoListView';
-import { RootState } from '../../store/reducers';
-import { actions } from '../../store/reducers/getVideo';
-
+import VideoListView from '../../../components/view/video/videoListView';
+// import { RootState } from '../../../store/reducers';
+// import { actions } from '../../../store/reducers/getVideo';
+import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 
 /* 
@@ -22,19 +22,35 @@ import { GetServerSideProps } from 'next';
 //     })
 
 export async function getServerSideProps(){
+    // const router = useRouter();
+    // const {slug} = router.query;
+
     const cookingData: any = await (
-        await fetch('http://127.0.0.1:16261/cooking-video')
-    ).json()
+        await fetch(`http://127.0.0.1:16261/cooking-video`)
+    ).json();
+
+    // 카테고리 별로 영상 뽑아오기
+    const categoryCookingData: any = await (
+        await fetch(`http://127.0.0.1:16261/cooking-channel`)
+    ).json();
+
     return {
         props: {
-            cookingData
+            cookingData,
+            categoryCookingData,
         }
     }
 }
-const Video = ({cookingData}) => {
+const Video = ({cookingData, categoryCookingData}) => {
+    const router = useRouter();
+    const {slug} = router.query;
+
     const props = {
-        cookingData
+        cookingData,
+        categoryCookingData,
+        category: slug
     }
+    
     return (
         <>
             <div>

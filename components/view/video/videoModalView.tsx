@@ -2,16 +2,17 @@
 import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducers';
-import { actions, VIDEO_MODAL, GET_VIDEO_LIST, getVideoAPI } from '../../../store/reducers/getVideo';
+import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { ICookingVideo } from '../../../types/interface';
 import ReactPlayer from 'react-player';
+// import PlayerIcon from 'react-player-controls';
 import { FiX } from 'react-icons/fi';
 
 
-const VideoModalView = ({getData, clickVideoIndex}) => {
+const VideoModalView = ({getData, clickVideoIndex}: any) => {
     const state = useSelector((state: RootState) => state.getVideo);
     const dispatch = useDispatch();
-    let [modalData, setModalData] = useState({});
+    let [modalData, setModalData] = useState<any>({});
     let [loading, setLoading] = useState(true);
 
     function click(){
@@ -20,6 +21,7 @@ const VideoModalView = ({getData, clickVideoIndex}) => {
     
     useEffect(() => {
         setModalData(getData[clickVideoIndex]);
+        console.log(getData);
     }, [getData, modalData]);
 
     return (
@@ -30,7 +32,13 @@ const VideoModalView = ({getData, clickVideoIndex}) => {
                     
                     <p className="videoName">{modalData.title}</p>
                     <div className="player">
-                        <ReactPlayer url={modalData.url} width="100%"/>
+                        <ReactPlayer  
+                            url={modalData.url} 
+                            width="100%"
+                            playing={true}
+                            controls={true}
+                        />
+
                     </div>
                 </div>
             </div>
@@ -69,11 +77,17 @@ const VideoModalView = ({getData, clickVideoIndex}) => {
                         }
                         .player {
                             width: 80%;
+                            aspect-radio: 16/9;
                             position: absolute;
                             left: 0;
                             right: 0;
                             margin: auto;
                             border-radius: 10px;
+                        }
+                    }
+                    @media (max-width: 768px){
+                        .inner{
+                            width: 80%;
                         }
                     }
                 }
