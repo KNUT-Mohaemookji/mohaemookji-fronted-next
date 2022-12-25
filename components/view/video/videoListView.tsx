@@ -24,24 +24,27 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: Props) =>
     const categoryTheme = createTheme({
         palette: {
           primary: {
-            main: green[500],
+            main: '#333'
           },
         },
       });
 
     const router = useRouter();
+    const {slug} = router.query;
     const state = useSelector((state: RootState) => state);
     const dispatch = useDispatch();
 
     let [getData, setGetData] = useState([]);
     let [clickVideoIndex, setClickVideoIndex] = useState(0);
+    const [categorys, setCategorys] = useState<string[]>([]);
 
     const modalProps = {
         getData,
         clickVideoIndex
     };
 
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
@@ -52,8 +55,12 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: Props) =>
     }
 
     useEffect(() => {
+        fetch('/api/category')
+            .then(res => res.json())
+            .then(data => setCategorys(data.item))
         // slug 기준으로 영상 랜덤으로 불러오기
-        category === 'all' ? setGetData(cookingData) : setGetData(categoryCookingData);        
+        slug === 'All' ? setGetData(cookingData) : setGetData(categoryCookingData);        
+        // console.log('categoryList', categoryList);
     }, [cookingData, getData]);
     
     return (
@@ -71,25 +78,17 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: Props) =>
                         value={value}
                         aria-label="Tabs where selection follows focus"
                         selectionFollowsFocus
-                        sx={{
-                            '& .MuiTabs-indicator': { backgroundColor: green[500] },
-                            '& .Mui-selected': { color: green[500] },
-                            // '& .MuiTab-root': { color: green[700] },
+                            sx={{
+                                '& .MuiTabs-indicator': { backgroundColor: "#333" },
+                                '& .Mui-selected': { color: "#333" },
+                                '& .MuiTab-root': { color: "#333" },
                         }}
                     >
-                        <Tab label='all' 
-                        sx={{
-                            color: '#333',
-                        }}
-                        onClick={() => {router.push(`/video/all`)}}/>
                         {
-                            state.getVideo.category.map((item, index) => {
+                            categorys.map((item, index) => {
                                 return (
                                     <Tab
                                     theme={categoryTheme}
-                                        sx={{
-                                            color: '#333',
-                                        }}
                                         key={index} label={item} 
                                         onClick={() => {router.push(`/video/${item}`)}}
                                     />
