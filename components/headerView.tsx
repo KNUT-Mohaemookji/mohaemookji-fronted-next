@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 const Header = () => {
   // transform 으로 내려오는 작업 해주기
   const [headerList, setHeaderList] = useState(['Home', 'About', 'Video', 'Contact']);
-  const [urlLink, setUrlLink] = useState(['/', '/about', '/video/all', '/contact']);
+  const [urlLink, setUrlLink] = useState(['/', '/about', '/video/All', '/contact']);
   const [menuState, setMenuState] = useState(false);
   const hamburger = useRef<HTMLDivElement | null>(null);
   const overlay = useRef<HTMLDivElement | null>(null);

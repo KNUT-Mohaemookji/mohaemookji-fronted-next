@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import MainTextView from '../../view/main/mainTextView';
+import MainTextView from '../../../view/main/section1/mainTextView';
 
 const MainText = () => {
     const [li_text, setLi_text] = useState(['간식', '운동식', '건강식', '일반식']);

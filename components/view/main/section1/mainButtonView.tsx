@@ -18,7 +18,7 @@ const MainButton = () => {
             <div className="contain">
                 <button 
                     onClick={() => categoryButton.current.classList.toggle('event')}
-                >카테고리</button>
+                >레시피보기</button>
                 <ul className="category_list" ref={categoryButton}>
                         {
                             state.getVideo.category.map((item: string, index: number) => {

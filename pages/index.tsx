@@ -2,46 +2,58 @@ import axios from 'axios';
 import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react';
-import MainText from '../components/logic/main/mainText';
-import MainButton from '../components/view/main/mainButtonView';
-import MainCarousel from '../components/view/main/mainCarousel';
-import MainNotice from '../components/view/main/mainNotice';
+import MainText from '../components/logic/main/section1/mainText';
+import MainButton from '../components/view/main/section1/mainButtonView';
+import MainCarousel from '../components/view/main/section1/mainCarousel';
+import MainNotice from '../components/view/main/section1/mainNotice';
+import RoundExplanation from '../components/view/main/section2/roundExplanation';
 
 export default function Home() {
   return (
     <>
       <div className="container">
-        <div className="innner_line"/>
-        <div className="inner">
-          <div className="main_left">
-            <div className="text_contain">
-              <MainText/>
+        <section className="section1">
+          <div className="innner_line"/>
+          <div className="inner">
+            <div className="main_left">
+              <div className="text_contain">
+                <MainText/>
+              </div>
+              <div className="button_contain">
+                <MainButton/>
+              </div>
+              <MainNotice/>
             </div>
-            <div className="button_contain">
-              <MainButton/>
+            <div className="main_right">
+              <MainCarousel/>
             </div>
-            <MainNotice/>
           </div>
-          <div className="main_right">
-            <MainCarousel/>
+        </section>
+        <section className="section2">
+          <div className="inner">
+            <RoundExplanation/>
           </div>
-        </div>
+        </section>
       </div>
       <style jsx>{`
+        .inner {
+          width: 80%;
+          margin: 5% auto;  
+          display: flex;
+          justify-content: space-between;
+        }
         .container {
           position: relative;
           width: 100vw;
-          height: 100vh;
+          // height: 200vh;
           background-color: #f8f9fa;
           overflow: hidden;
-          .innner_line{
-            height: 1px;
-          }
-          .inner {
-            width: 80%;
-            margin: 5% auto;  
-            display: flex;
-            justify-content: space-between;
+          .section1{
+            height: 100vh;
+            overflow: hidden;
+            .innner_line{
+              height: 1px;
+            }
             .text_contain{
               margin-top: 5%;              
             }
@@ -54,6 +66,11 @@ export default function Home() {
               top: 50%;
               animation: main_img_animation 1s;
             }
+          }
+          .section2 {
+            position: relative;
+            width: 100vw;
+            height: 200vh;
           }
         }
       `}</style>
