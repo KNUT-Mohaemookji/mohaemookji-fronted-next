@@ -1,59 +1,51 @@
 import React, { useState, useEffect, ReactElement } from 'react';
 import Image from 'next/image';
+import { FiArrowUpRight } from "react-icons/fi";
 
 const RoundExplanation = () => {
-    const [contentTitle, setContentTitle] = useState(['다양한 카테고리', '다양한 음식 영상', '음식 레시피']);
-    const [explanation, setExplanation] = useState([
-        '4가지의 카테고리를 기준으로 다양한 음식 영상들이 있어요.',
-        '카테고리별 음식 영상을 통해 조리 영상을 보고 따라 해봐요.',
-        '따로 기억하고 싶은 음식 레시피를 검색하고, 기록해봐요.'
-    ]);
+    const [contentTitle, setContentTitle] = useState('다양한 레시피를 보면서 완벽한 요리를 만들어 봐요!');
+    const [explanation, setExplanation] = useState('4가지의 카테고리를 기준으로 다양한 음식 영상들이 있어요.');
     // 임시 이미지, 저작권 안 걸리는 이미지로 변경하기
-    const [explanationImg, setExplanationImg] = useState([
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjscklTu7W8h34fbz3jwTqjlwQu1EFHQhN2A&usqp=CAU',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjscklTu7W8h34fbz3jwTqjlwQu1EFHQhN2A&usqp=CAU',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjscklTu7W8h34fbz3jwTqjlwQu1EFHQhN2A&usqp=CAU'
-    ]);
+    const [explanationImg, setExplanationImg] = useState('https://static.wtable.co.kr/image/production/service/recipe/1765/084c7e78-bc78-4da6-a1fb-3ce9f1521199.jpg?size=500x500');
     return (
         <>
             <div className="round_explanation_contain">
                 <div className="content">
-                    {
+                    {/* {
                         contentTitle.map((item, index) => {
-                            return (
-                                <div key={index} className="content_item">
+                            return ( */}
+                                <div className="content_item">
                                     <div className="back_black_color"/>
                                     <div className="text">
-                                        <h1 className="title">{item}</h1>
-                                        <p className="explanation'">{explanation[index]}</p>
-                                        <button className="explanation_button">보러가기</button>
+                                        <h1 className="title">{contentTitle}</h1>
+                                        <p className="explanation">{explanation}</p>
+                                        <button className="explanation_button"><FiArrowUpRight/></button>
                                     </div>
                                     <img
                                         className="content_image"
-                                        src={explanationImg[index]}
+                                        src={explanationImg}
                                         width="400"
                                         height="400"
                                         alt="explanation"
                                     />
                                 </div>
-                            )
+                            {/* )
                         })
-                    }
+                    } */}
                 </div>
             </div>
             <style jsx>{`
                 .content{
                     margin: auto;
+                    display: flex;
+                    justify-content: center;
                     width: 80vw;
-                    height: 100vh;
-                    // display: flex;
-                    justify-content: space-around;
                     .content_item{
                         position: relative;
+                        z-index: 10;
                         width: 400px;
                         height: 400px;
                         border-radius: 50%;
-                        background-color: #333;
                         background-repeat: no-repeat;
                         background-size: cover;
                         transition: .5s;
@@ -67,28 +59,39 @@ const RoundExplanation = () => {
                             background: rgba(0, 0, 0, .5);
                         }
                         .text{
-                            display: none;
                             position: absolute;
+                            width: 400px;
+                            transition: .3s;
                             .title{
-                                width: 350px;
-                                font-size: 35px;
-                                margin: 40% 20%;
+                                position: absolute;
+                                width: 400px;
+                                font-size: 25px;
+                                text-align: center;
+                                margin-top: 150px;
+                                color: #fff;
                                 z-index: 10;
-                                // color: #fff;
                             }
                             .explanation{
                                 opacity: 0;
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: grey
                             }
                             .explanation_button{
-                                width: 200px;
-                                height: 80px;
-                                font-size: 25px;
+                                position: absolute;
+                                right: 0;
+                                bottom: 40px;
+                                z-index: 10;
+                                opacity: 0;
+                                width: 60px;
+                                height: 60px;
+                                font-size: 30px;
                                 font-weight: 700;
-                                text-align: center;
                                 color: #fff;
                                 background-color: #7eaf5a;
                                 border: 0;
-                                border-radius: 10px;
+                                border-radius: 50%;
+                                cursor: pointer;
                             }
                         }
                         .content_image{
@@ -96,41 +99,62 @@ const RoundExplanation = () => {
                             top: 0;
                             width: 400px;
                             height: 400px;
+                            transition: .5s;
                             border-radius: 50%;
-                            transition: .3s;
-                            // opacity: 0;
                         }
                     }
                     .content_item:hover{
-                        // position: absolute;
                         display: flex;
-                        left: 0;
-                        right: 0;
+                        justify-content: center;
                         margin: auto;
-                        // background-image: url("") !important;
-                        background-color: #fff;
-                        width: 80vw;
+                        width: 60vw;
                         margin: auto;
-                        height: 400px;
+                        height: 600px;
                         border-radius: 20px;
+                        background-color: #E6E2C3;
                         .back_black_color {
                             opacity: 0;
-                            // display: none;
                             width: 80vw;
                             height: 400px;
                         }
                         .text{
-                            display: block;
+                            position: relative;
+                            margin-top: 5%;
+                            margin-left: 50%;
                             .title{
+                                position: relative;
+                                text-align: left;
+                                font-size: 40px;
+                                margin-top: 0;
                                 color: #333;
+                            }
+                            .explanation, .explanation_button{
+                                opacity: 1;
                             }
                         }
                         .content_image{
+                            margin: 50px 30px;
                             width: 400px;
+                            height: 500px;
+                            transition: .5s;
+                            border-radius: 10px;
                             display: block;
-                            z-index: 100;
-                            right: 0;
+                            left: 0;
                         }
+                    }
+                    .explanation_button:hover{
+                        animation: 1s infinite alternate bounce;
+                    }
+                }
+                @keyframes bounce{
+                    0%{
+                        transform: translateY(0px);
+                    }
+                    50%{
+                        transform: translateY(-10px);
+                    }
+                    100%{
+                        transform: translateY(0px);
                     }
                 }
             `}</style>

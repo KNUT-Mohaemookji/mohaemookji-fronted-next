@@ -8,10 +8,6 @@ const MainButton = () => {
     let categoryButton = useRef();
     useEffect(() => {
         console.log(categoryButton.current);
-        
-        
-        
-        
     }, []);
     return (
         <>
