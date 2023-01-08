@@ -14,7 +14,7 @@ export interface IMainTextProps{
 }
 
 // cooking-video
-export interface ICookingVideo {
+export interface ICookingVideo { 
     then(arg0: (res: any) => any): unknown;
     channelId: string,
     keyword: string,

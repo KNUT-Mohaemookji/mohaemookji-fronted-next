@@ -3,13 +3,7 @@ import {
     ActionType,
     createReducer
 } from 'typesafe-actions';
-
-interface IVideoValue {
-    category: any;
-    modalState: boolean,
-    videoData: any,
-    setVideoData: any
-}
+import { IVideoValue } from '../../utils/types/interface';
 
 const initialState: IVideoValue = {
     modalState: true,
