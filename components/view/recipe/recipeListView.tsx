@@ -1,49 +1,61 @@
 import React, { useState, useEffect } from 'react';
+import RecipeModal from '../../../components/view/recipe/recipeModal';
 
 const RecipeListView = ({ recipeData, count }) => {
     const [getRecipeData, setRecipeData] = useState([]);
+    const [clickRecipeData, setClickRecipeData] = useState({});
     useEffect(() => {
         setRecipeData(recipeData.COOKRCP01.row)
         console.log(getRecipeData);
         console.log(count);
         
-    }, [getRecipeData, count]);
+    }, [getRecipeData, count, recipeData.COOKRCP01.row]);
+    const clickModal = (modalData: React.SetStateAction<{}>) => {
+        setClickRecipeData(modalData);
+    }
+    const props = {
+        clickRecipeData
+    }
     return (
         <>
             <div className="recipelist_contain">
                 <div className="inner">
-                {
-                    getRecipeData.map((data, index) => {
-                        return (
-                            <div className="recipelist" key={index} style={{backgroundImage: `url(${data.ATT_FILE_NO_MK})`}}>
-                                <div className="black_image"/>
-                                <div className="list_content">
-                                    <div className="inner">
-                                        <p className="food_name">{data.RCP_NM}</p>
-                                        { data.HASH_TAG && <p className="hash_tag">#{data.HASH_TAG}</p> }
-                                        {/* <br/> */}
-                                        <p className="ingredient">{data.RCP_PARTS_DTLS}</p>
-                                        <ul className="cooking_imgs">
-                                        {
-                                            [data.MANUAL_IMG01, data.MANUAL_IMG02, data.MANUAL_IMG03].map((item, index) => {
-                                                return (
-                                                    <li>
-                                                        <img 
-                                                        className="cooking_img"
-                                                        src={item}
-                                                        width="100"/>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                        </ul>
+                    {
+                        getRecipeData.map((data, index) => {
+                            return (
+                                <div className="recipelist" key={index} style={{ backgroundImage: `url(${data.ATT_FILE_NO_MK})` }}
+                                onClick={() => {clickModal(data)}}>
+                                    <div className="black_image"/>
+                                    <div className="list_content">
+                                        <div className="inner">
+                                            <p className="food_name">{data.RCP_NM}</p>
+                                            { data.HASH_TAG && <p className="hash_tag">#{data.HASH_TAG}</p> }
+                                            {/* <br/> */}
+                                            <p className="ingredient">{data.RCP_PARTS_DTLS}</p>
+                                            <ul className="cooking_imgs">
+                                            {
+                                                [data.MANUAL_IMG01, data.MANUAL_IMG02, data.MANUAL_IMG03].map((item, index) => {
+                                                    return (
+                                                        <li key={index}>
+                                                            <img 
+                                                            className="cooking_img"
+                                                            src={item}
+                                                            width="100"/>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
-                <button className="more_button" onClick={() => {}}>더 보기</button>
+                            )
+                        })
+                    }
+                    <button className="more_button" onClick={() => {}}>더 보기</button>
+                    <div className="recipe_modal">
+                        <RecipeModal {...props} />
+                    </div>
                 </div>
             </div>
             <style jsx>{`
@@ -142,6 +154,11 @@ const RecipeListView = ({ recipeData, count }) => {
                         margin: auto;
                         font-size: 18px;
                         font-weight: 700;
+                    }
+                    .recipe_modal{
+                        position: fixed;
+                        display: flex;
+                        justify-content: center;
                     }
                 }
             `}</style>

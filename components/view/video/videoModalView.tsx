@@ -3,16 +3,16 @@ import React, { PropsWithChildren, useCallback, useEffect, useState } from 'reac
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/reducers';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
-import { ICookingVideo } from '../../../types/interface';
+import { IVideoModalProps } from '../../../utils/types/interface';
 import ReactPlayer from 'react-player';
 // import PlayerIcon from 'react-player-controls';
 import { FiX } from 'react-icons/fi';
 
 
-const VideoModalView = ({getData, clickVideoIndex}: any) => {
+const VideoModalView = ({getData, clickVideoIndex}: IVideoModalProps) => {
     const state = useSelector((state: RootState) => state.getVideo);
     const dispatch = useDispatch();
-    let [modalData, setModalData] = useState<any>({});
+    let [modalData, setModalData] = useState<unknown>({});
     let [loading, setLoading] = useState(true);
 
     function click(){
@@ -20,8 +20,7 @@ const VideoModalView = ({getData, clickVideoIndex}: any) => {
     }
     
     useEffect(() => {
-        setModalData(getData[clickVideoIndex]);
-        console.log(getData);
+        if (getData) setModalData(getData[clickVideoIndex]);     
     }, [getData, modalData]);
 
     return (

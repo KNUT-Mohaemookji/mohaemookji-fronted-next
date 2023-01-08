@@ -1,7 +1,3 @@
-import axios from 'axios';
-import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useRef } from 'react';
 import MainText from '../components/logic/main/section1/mainText';
 import MainButton from '../components/view/main/section1/mainButtonView';
 import MainCarousel from '../components/view/main/section1/mainCarousel';

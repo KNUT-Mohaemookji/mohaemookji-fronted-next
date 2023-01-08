@@ -2,10 +2,11 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropsWithChildren } from 'react';
 import VideoListView from '../../../components/view/video/videoListView';
-// import { RootState } from '../../../store/reducers';
-// import { actions } from '../../../store/reducers/getVideo';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
+// getAPI
+import { apiUrl } from '../../../utils/constants';
+import { ICookingVideo, IVideoModalProps } from '../../../utils/types/interface';
 
 /* 
     SSR
@@ -15,23 +16,15 @@ import { GetServerSideProps } from 'next';
     - API 경로를 가져오는 대신 대신 직접 서버 측 코드를 작성하거나 감싸진 함수를 출력하라고 되어있다.
 */
 
-// const cookingData = fetch('../api/cookingVideo')
-//     .then(res => res.json())
-//     .then(res => {
-//         return res;
-//     })
-
 export async function getServerSideProps(){
-    // const router = useRouter();
-    // const {slug} = router.query;
-
-    const cookingData: any = await (
-        await fetch(`http://127.0.0.1:16261/cooking-video`)
+    console.log('apiUrl', apiUrl);
+    const cookingData: ICookingVideo = await (
+        await fetch(apiUrl.getCookingVideo)
     ).json();
 
     // 카테고리 별로 영상 뽑아오기
-    const categoryCookingData: any = await (
-        await fetch(`http://127.0.0.1:16261/cooking-channel`)
+    const categoryCookingData: ICookingVideo = await (
+        await fetch(apiUrl.getCookingCategory)
     ).json();
 
     return {
@@ -41,16 +34,15 @@ export async function getServerSideProps(){
         }
     }
 }
-const Video = ({cookingData, categoryCookingData}) => {
+const Video = ({cookingData}: IVideoModalProps) => {
     const router = useRouter();
     const {slug} = router.query;
 
     const props = {
         cookingData,
-        categoryCookingData,
+        // categoryCookingData,
         category: slug
     }
-    
     return (
         <>
             <div>

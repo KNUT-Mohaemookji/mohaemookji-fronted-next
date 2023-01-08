@@ -1,10 +1,8 @@
-import { ICookingVideo } from '../../types/interface';
 import {
     createAction,
     ActionType,
     createReducer
 } from 'typesafe-actions';
-import axios from 'axios';
 
 interface IVideoValue {
     category: any;

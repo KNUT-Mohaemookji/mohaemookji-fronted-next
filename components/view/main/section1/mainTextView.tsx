@@ -1,17 +1,9 @@
-import { ChildrenProps } from '../../types/interface';
+import { IMainTextProps } from '../../../../utils/types/interface';
 
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 
-interface Props {
-    item: any,
-    children: ReactNode,
-    bracketStart: string,
-    bracketEnd: string,
-    li_text: string[]
-}
-
-const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: Props) => {
+const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: IMainTextProps) => {
     return (
         <>
             <Head>

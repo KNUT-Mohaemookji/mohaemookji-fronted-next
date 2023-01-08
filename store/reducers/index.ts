@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import testReducer from './testReducer';
 import getVideo from './getVideo';
+import recipe from './recipe';
 
 const rootReducer = combineReducers({
     testReducer,
-    getVideo
-})
+    getVideo,
+    recipe
+});
 
 export default rootReducer;
 

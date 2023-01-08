@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import RecipeListView from '../../../components/view/recipe/recipeListView';
+import { apiUrl } from '../../../utils/constants';
+import { IRecipeProps } from '../../../utils/interface';
 
 export async function getServerSideProps() {
     let count = 9;
     const recipeData: unknown = await(
-        await fetch(`https://openapi.foodsafetykorea.go.kr/api/360e29b086e142e4856b/COOKRCP01/json/0/${count}`)
+        // 절대 url만 지원되기 때문에 api 직접 가져오기.
+        await fetch(`https://openapi.foodsafetykorea.go.kr/api/${process.env.NEXT_PUBLIC_RECIPE_API_KEY}/json/0/${count}`)
     ).json();
     function moreButton() {
         count += 9;
@@ -13,12 +16,11 @@ export async function getServerSideProps() {
     return {
         props: {
             recipeData,
-            
             count
         }
     }
 }
-const Resipe = ({recipeData, count}) => {
+const Resipe = ({recipeData, count}: IRecipeProps) => {
     const props = {
         recipeData,
         count,

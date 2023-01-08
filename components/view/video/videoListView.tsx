@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { ICookingVideo } from '../../../types/interface';
+import { ICookingVideo } from '../../../utils/types/interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
@@ -59,7 +59,7 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: Props) =>
             .then(res => res.json())
             .then(data => setCategorys(data.item))
         // slug 기준으로 영상 랜덤으로 불러오기
-        slug === 'All' ? setGetData(cookingData) : setGetData(categoryCookingData);        
+        slug === 'all' ? setGetData(cookingData) : setGetData(categoryCookingData);        
         // console.log('categoryList', categoryList);
     }, [cookingData, getData]);
     

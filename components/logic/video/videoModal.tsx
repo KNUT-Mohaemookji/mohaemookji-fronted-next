@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ICookingVideo } from '../../../types/interface';
+import { IVideoModalProps, ICookingVideo } from '../../../utils/types/interface';
 import VideoModalView from '../../view/video/videoModalView';
 
-const VideoModal = ({cookingData, clickVideoIndex}) => {
+const VideoModal = ({cookingData, clickVideoIndex}: IVideoModalProps) => {
     let [modalData, setModalData] = useState({});
 
     let getData = () => {
