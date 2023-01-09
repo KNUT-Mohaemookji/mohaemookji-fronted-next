@@ -27,6 +27,12 @@ export interface ICookingVideo {
     _id?: string
 };
 
+export interface IVideoListViewProps {
+    cookingData: ICookingVideo[],
+    categoryCookingData: string[],
+    category: string[]
+}
+
 export interface IVideoValue {
     category: string[];
     modalState: boolean,
@@ -41,9 +47,13 @@ export interface IVideoModalProps {
 }
 
 // recipe
+export interface IRecipeData {
+    [key: string]: string
+}
+
 export interface IRecipeProps {
-    recipeData: string[],
-    count: number
+    recipeData: IRecipeData[],
+    count?: number
 }
 
 // ---------- object -------------

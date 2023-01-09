@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { ICookingVideo } from '../../../utils/types/interface';
+import { IVideoListViewProps } from '../../../utils/types/interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
 import { RootState } from '../../../store/reducers';
@@ -14,12 +14,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
-
-interface Props {
-    cookingData: ICookingVideo
-}
-
-const VideoListView = ({ cookingData, categoryCookingData, category }: Props) => {
+const VideoListView = ({ cookingData, categoryCookingData, category }: IVideoListViewProps) => {
     // material UI
     const categoryTheme = createTheme({
         palette: {
@@ -49,7 +44,7 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: Props) =>
         setValue(newValue);
     };
 
-    const videoClick = (index) => {
+    const videoClick = (index: number) => {
         dispatch(actions.video_modal());
         setClickVideoIndex(index);
     }

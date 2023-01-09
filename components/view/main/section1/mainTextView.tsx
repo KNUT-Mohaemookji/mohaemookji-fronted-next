@@ -1,9 +1,38 @@
 import { IMainTextProps } from '../../../../utils/types/interface';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-const MainTextView = ({ bracketStart, bracketEnd, li_text, item }: IMainTextProps) => {
+const MainTextView = () => {
+    const [li_text, setLi_tet] = useState<string[]>(['간식', '운동식', '건강식', '일반식']);
+        let [loop, setLoop] = useState<number>(0);
+    const item = useRef<HTMLUListElement | null>(null);
+    const router = useRouter();
+    const { pathname } = router;
+    let Y: number = 0;
+    let [bracketStart, bracketEnd] = ['[', ']'];
+
+    useEffect(() => {
+        console.log(pathname);
+        const loopSetInterval = setInterval(() => {
+            setLoop(loop++);
+            console.log(loop);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            item.current!.style.transform = `translateY(${Y -= 49}px)`
+            item.current!.style.transition = '1s';
+            if (loop === 3) {
+                loop = 0;
+                Y = 0;
+            }
+        }, 3000);
+        console.log('pathname은?', pathname);
+        // unmounted되면 setInterval 제거시켜주기.
+        return () => {
+            clearInterval(loopSetInterval);
+        }
+    }, []);
+
     return (
         <>
             <Head>

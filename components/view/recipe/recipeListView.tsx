@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import RecipeModal from '../../../components/view/recipe/recipeModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { actions, RECIPE_MODAL } from '../../../store/reducers/recipe';
+import { RootState } from '../../../store/reducers';
+import { IRecipeProps, IRecipeData } from '../../../utils/types/interface';
 
-const RecipeListView = ({ recipeData, count }) => {
-    const [getRecipeData, setRecipeData] = useState([]);
+const RecipeListView = ({ recipeData, count }: IRecipeProps) => {
+    const [getRecipeData, setRecipeData] = useState<IRecipeData[]>([]);
     const [clickRecipeData, setClickRecipeData] = useState({});
+    const [recipeModalState, setRecipeModalState] = useState<boolean>(false);
+
+    const state = useSelector((state: RootState) => state.recipe);
+    const dispatch = useDispatch();
+
     useEffect(() => {
         setRecipeData(recipeData.COOKRCP01.row)
         console.log(getRecipeData);
@@ -11,7 +20,9 @@ const RecipeListView = ({ recipeData, count }) => {
         
     }, [getRecipeData, count, recipeData.COOKRCP01.row]);
     const clickModal = (modalData: React.SetStateAction<{}>) => {
+        dispatch(actions.recipe_modal())
         setClickRecipeData(modalData);
+        setRecipeModalState(true);
     }
     const props = {
         clickRecipeData
@@ -52,10 +63,15 @@ const RecipeListView = ({ recipeData, count }) => {
                             )
                         })
                     }
-                    <button className="more_button" onClick={() => {}}>더 보기</button>
-                    <div className="recipe_modal">
-                        <RecipeModal {...props} />
-                    </div>
+                    <button className="more_button" onClick={() => { }}>더 보기</button>
+                    {
+                        state.recipeState === true
+                        ?
+                        <div className="recipe_modal" >
+                            <RecipeModal {...props} />
+                        </div>
+                       : null
+                    }
                 </div>
             </div>
             <style jsx>{`

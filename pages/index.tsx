@@ -1,4 +1,4 @@
-import MainText from '../components/logic/main/section1/mainText';
+import MainText from '../components/view/main/section1/mainTextView';
 import MainButton from '../components/view/main/section1/mainButtonView';
 import MainCarousel from '../components/view/main/section1/mainCarousel';
 import MainNotice from '../components/view/main/section1/mainNotice';
