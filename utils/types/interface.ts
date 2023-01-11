@@ -1,5 +1,13 @@
 import React, {ReactNode} from 'react';
 
+
+// -----kakaomap-----
+declare global {
+    interface Window {
+      kakao: any;
+    }
+}
+  
 // --------------- props ----------------
 export interface ChildrenProps {
     children?: ReactNode | undefined

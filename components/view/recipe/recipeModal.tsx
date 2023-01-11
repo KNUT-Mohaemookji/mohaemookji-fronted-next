@@ -4,48 +4,57 @@ import { actions, RECIPE_MODAL } from '../../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
 import { RootState } from '../../../store/reducers';
 import { IRecipeData } from '../../../utils/types/interface';
+import Mark from './mart';
 
 interface RecipeModalProps {
     clickRecipeData: React.SetStateAction<{}>
 }
 
-const RecipeModal = ({ clickRecipeData }: RecipeModalProps) => {
+const RecipeModal = ({ clickRecipeData }: any) => {
     const state =  useSelector((state: RootState) => state.recipe);
     const dispatch = useDispatch();
-    const [menual, setMenual] = useState([]);
-    const [menualImg, setMenualImg] = useState([]);
+    const [menual, setMenual] = useState<string[]>([]);
+    const [menualImg, setMenualImg] = useState<string[]>([]);
     const [recipeModalData, setRecipeModalData] = useState<IRecipeData>({});
     useEffect(() => {   
-        // 작업 할 부분
-        // for (let i = 0; i < 20; i++){
-
-        // }
-        console.log(clickRecipeData);
-        console.log(state.recipeState);
         setRecipeModalData(clickRecipeData)
-        
+        for(let data in clickRecipeData){
+            if (data.includes('MANUAL_IMG')) {
+                clickRecipeData[data] && menualImg.push(clickRecipeData[data]);
+            }
+            if (data.includes('MANUAL') && !clickRecipeData[data].includes('http')) {
+                clickRecipeData[data] && menual.push(clickRecipeData[data]);
+                
+            }
+        }
     }, [clickRecipeData, state.recipeState]);
     return (
         <>
             <div className="modal_content" >
                 <div className="modal_inner">
                     <p className="close" onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></p>
-                    <p className="recipe_name">{ recipeModalData.RCP_NM}</p>
-                    <p className="recipe_dtls">재료</p>
+                    <p className="recipe_name">{ recipeModalData.RCP_NM} ({recipeModalData.RCP_PAT2})</p>
+                    <div className="recipe_details">
+                        <p className="recipe_details_title">요리에 필요한 재료</p>
+                        <p className="recipe_dtails_content">{ recipeModalData.RCP_PARTS_DTLS } </p>
+                    </div>
+
                     <ul className="menuals">
                     {
-                        [1, 2, 3].map((item, index) => {
+                        menualImg.map((item, index) => {
                             return (
                                 <li className="menual" key={index}>
-                                    <div className="menual_img">{item} 메뉴얼 img</div>
-                                    <p className="menual_content">{item} 메뉴얼 text</p>
+                                    <img className="menual_img" src={ item }
+                                    width="60%"
+                                    alt="요리"/>
+                                    <p className="menual_content">{menual[index]}</p>
                                 </li>
                             )
                         })
                     }
                     </ul>
-                    <div>
-                        지도 컴포넌트 넣기
+                    <div className="mart_contain">
+                        <Mark/>
                     </div>
                 </div>
             </div>
@@ -55,6 +64,8 @@ const RecipeModal = ({ clickRecipeData }: RecipeModalProps) => {
             }
             .modal_content {
                 position: relative;
+                text-align: center;
+                overflow-y: scroll;
                 width: 80vw;
                 height: 80vh;
                 background-color: rgb(249, 249, 249);
@@ -63,7 +74,7 @@ const RecipeModal = ({ clickRecipeData }: RecipeModalProps) => {
                 border-radius: 20px;
                 .modal_inner{
                     position: absolute;
-                    width: 80%;
+                    width: 50%;
                     margin: auto;
                     right: 0;
                     left: 0;
@@ -74,6 +85,38 @@ const RecipeModal = ({ clickRecipeData }: RecipeModalProps) => {
                         font-size: 30px;
                         font-weight: 700;
                     }
+                    .recipe_name{
+                        font-size: 30px;
+                        font-weight: 700;
+                        color: #333;
+                    }
+                    .recipe_details{
+                        .recipe_details_title{
+                            font-size: 25px;
+                            font-weight: 700;
+                            color: #333;
+                        }
+                        .recipe_dtails_content{
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: grey;
+                        }
+                    }
+                    .menuals{
+                            .menual{
+                                .menual_img{
+                                    image-rendering: -webkit-optimize-contrast;
+                                    backface-visibility: hidden;
+                                    transform: translateZ(0);
+                                    border-radius: 20px;
+                                }
+                                .menual_content{
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+                            }
+                        }
                 }
             }
             `}</style>
