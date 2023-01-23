@@ -2,36 +2,32 @@ import React, { useState, useEffect, ReactElement } from 'react';
 import Image from 'next/image';
 import { FiArrowUpRight } from "react-icons/fi";
 
+// 모듈화 시키기
 const RoundExplanation = () => {
-    const [contentTitle, setContentTitle] = useState('다양한 레시피를 보면서 완벽한 요리를 만들어 봐요!');
-    const [explanation, setExplanation] = useState('4가지의 카테고리를 기준으로 다양한 음식 영상들이 있어요.');
+    const contentTitle = '다양한 레시피를 보면서 완벽한 요리를 만들어 봐요!';
+    const explanation = '4가지의 카테고리를 기준으로 다양한 음식 영상들이 있어요.';
     // 임시 이미지, 저작권 안 걸리는 이미지로 변경하기
-    const [explanationImg, setExplanationImg] = useState('https://static.wtable.co.kr/image/production/service/recipe/1765/084c7e78-bc78-4da6-a1fb-3ce9f1521199.jpg?size=500x500');
+    const explanationImg ='https://static.wtable.co.kr/image/production/service/recipe/1765/084c7e78-bc78-4da6-a1fb-3ce9f1521199.jpg?size=500x500';
     return (
         <>
             <div className="round_explanation_contain">
                 <div className="content">
-                    {/* {
-                        contentTitle.map((item, index) => {
-                            return ( */}
-                                <div className="content_item">
-                                    <div className="back_black_color"/>
-                                    <div className="text">
-                                        <h1 className="title">{contentTitle}</h1>
-                                        <p className="explanation">{explanation}</p>
-                                        <button className="explanation_button"><FiArrowUpRight/></button>
-                                    </div>
-                                    <img
-                                        className="content_image"
-                                        src={explanationImg}
-                                        width="400"
-                                        height="400"
-                                        alt="explanation"
-                                    />
-                                </div>
-                            {/* )
-                        })
-                    } */}
+                    <div className="content_item">
+                        <div className="back_black_color"/>
+                        <div className="text">
+                            <h1 className="title">{contentTitle}</h1>
+                            <p className="explanation">{explanation}</p>
+                            <button className="explanation_button"><FiArrowUpRight/></button>
+                        </div>
+                        <div className="content_image">
+                            <Image
+                                src={ explanationImg }
+                                width="400"
+                                height="400"
+                                alt="explanation"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
             <style jsx>{`
@@ -96,6 +92,7 @@ const RoundExplanation = () => {
                         }
                         .content_image{
                             position: absolute;
+                            overflow: hidden;
                             top: 0;
                             width: 400px;
                             height: 400px;

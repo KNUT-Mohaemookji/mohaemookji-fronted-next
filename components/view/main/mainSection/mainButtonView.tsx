@@ -1,30 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {useSelector} from 'react-redux';
-import {RootState} from '../../../store/reducers';
 
 const MainButton = () => {
-    const state = useSelector((state: RootState) => state);
-    let [categoryState, setCategoryState] = useState(false);
-    let categoryButton = useRef();
+    let categoryButton = useRef<HTMLUListElement>(null);
     useEffect(() => {
         console.log(categoryButton.current);
     }, []);
     return (
         <>
             <div className="contain">
-                <button 
-                    onClick={() => categoryButton.current.classList.toggle('event')}
-                >레시피보기</button>
-                <ul className="category_list" ref={categoryButton}>
-                        {
-                            state.getVideo.category.map((item: string, index: number) => {
-                                return (
-                                    <li className="category" key={index}>{item}</li>
-                                )
-                            })
-                        }
-                    </ul>
                 <div className="category_list_button">
+                <button className="watch_recipe_button">레시피보기</button>
                     <button className="watch_button">보러가기</button>
                 </div>
             </div>

@@ -1,8 +1,8 @@
-import MainText from '../components/view/main/section1/mainTextView';
-import MainButton from '../components/view/main/section1/mainButtonView';
-import MainCarousel from '../components/view/main/section1/mainCarousel';
-import MainNotice from '../components/view/main/section1/mainNotice';
-import RoundExplanation from '../components/view/main/section2/roundExplanation';
+import MainText from '../components/view/main/mainSection/mainTextView';
+import MainButton from '../components/view/main/mainSection/mainButtonView';
+import MainCarousel from '../components/view/main/mainSection/mainCarousel';
+import MainNotice from '../components/view/main/mainSection/mainNotice';
+import RoundExplanation from '../components/view/main/recipeSection/roundExplanation';
 
 export default function Home() {
   return (

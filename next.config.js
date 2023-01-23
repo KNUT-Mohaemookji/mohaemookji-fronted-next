@@ -7,6 +7,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
   },
+  images: {
+    domains: ['static.wtable.co.kr'] 
+  },
   env: {
     BASE_URL: process.env.BASE_URL
   }

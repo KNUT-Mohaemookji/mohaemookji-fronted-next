@@ -1,29 +1,29 @@
 import { IMainTextProps } from '../../../../utils/types/interface';
 
-import React, { ReactNode, useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 const MainTextView = () => {
-    const [li_text, setLi_tet] = useState<string[]>(['간식', '운동식', '건강식', '일반식']);
-        let [loop, setLoop] = useState<number>(0);
-    const item = useRef<HTMLUListElement | null>(null);
+    const [li_text] = useState<string[]>(['간식', '운동식', '건강식', '일반식']);
+    let [loop, setLoop] = useState<number>(0);
+    const listElement = useRef<HTMLUListElement | null>(null);
     const router = useRouter();
     const { pathname } = router;
-    let Y: number = 0;
-    let [bracketStart, bracketEnd] = ['[', ']'];
+    let yAxis: number = 0;
 
     useEffect(() => {
-        console.log(pathname);
         const loopSetInterval = setInterval(() => {
             setLoop(loop++);
-            console.log(loop);
             // eslint-disable-next-line react-hooks/exhaustive-deps
-            item.current!.style.transform = `translateY(${Y -= 49}px)`
-            item.current!.style.transition = '1s';
-            if (loop === 3) {
+            listElement.current!.style.transform = `translateY(${yAxis -= 49}px)`
+            listElement.current!.style.transition = '1s';
+            if (loop === 4) {
+                // setLoop(0);
+                // eslint-disable-next-line react-hooks/exhaustive-deps
                 loop = 0;
-                Y = 0;
+                yAxis = 0;
+                listElement.current!.style.transform = `translateY(${0}px)`
             }
         }, 3000);
         console.log('pathname은?', pathname);
@@ -41,11 +41,11 @@ const MainTextView = () => {
             <div className="content">
                 <div className="content__container">
                     <p className="content__container__text">오늘</p>
-                        <ul className="content__container__list" ref={ item }>
+                        <ul className="content__container__list" ref={ listElement }>
                             {
                                 li_text && li_text.map((text, index) => {
                                     return (
-                                        <li className="content__container__list_item" key={index}>{ text }</li>
+                                        <li className="content__container__list_listElement" key={index}>{ text }</li>
                                     )
                                 })
                             }
@@ -81,7 +81,7 @@ const MainTextView = () => {
                         display: flex;
                         font-weight: 600;
                         overflow: hidden;
-                        height: 50px;
+                        height: 49px;
                         padding: 0 40px;
                         
                     }
@@ -96,7 +96,7 @@ const MainTextView = () => {
                         text-align: left;
                         list-style: none;
                     }
-                    .content__container__list_item{
+                    .content__container__list_listElement{
                         margin-left: -30px;
                         font-size: 50px;
                         line-height: 1;
