@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { categoryData } from '../../utils/types/interface';
+import { categoryData } from '../../components/video/types/interface';
 
 export default async function handler(
     req: NextApiRequest, 

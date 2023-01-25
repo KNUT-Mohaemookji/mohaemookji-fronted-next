@@ -11,10 +11,7 @@ const RoundExplanationContent = () => {
                 <h1 className="title">{contentTitle}</h1>
                 <p className="explanation">{explanation}</p>
                 <button className="explanation_button"><FiArrowUpRight/></button>
-            </div>  
-            <style jsx>{`
-
-            `}</style>
+            </div>
         </>
     );
 };

@@ -1,11 +1,7 @@
 // https://hits.ai/     
-import { ChildrenProps } from '../types/interface';
-import Header from './headerView';
-import React, { ReactNode } from 'react';
-
-interface Props {
-    children: ReactNode
-}
+import { ChildrenProps } from '../utils/types/common/interface';
+import Header from './header';
+import React from 'react';
 
 export default function Layout({ children }: ChildrenProps) {
     return (

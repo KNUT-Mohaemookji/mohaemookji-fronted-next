@@ -15,17 +15,6 @@ const ExplanationImage = () => {
                     alt="explanation"
                 />
             </div>
-            <style jsx>{`
-                .content_image{
-                    position: absolute;
-                    overflow: hidden;
-                    top: 0;
-                    width: 400px;
-                    height: 400px;
-                    transition: .5s;
-                    border-radius: 50%;
-                }
-            `}</style>
         </>
     );
 };

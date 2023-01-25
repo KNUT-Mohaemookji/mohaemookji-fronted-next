@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropsWithChildren } from 'react';
-import VideoListView from '../../../components/view/video/videoListView';
+import VideoListView from '../../../components/video/videoList';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 // getAPI

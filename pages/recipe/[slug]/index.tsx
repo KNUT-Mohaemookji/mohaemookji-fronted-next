@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import RecipeListView from '../../../components/view/recipe/recipeListView';
+import RecipeListView from '../../../components/recipe/recipeList';
 import { apiUrl } from '../../../utils/constants';
 import { IRecipeProps } from '../../../utils/types/interface';
 
@@ -12,7 +12,6 @@ export async function getServerSideProps() {
     function moreButton() {
         count += 9;
     }
-
     return {
         props: {
             recipeData,
@@ -20,15 +19,11 @@ export async function getServerSideProps() {
         }
     }
 }
-const Resipe = ({recipeData, count}: IRecipeProps) => {
+const Recipe = ({recipeData, count}: IRecipeProps) => {
     const props = {
         recipeData,
         count,
-        // moreButton
     }
-    useEffect(() => {
-
-    })
     return (
         <>
             <RecipeListView {...props}/>
@@ -36,4 +31,4 @@ const Resipe = ({recipeData, count}: IRecipeProps) => {
     );
 };
 
-export default Resipe;
+export default Recipe;

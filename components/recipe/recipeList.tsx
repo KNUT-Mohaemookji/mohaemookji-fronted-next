@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import RecipeModal from '../../../components/view/recipe/recipeModal';
+import RecipeModal from './recipeModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions, RECIPE_MODAL } from '../../../store/reducers/recipe';
-import { RootState } from '../../../store/reducers';
-import { IRecipeProps, IRecipeData } from '../../../utils/types/interface';
+import { actions, RECIPE_MODAL } from '../../store/reducers/recipe';
+import { RootState } from '../../store/reducers';
+import { IRecipeProps, IRecipeData } from './types/interface';
 
 const RecipeListView = ({ recipeData, count }: IRecipeProps) => {
     const [getRecipeData, setRecipeData] = useState<IRecipeData[]>([]);
@@ -19,8 +19,9 @@ const RecipeListView = ({ recipeData, count }: IRecipeProps) => {
         console.log(count);
         
     }, [getRecipeData, count, recipeData.COOKRCP01.row]);
+    
     const clickModal = (modalData: React.SetStateAction<{}>) => {
-        dispatch(actions.recipe_modal())
+        dispatch(actions.recipe_modal());
         setClickRecipeData(modalData);
         setRecipeModalState(true);
     }

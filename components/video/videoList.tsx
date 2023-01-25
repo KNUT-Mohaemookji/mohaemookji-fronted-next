@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { IVideoListViewProps } from '../../../utils/types/interface';
+import { IVideoListViewProps } from './types/interface';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
-import { RootState } from '../../../store/reducers';
-import VideoModal from '../../view/video/videoModalView';
+import { actions, VIDEO_MODAL } from '../../store/reducers/getVideo';
+import { RootState } from '../../store/reducers';
+import VideoModal from './videoModal';
 
 // material-ui
 import { createTheme, ThemeProvider } from '@mui/material/styles';

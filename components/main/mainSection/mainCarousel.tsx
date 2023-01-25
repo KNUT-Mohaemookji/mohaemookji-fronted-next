@@ -3,10 +3,7 @@ import React from 'react';
 import CarouselLeft from './carouselLeft';
 import CarouselRight from './carouselRight';
 
-
-
 const MainCarousel = () => {
-
     return (
         <>
             <div className="carousel_contain">

@@ -1,9 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../store/reducers';
-import { actions, VIDEO_MODAL } from '../../../store/reducers/getVideo';
-import { IVideoModalProps } from '../../../utils/types/interface';
+import { RootState } from '../../store/reducers';
+import { actions, VIDEO_MODAL } from '../../store/reducers/getVideo';
+import { IVideoModalProps } from './types/interface';
 import ReactPlayer from 'react-player';
 // import PlayerIcon from 'react-player-controls';
 import { FiX } from 'react-icons/fi';

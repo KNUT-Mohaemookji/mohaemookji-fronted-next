@@ -8,7 +8,10 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')]
   },
   images: {
-    domains: ['static.wtable.co.kr'] 
+    domains: [
+      'static.wtable.co.kr',
+      'www.foodsafetykorea.go.kr'
+    ] 
   },
   env: {
     BASE_URL: process.env.BASE_URL

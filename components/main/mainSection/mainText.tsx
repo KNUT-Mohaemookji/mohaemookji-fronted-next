@@ -1,4 +1,4 @@
-import { IMainTextProps } from '../../../../utils/types/interface';
+import { IMainTextProps } from '../types/interface';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';

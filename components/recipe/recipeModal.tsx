@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions, RECIPE_MODAL } from '../../../store/reducers/recipe';
+import { actions, RECIPE_MODAL } from '../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
-import { RootState } from '../../../store/reducers';
-import { IRecipeData } from '../../../utils/types/interface';
+import { RootState } from '../../store/reducers';
+import { IRecipeData } from './types/interface';
+import Image from 'next/image';
 import Mark from './mart';
-
-interface RecipeModalProps {
-    clickRecipeData: React.SetStateAction<{}>
-}
 
 const RecipeModal = ({ clickRecipeData }: any) => {
     const state =  useSelector((state: RootState) => state.recipe);
@@ -16,8 +13,7 @@ const RecipeModal = ({ clickRecipeData }: any) => {
     const [menual, setMenual] = useState<string[]>([]);
     const [menualImg, setMenualImg] = useState<string[]>([]);
     const [recipeModalData, setRecipeModalData] = useState<IRecipeData>({});
-    useEffect(() => {   
-        setRecipeModalData(clickRecipeData)
+    useEffect(() => {
         for(let data in clickRecipeData){
             if (data.includes('MANUAL_IMG')) {
                 clickRecipeData[data] && menualImg.push(clickRecipeData[data]);
@@ -26,8 +22,9 @@ const RecipeModal = ({ clickRecipeData }: any) => {
                 clickRecipeData[data] && menual.push(clickRecipeData[data]);
                 
             }
-        }
-    }, [clickRecipeData, state.recipeState]);
+        }   
+        setRecipeModalData(clickRecipeData)
+    }, [clickRecipeData, menual, menualImg, state.recipeState]);
     return (
         <>
             <div className="modal_content" >
@@ -44,8 +41,9 @@ const RecipeModal = ({ clickRecipeData }: any) => {
                         menualImg.map((item, index) => {
                             return (
                                 <li className="menual" key={index}>
-                                    <img className="menual_img" src={ item }
-                                    width="60%"
+                                    <Image className="menual_img" src={ item }
+                                        width="250"
+                                        height="150"
                                     alt="요리"/>
                                     <p className="menual_content">{menual[index]}</p>
                                 </li>
