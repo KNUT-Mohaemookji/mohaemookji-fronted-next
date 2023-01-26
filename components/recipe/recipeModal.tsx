@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { actions, RECIPE_MODAL } from '../../store/reducers/recipe';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { actions } from '../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
-import { RootState } from '../../store/reducers';
 import { IRecipeData } from './types/interface';
 import Image from 'next/image';
 import Mark from './mart';
+import { useRecipeModalState } from './hooks/useRecipeModalData';
 
-const RecipeModal = ({ clickRecipeData }: any) => {
-    const state =  useSelector((state: RootState) => state.recipe);
+const RecipeModal = ({ clickRecipeData }: IRecipeData) => {
     const dispatch = useDispatch();
-    const [menual, setMenual] = useState<string[]>([]);
-    const [menualImg, setMenualImg] = useState<string[]>([]);
-    const [recipeModalData, setRecipeModalData] = useState<IRecipeData>({});
-    useEffect(() => {
-        for(let data in clickRecipeData){
-            if (data.includes('MANUAL_IMG')) {
-                clickRecipeData[data] && menualImg.push(clickRecipeData[data]);
-            }
-            if (data.includes('MANUAL') && !clickRecipeData[data].includes('http')) {
-                clickRecipeData[data] && menual.push(clickRecipeData[data]);
-                
-            }
-        }   
-        setRecipeModalData(clickRecipeData)
-    }, [clickRecipeData, menual, menualImg, state.recipeState]);
+    const {menualImg, menual, recipeModalData} = useRecipeModalState(clickRecipeData);
     return (
         <>
             <div className="modal_content" >

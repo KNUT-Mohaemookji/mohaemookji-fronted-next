@@ -1,42 +1,20 @@
-import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/reducers';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../store/reducers/getVideo';
 import { IVideoModalProps } from './types/interface';
 import ReactPlayer from 'react-player';
-// import PlayerIcon from 'react-player-controls';
 import { FiX } from 'react-icons/fi';
 
 
 const VideoModalView = ({getData, clickVideoIndex}: IVideoModalProps) => {
-    //
-    // let [modalData, setModalData] = useState({});
-
-    // const getData = () => {
-    //     cookingData.then(res => {
-    //         modalData = {...res[clickVideoIndex]};
-    //         console.log(modalData);
-    //         return res;
-    //     })
-    // }
-    
-    // useEffect(() => {
-    //     console.log(getData);
-    // }, []);
-
-    //
-    const state = useSelector((state: RootState) => state.getVideo);
     const dispatch = useDispatch();
     let [modalData, setModalData] = useState<unknown>({});
-    let [loading, setLoading] = useState(true);
 
-    function click(){
-        console.log(state);
-    }
-    
     useEffect(() => {
         if (getData) setModalData(getData[clickVideoIndex]);     
-    }, [getData, modalData]);
+        console.log('?')
+
+    }, [clickVideoIndex]);
 
     return (
         <>

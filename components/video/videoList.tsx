@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import { IVideoListViewProps } from './types/interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../store/reducers/getVideo';
@@ -8,13 +8,17 @@ import { RootState } from '../../store/reducers';
 import VideoModal from './videoModal';
 
 // material-ui
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { green, orange } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { useGetVideoData } from './hooks/useGetVideoData';
 
 const VideoListView = ({ cookingData, categoryCookingData, category }: IVideoListViewProps) => {
+    const state = useSelector((state: RootState) => state);
+    const { handleChange, getData, clickVideoIndex, categorys, videoClick, value } = useGetVideoData({ cookingData, categoryCookingData });
+    const router = useRouter();
+
     // material UI
     const categoryTheme = createTheme({
         palette: {
@@ -24,40 +28,11 @@ const VideoListView = ({ cookingData, categoryCookingData, category }: IVideoLis
         },
       });
 
-    const router = useRouter();
-    const {slug} = router.query;
-    const state = useSelector((state: RootState) => state);
-    const dispatch = useDispatch();
-
-    let [getData, setGetData] = useState([]);
-    let [clickVideoIndex, setClickVideoIndex] = useState(0);
-    const [categorys, setCategorys] = useState<string[]>([]);
-
     const modalProps = {
         getData,
         clickVideoIndex
     };
 
-    const [value, setValue] = useState(0);
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-    };
-
-    const videoClick = (index: number) => {
-        dispatch(actions.video_modal());
-        setClickVideoIndex(index);
-    }
-
-    useEffect(() => {
-        fetch('/api/category')
-            .then(res => res.json())
-            .then(data => setCategorys(data.item))
-        // slug 기준으로 영상 랜덤으로 불러오기
-        slug === 'all' ? setGetData(cookingData) : setGetData(categoryCookingData);        
-        // console.log('categoryList', categoryList);
-    }, [cookingData, getData]);
-    
     return (
         <>
             <div className="contain">

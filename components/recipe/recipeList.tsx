@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import RecipeModal from './recipeModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { actions, RECIPE_MODAL } from '../../store/reducers/recipe';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
-import { IRecipeProps, IRecipeData } from './types/interface';
+import { useRecipeModalState } from './hooks/useRecipeModalState';
+import Image from 'next/image';
 
-const RecipeListView = ({ recipeData, count }: IRecipeProps) => {
-    const [getRecipeData, setRecipeData] = useState<IRecipeData[]>([]);
-    const [clickRecipeData, setClickRecipeData] = useState({});
-    const [recipeModalState, setRecipeModalState] = useState<boolean>(false);
+const RecipeListView = ({ recipeData, count }: any) => {
+    const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipeData);
 
     const state = useSelector((state: RootState) => state.recipe);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        setRecipeData(recipeData.COOKRCP01.row)
-        console.log(getRecipeData);
-        console.log(count);
-        
-    }, [getRecipeData, count, recipeData.COOKRCP01.row]);
-    
-    const clickModal = (modalData: React.SetStateAction<{}>) => {
-        dispatch(actions.recipe_modal());
-        setClickRecipeData(modalData);
-        setRecipeModalState(true);
-    }
     const props = {
         clickRecipeData
     }
@@ -49,10 +33,13 @@ const RecipeListView = ({ recipeData, count }: IRecipeProps) => {
                                                 [data.MANUAL_IMG01, data.MANUAL_IMG02, data.MANUAL_IMG03].map((item, index) => {
                                                     return (
                                                         <li key={index}>
-                                                            <img 
-                                                            className="cooking_img"
-                                                            src={item}
-                                                            width="100"/>
+                                                            <span className="cooking_img">
+                                                                <Image 
+                                                                src={item}
+                                                                width="100"
+                                                                height="70"
+                                                                alt="요리 순서 이미지"/>
+                                                            </span>
                                                         </li>
                                                     )
                                                 })

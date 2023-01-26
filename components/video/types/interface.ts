@@ -15,7 +15,7 @@ export interface ICookingVideo {
 export interface IVideoListViewProps {
     cookingData: ICookingVideo[],
     categoryCookingData: string[],
-    category: string[]
+    category?: string[]
 }
 
 export interface IVideoValue {
