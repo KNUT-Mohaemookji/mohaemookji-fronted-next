@@ -9,12 +9,12 @@ export interface ICookingVideo {
     url: string,
     videoId: string,
     __v?: number,
-    _id?: string
+    _id?: string,
 };
 
 export interface IVideoListViewProps {
-    cookingData: ICookingVideo[],
-    categoryCookingData: string[],
+    cookingData?: ICookingVideo[],
+    categoryCookingData?: ICookingVideo[],
     category?: string[]
 }
 

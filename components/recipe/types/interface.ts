@@ -1,6 +1,7 @@
 // recipe
 export interface IRecipeData {
-    [key: string]: string
+    [key: string]: string,
+    COOKRCP01: string
 }
 
 export interface IRecipeProps {

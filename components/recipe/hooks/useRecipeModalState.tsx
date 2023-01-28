@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { IRecipeData, IRecipeProps } from '../types/interface';
-import { RootState } from '../../../store/reducers';
-import { actions, RECIPE_MODAL } from '../../../store/reducers/recipe';
+import { useDispatch } from 'react-redux';
+import { IRecipeData } from '../types/interface';
+import { actions } from '../../../store/reducers/recipe';
 
 export const useRecipeModalState = (recipeData: IRecipeData) => {
     const [getRecipeData, setRecipeData] = useState<IRecipeData[]>([]);
@@ -11,8 +10,9 @@ export const useRecipeModalState = (recipeData: IRecipeData) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('recipeData', recipeData)
-        setRecipeData(recipeData.COOKRCP01.row)
+        console.log('recipeData step 1', recipeData)
+        // console.log('recipeData', recipeData.COOKRCP01.row)
+        setRecipeData(recipeData)
         
     }, [recipeData]);
     

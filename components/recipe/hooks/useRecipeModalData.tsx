@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IRecipeData} from '../types/interface';
+import { IRecipeData } from '../types/interface';
 
 export function useRecipeModalState(clickRecipeData: IRecipeData) {
     const [menual] = useState<string[]>([]);

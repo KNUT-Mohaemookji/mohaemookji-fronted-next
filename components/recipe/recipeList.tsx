@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RecipeModal from './recipeModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
 import { useRecipeModalState } from './hooks/useRecipeModalState';
 import Image from 'next/image';
+import { IRecipeData } from './types/interface';
 
-const RecipeListView = ({ recipeData, count }: any) => {
-    const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipeData);
+const RecipeListView = ({ recipeData }: IRecipeData) => {
+    const recipe = recipeData.COOKRCP01.row;
+    const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipe);
 
     const state = useSelector((state: RootState) => state.recipe);
-    const props = {
-        clickRecipeData
-    }
+    
     return (
         <>
             <div className="recipelist_contain">
@@ -56,7 +56,7 @@ const RecipeListView = ({ recipeData, count }: any) => {
                         state.recipeState === true
                         ?
                         <div className="recipe_modal" >
-                            <RecipeModal {...props} />
+                                <RecipeModal clickRecipeData={ clickRecipeData } />
                         </div>
                        : null
                     }

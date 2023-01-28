@@ -2,7 +2,7 @@
 // https://velog.io/@treejy/Next.jsTS-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A7%B5-API-%EC%93%B0%EA%B8%B0
 // https://velog.io/@planethoon/%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A7%B5-api-%EC%82%AC%EC%9A%A9-%EB%8F%84%EC%A4%91-TypeError-Cannot-read-properties-of-undefined-reading-maps
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useKakaomapConnect = () => {
     const [mapLoaded, setMapLoaded] = useState<boolean>(false);
@@ -21,9 +21,9 @@ const useKakaomapConnect = () => {
         window.kakao.maps.load(() => {
             var container = document.getElementById('map');
             var options = {
-                      center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-                      level: 3
-                  };
+                    center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+                    level: 3
+                };
           
             var map = new window.kakao.maps.Map(container, options);
 

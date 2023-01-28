@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { actions, VIDEO_MODAL } from '../../store/reducers/getVideo';
-import { IVideoModalProps } from './types/interface';
+import { ICookingVideo, IVideoModalProps } from './types/interface';
 import ReactPlayer from 'react-player';
 import { FiX } from 'react-icons/fi';
 
 
 const VideoModalView = ({getData, clickVideoIndex}: IVideoModalProps) => {
     const dispatch = useDispatch();
-    let [modalData, setModalData] = useState<unknown>({});
+    let [modalData, setModalData] = useState<ICookingVideo>(getData![clickVideoIndex]);
 
     useEffect(() => {
         if (getData) setModalData(getData[clickVideoIndex]);     
-        console.log('?')
-
-    }, [clickVideoIndex]);
+    }, [clickVideoIndex, getData]);
 
     return (
         <>

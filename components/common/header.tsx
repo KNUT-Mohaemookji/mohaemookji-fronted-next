@@ -1,9 +1,9 @@
-import styles from '../styles/components/Header.module.scss';
+import styles from '../../styles/components/Header.module.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import logo from '../public/img/mohaemookgi_logo.png';
+import logo from '../../public/img/mohaemookgi_logo.png';
 
 const Header = () => {
   // transform 으로 내려오는 작업 해주기

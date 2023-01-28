@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const NoticeList = () => {
-    let [noticeList, setNoticeList] = useState<string[]>(['이벤트1', '이벤트2', '이벤트3']);
-    let [noticeExplanation, setNoticeExplanation] = useState<string[]>(['이벤트 설명1', '이벤트 설명2', '이벤트 설명3']);
+    let noticeList = ['이벤트1', '이벤트2', '이벤트3'];
+    let noticeExplanation = ['이벤트 설명1', '이벤트 설명2', '이벤트 설명3'];
     return (
         <>
             <ul className="notices">
