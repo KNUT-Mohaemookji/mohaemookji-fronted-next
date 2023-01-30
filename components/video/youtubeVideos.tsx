@@ -50,6 +50,7 @@ const YoutubeVideos = () => {
                 margin: auto;
                 width: 90%;
                 display: flex;
+                justify-content: space-around;
                 flex-wrap: wrap;
                 .item_container {
                     position: relative;

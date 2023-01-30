@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import RecipeListView from '../../../components/recipe/recipeList';
 import { apiUrl } from '../../../utils/constants';
-import { IRecipeProps } from '../../../utils/types/interface';
+import { IRecipeProps } from '../../../components/recipe/types/interface';
 
 export async function getServerSideProps() {
     let count = 9;

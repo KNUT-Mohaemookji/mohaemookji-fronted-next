@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
 import { IRecipeData } from './types/interface';
 import Image from 'next/image';
-import Mark from './mart';
+import Mart from './mart';
 import { useRecipeModalState } from './hooks/useRecipeModalData';
 
-const RecipeModal = ({ clickRecipeData }: IRecipeData) => {
+// ㅠㅜ 결국.. any
+const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
-    const {menualImg, menual, recipeModalData} = useRecipeModalState(clickRecipeData);
+    const { menualImg, menual, recipeModalData } = useRecipeModalState(clickRecipeData);
+    useEffect(() => {
+        menualImg.sort();
+        menual.sort();
+    }, [menual, menualImg]);
     return (
         <>
             <div className="modal_content" >
@@ -23,13 +28,15 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData) => {
 
                     <ul className="menuals">
                     {
-                        menualImg.map((item, index) => {
+                        menualImg.sort().map((item, index) => {
                             return (
                                 <li className="menual" key={index}>
-                                    <Image className="menual_img" src={ item }
-                                        width="250"
-                                        height="150"
-                                    alt="요리"/>
+                                    <div className="menual_img">
+                                        <Image src={ item }
+                                            width="250"
+                                            height="150"
+                                        alt="요리"/>
+                                    </div>
                                     <p className="menual_content">{menual[index]}</p>
                                 </li>
                             )
@@ -37,7 +44,7 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData) => {
                     }
                     </ul>
                     <div className="mart_contain">
-                        <Mark/>
+                        <Mart/>
                     </div>
                 </div>
             </div>
@@ -86,20 +93,31 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData) => {
                         }
                     }
                     .menuals{
-                            .menual{
-                                .menual_img{
-                                    image-rendering: -webkit-optimize-contrast;
-                                    backface-visibility: hidden;
-                                    transform: translateZ(0);
-                                    border-radius: 20px;
-                                }
-                                .menual_content{
-                                    font-size: 18px;
-                                    font-weight: 600;
-                                    color: #333;
-                                }
+                        display: flex;
+                        overflow-x: scroll;
+                        padding: 24px;
+                        scroll-snap-type: x mandatory;
+                        scroll-padding: 24px;
+                        gap: 10%;
+                        .menual{
+                            // scroll-snap-align: start;
+                            .menual_img{
+                                overflow: hidden;
+                                image-rendering: -webkit-optimize-contrast;
+                                backface-visibility: hidden;
+                                transform: translateZ(0);
+                                border-radius: 10px;
+                            }
+                            .menual_content{
+                                font-size: 18px;
+                                font-weight: 600;
+                                color: #333;
                             }
                         }
+                    }
+                    .mart_contain{
+                        width: 100%;
+                    }
                 }
             }
             `}</style>
