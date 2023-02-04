@@ -28,6 +28,9 @@ declare global {
 }
 
 export interface ILocationType {
+    // lat: number;
+    // lng: number;
+    // [key: string]: number;
     loaded: boolean;
     coordinates?: { lat: number, lng: number };
     error?: { code: number, message: string };

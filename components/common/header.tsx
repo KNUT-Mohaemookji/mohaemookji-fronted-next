@@ -31,6 +31,7 @@ const Header = () => {
   useEffect(() => {
     overlay.current!.style.transform = 'translateY(100%)';
     document.getElementById('toggle')?.classList.remove('active');
+    setMenuState(false);
     console.log(logo)
   }, [router.pathname]);
   return (

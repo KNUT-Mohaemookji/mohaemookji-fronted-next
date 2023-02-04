@@ -94,13 +94,16 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
                     }
                     .menuals{
                         display: flex;
-                        overflow-x: scroll;
                         padding: 24px;
+                        overflow-x: scroll;
+                        // 스크롤 안되는 문제 해결
+                        transform: translateZ(0);
                         scroll-snap-type: x mandatory;
                         scroll-padding: 24px;
                         gap: 10%;
                         .menual{
-                            // scroll-snap-align: start;
+                            flex: 0 0 30%;
+                            scroll-snap-align: start;
                             .menual_img{
                                 overflow: hidden;
                                 image-rendering: -webkit-optimize-contrast;

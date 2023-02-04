@@ -12,6 +12,8 @@ const VideoModalView = ({getData, clickVideoIndex}: IVideoModalProps) => {
 
     useEffect(() => {
         if (getData) setModalData(getData[clickVideoIndex]);     
+        console.log(getData, clickVideoIndex);
+        
     }, [clickVideoIndex, getData]);
 
     return (

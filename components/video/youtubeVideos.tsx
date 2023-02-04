@@ -5,15 +5,19 @@ import { IVideoListViewProps } from './types/interface';
 import VideoModal from './videoModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
-
+import { useVideoClick } from './hooks/useVideoClick';
+import { useDispatch } from 'react-redux';
 const YoutubeVideos = () => {
     const state = useSelector((state: RootState) => state);
     const { cookingData, categoryCookingData } = useContext<IVideoListViewProps>(VideoListContext);
-    const { getData, videoClick, clickVideoIndex } = useGetVideoData({ cookingData, categoryCookingData });
+    const { getData } = useGetVideoData({ cookingData, categoryCookingData });
+    const { clickVideoIndex, videoClick } = useVideoClick();
+
     const modalProps = {
         getData,
         clickVideoIndex
     };
+    
     return (
         <>
             {

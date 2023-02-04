@@ -11,9 +11,8 @@ import { useRouter } from 'next/router';
 
 const VideoCategory = () => {
     const router = useRouter();
-    const { cookingData, categoryCookingData } = useContext(VideoListContext);
-    const { categorys } = useGetVideoData({ cookingData, categoryCookingData });
-
+    const { cookingData } = useContext(VideoListContext);
+    const { categorys } = useGetVideoData({ cookingData });
     return (
         <>
             <ul className="category">
