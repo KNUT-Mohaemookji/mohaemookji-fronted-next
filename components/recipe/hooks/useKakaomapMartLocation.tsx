@@ -6,7 +6,7 @@ export const useKakaomapMartLocation = () => {
   const {myAddress} = useMyLocationAddress();
   const [info, setInfo] = useState<IMarker>();
   const [markers, setMarkers] = useState<IMarkers<string>[]>([]);
-  const [map, setMap] = useState();
+  const [map, setMap] = useState<kakao.maps.Map>();
   
   useEffect(() => {
       if (!map) return

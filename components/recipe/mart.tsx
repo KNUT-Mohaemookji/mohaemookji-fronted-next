@@ -4,26 +4,24 @@ import useFindMyLocation from './hooks/useFindMyLocation';
 import { useKakaomapMartLocation } from './hooks/useKakaomapMartLocation';
 import martLocationImg from '../../public/img/markerImg/martLocation.png';
 import myLocationImg from '../../public/img/markerImg/myLocation.png';
-import { useEffect } from 'react';
 import { IMarkers } from './types/interface';
 
 const Mart = () => {
   const myLocation = useFindMyLocation();
   const { info, setInfo, markers, setMap } = useKakaomapMartLocation();
 
-  useEffect(() => {
-    console.log('info', info);
-    console.log('markers', markers);
-  }, [info, markers]);
-    return (
-      <>
-        {
+  return (
+    <>
+      <div className="map-contain">
+      {
+        
           myLocation.loaded === true 
-            ? <Map
-                center={{ lat: myLocation.coordinates!.lat, lng: myLocation.coordinates!.lng }}
-                style={{ width: "100%", height: "360px" }}
-                level={5}
-                onCreate={setMap}
+          ?
+            <Map
+              center={{ lat: myLocation.coordinates!.lat, lng: myLocation.coordinates!.lng }}
+              style={{ width: "100%", height: "360px" }}
+              level={5}
+              onCreate={setMap}
             >
               {markers.map((marker: IMarkers<any>) => (
                 <MapMarker
@@ -39,12 +37,7 @@ const Mart = () => {
                     onClick={() => setInfo(marker)}
                 >
                   {info && info.content === marker.content && (
-                      <div style={{
-                        // padding: '5px',
-                        color: "#333",
-                        // background: '#fff',
-                        borderRadius: '10px'
-                      }}>{marker.content}</div>
+                    <div className="marker">{marker.content}</div>
                       )}
 
                 </MapMarker>
@@ -59,15 +52,34 @@ const Mart = () => {
                 }}
                 position={{ lat: myLocation.coordinates!.lat, lng: myLocation.coordinates!.lng }}
                 >
-                <div style={{
-                    color: "#333",
-                    borderRadius: '10px',
-                    paddingLeft: '10px'
-                }}>내 위치</div>               
-            </MapMarker>
-        </Map>
-        : <Loading/>
-      }
+                <div className="marker my">내 위치</div>               
+              </MapMarker>
+            </Map>
+            :
+            <div className="spinner">
+              <Loading />
+            </div>
+        }
+        <style jsx>{`
+          .map-contain{
+            position: relative;
+            border: 5px solid lightgrey;
+            border-radius: 10px;
+            width: 100%;
+            height: 360px;
+            .marker{
+              padding: 5px 10px;
+              margin: -2px -10px;
+              font-weight: 600;
+              color: #333;
+              width: 150px;
+              height: 20px;
+              background: #fff;
+              border-radius: 10px;
+            }
+          }
+        `}</style>
+        </div>
     </>
   )
 };

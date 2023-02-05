@@ -7,17 +7,9 @@ const Loading = () => {
                 <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             </div>
             <style jsx>{`
-                .black-background {
-                    // position: fixed;
-                    // z-index: 10;
-                    // left: 0;
-                    // top: 0;
-                    // width: 100vw;
-                    // height: 100vh;
-                    // background: rgba(0, 0, 0, 0.5);
-                }
                 .lds-default {
                     z-index: 100;
+                    // position: fixed;
                     position: fixed;
                     display: inline-block;
                     margin: auto;
