@@ -15,11 +15,6 @@ export interface recipeItemProps {
     clickModal: (data: IRecipeData) => void
 }
 
-// export interface IRecipeModalFactor {
-//     setClickRecipeData: any,
-//     setRecipeModalState: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
 // -----kakaomap-----
 declare global {
     interface Window {
@@ -28,10 +23,36 @@ declare global {
 }
 
 export interface ILocationType {
-    // lat: number;
-    // lng: number;
-    // [key: string]: number;
     loaded: boolean;
     coordinates?: { lat: number, lng: number };
     error?: { code: number, message: string };
+}
+
+export interface ICallbackResult {
+    0: {
+        address: {
+            [key: string]: string
+        },
+        road_address: {
+            [key: string]: string,
+        }
+    }
+}
+
+export interface IMarkers<T> {
+    content: string,
+    position: {
+        lat: T;
+        lng: T;
+        x?: number;
+        y?: number;
+    }
+}
+
+export interface IMarker {
+    position: {
+        lat: string;
+        lng: string;
+    };
+    content?: string;
 }
