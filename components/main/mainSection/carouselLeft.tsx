@@ -25,12 +25,24 @@ const CarouselLeft = () => {
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
+                    @media (max-width: 900px){
+                        width: 400px;
+                        height: 200px;
+                    }
                 }
                 .left_carousel{
                     margin-top: -25%;
+                    
                     .left_carousels {
+                        height: 100vh;
                         .left_carousel{
                             background-color: lightgrey;
+                        }
+                        @media (max-width: 900px){
+                            height: 100vh;
+                            display: flex;
+                            align-items: end;
+                            gap: 50px;
                         }
                     }
                 }

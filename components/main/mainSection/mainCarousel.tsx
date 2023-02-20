@@ -18,8 +18,14 @@ const MainCarousel = () => {
                 position: relative;
                 display: flex;
                 height: calc(400px * 4);
-                animation: main_carousel 10s linear infinite;
-                animation-duration: 10s;
+                animation: main_carousel linear infinite;
+                animation-duration: 5s;
+                @media (max-width: 900px){
+                    flex-direction: column;
+                    animation: mobile_main_carousel 2s linear infinite;
+                    align-items: center;
+                    gap: 1000px;
+                }
             }
             @keyframes main_carousel{
                 0% {
@@ -28,6 +34,14 @@ const MainCarousel = () => {
                 100%{
                     transform: translateY(calc(-400px * 4.3))
                 }
+            }
+            @keyframes mobile_main_carousel {
+                0% {
+                    transform: translateX(0);
+                }
+                100%{
+                    transform: translateX(calc(-400px * 6.6))
+                }   
             }
             `}</style>
         </>

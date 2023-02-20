@@ -89,11 +89,16 @@ const RoundExplanation = () => {
                             display: flex;
                             justify-content: center;
                             margin: auto;
-                            width: 60vw;
+                            width: 80%;
                             margin: auto;
                             height: 600px;
                             border-radius: 20px;
                             background-color: #E6E2C3;
+                            @media (max-width: 900px){
+                                width: 100%;
+                                height: 800px;
+                                flex-direction: column;
+                            }
                             .back_black_color {
                                 opacity: 0;
                                 width: 80vw;
@@ -122,6 +127,18 @@ const RoundExplanation = () => {
                                 border-radius: 10px;
                                 display: block;
                                 left: 0;
+                            }
+                            @media (max-width: 1200px){
+                                .content_image {
+                                    width: 100%;
+                                    height: 300px;
+                                    text-align: center;
+                                }
+                                .text {
+                                    width: 50%;
+                                    margin: auto;
+                                    margin-top: 60%;
+                                }
                             }
                         }
                         .explanation_button:hover{

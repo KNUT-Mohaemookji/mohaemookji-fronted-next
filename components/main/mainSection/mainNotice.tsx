@@ -1,26 +1,16 @@
 import React from 'react';
 import NoticeList from './noticeList';
+import * as S from '../style/mainSection/mainNotice';
 
 const Notice = () => {
     return (
         <>
-            <div className="notice_contain">
-                <p className="notice_title">공지사항</p>
+            <S.NoticeContain>
+                <S.NoticeTitle>공지사항</S.NoticeTitle>
                 <NoticeList/>
-            </div>  
-            <style jsx>{`
-            .notice_contain {
-                position: relative;
-                top: 20px;
-                .notice_title {
-                    font-size: 25px;
-                    font-weight: 700;
-                    color: #333;
-                }
-            }
-            `}</style>
+            </S.NoticeContain>
         </>
-    );
+    )
 };
 
 export default Notice;

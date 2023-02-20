@@ -23,14 +23,25 @@ const CarouselRight = () => {
                     border-radius: 20px;
                     margin-top: 30px;
                     background-size: cover;
+                    // over-flow: hidden;
                     background-repeat: no-repeat;
                     background-position: center;
+                    @media (max-width: 900px){
+                        width: 400px;
+                        height: 200px;
+                    }
                 }
                 .right_carousel{
                     margin-top: -55%;
                     .right_carousels {
                         .right_carousel{
                             background-color: lightgrey;
+                        }
+                        @media (max-width: 900px){
+                            height: 100vh;
+                            display: flex;
+                            align-items: end;
+                            gap: 50px;
                         }
                     }
                 }

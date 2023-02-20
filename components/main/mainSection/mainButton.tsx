@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import * as S from '../style/mainSection/mainButton';
 
 const MainButton = () => {
     let categoryButton = useRef<HTMLUListElement>(null);
@@ -7,12 +8,10 @@ const MainButton = () => {
     }, []);
     return (
         <>
-            <div className="contain">
-                <div className="category_list_button">
-                <button className="watch_recipe_button">레시피보기</button>
-                    <button className="watch_button">보러가기</button>
-                </div>
-            </div>
+            <S.MainButtonContain>
+                <S.Button marginLeft="0px">레시피보기</S.Button>
+                <S.Button className="watch_button" marginLeft="20px">보러가기</S.Button>
+            </S.MainButtonContain>
             <style jsx>{`
             ul, li, ol {
                 list-style: none;
@@ -36,13 +35,7 @@ const MainButton = () => {
                 .watch_button{
                     margin-left: 20px;
                 }
-                .category_list{
-                    position: absolute;
-                    z-index: 1;
-                    transition: .4s;
-                    transform: translateY(-120px);
-                    opacity: 0;
-                    top: 50px;
+                .category_list_contain{
                     .category{
                         position: relative;
                         cursor: pointer;
@@ -51,7 +44,7 @@ const MainButton = () => {
                         margin-top: 20px;
                     }
                 }
-                .category_list.event{
+                .category_list_contain.event{
                     opacity: 1;
                     transform: translateY(0px);
                 }

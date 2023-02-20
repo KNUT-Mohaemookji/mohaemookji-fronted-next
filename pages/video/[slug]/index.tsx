@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { PropsWithChildren } from 'react';
 import VideoListView from '../../../components/video/videoList';
 import { useRouter } from 'next/router';
-import { GetServerSideProps } from 'next';
 // getAPI
 import { apiUrl } from '../../../utils/constants';
-import { ICookingVideo, IVideoModalProps } from '../../../utils/types/interface';
+import { ICookingVideo, IVideoModalProps } from '../../../components/video/types/interface';
 
 /* 
     SSR
@@ -45,9 +42,7 @@ const Video = ({cookingData}: IVideoModalProps) => {
     }
     return (
         <>
-            <div>
-                <VideoListView {...props}/>
-            </div>
+            <VideoListView {...props}/>
         </>
     );
 };
