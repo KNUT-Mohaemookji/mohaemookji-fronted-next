@@ -1,29 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import * as S from '../style/searchList';
+import { ISearchListProps } from '../types/interface';
+import { useRouter } from 'next/router';
 
-type SearchList = string[];
-
-const SearchList = () => {
-    // const searchList = sessionStorage.getItem('search') as unknown as string[];
-    const searchList = typeof window !== 'undefined' ? sessionStorage.getItem('search') : null;
-    // const [searchList, setSearchList] = useState([]) as unknown as string[];
-    useEffect(() => {
-        console.log(searchList);
-        
-        // setSearchList(sessionStorage.getItem('search'));
-    }, [searchList]);
+const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
+    const router = useRouter();
     return (
-        <div>
-            <ul>
+        <S.SearchListContain>
+            <S.SearchItems>
                 {
-                    searchList
-                        ? JSON.parse(searchList).map((item: string, index: number) => (
-                            <li key={index}>{ item }</li>
+                    searchDatas.length !== 0
+                        ? searchDatas.map((item: string, index: number) => (
+                            <S.SearchItem key={index}>
+                                <S.SearchItemClose onClick={() => {deleteSearched(index)}}>X</S.SearchItemClose>
+                                <p onClick={() => router.push(`/recipe/${item}`)}>{ item }</p>
+                            </S.SearchItem>
                         ))
                         :
-                        <h2>최근에 검색한 내용이 없습니다.</h2>
+                        <S.NotItemTitle>최근에 검색한 내용이 없습니다.</S.NotItemTitle>
                 }
-            </ul>
-        </div>
+            </S.SearchItems>
+        </S.SearchListContain>
     );
 };
 

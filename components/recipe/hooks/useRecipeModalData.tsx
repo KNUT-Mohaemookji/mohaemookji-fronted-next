@@ -4,7 +4,7 @@ import { IRecipeData } from '../types/interface';
 export function useRecipeModalState(clickRecipeData: IRecipeData) {
     const [menual] = useState<string[]>([]);
     const [menualImg] = useState<string[]>([]);
-    const [recipeModalData, setRecipeModalData] = useState<IRecipeData>({});
+    const [recipeModalData, setRecipeModalData] = useState({});
     useEffect(() => {
         for(let data in clickRecipeData){
             if (data.includes('MANUAL_IMG')) {
