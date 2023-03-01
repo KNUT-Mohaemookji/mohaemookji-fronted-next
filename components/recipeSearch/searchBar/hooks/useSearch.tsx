@@ -11,6 +11,9 @@ const useSearch = () => {
             sessionStorage.setItem('search', JSON.stringify(searchDatas));
             setSearch('');
         }else {
+            let searchItemIndx = searchDatas.indexOf(search);
+            searchDatas.splice(searchItemIndx, 1);
+            setSearchDatas([search, ...searchDatas]);
             // setSearchDatas(searchDatas.filter((item, i) => item !== searchDatas[index]))
             // setSearchDatas(searchDatas.splice(0, 1, search));
             setSearch('');

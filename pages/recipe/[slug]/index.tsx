@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import RecipeTitle from '../../../components/recipe/recipeTitle';
 import RecipeListView from '../../../components/recipe/recipeList';
 import { IRecipeProps } from '../../../components/recipe/types/interface';
 
@@ -25,6 +26,7 @@ const Recipe = ({recipeData, count}: IRecipeProps) => {
     }
     return (
         <>
+        <RecipeTitle/>
             <RecipeListView {...props}/>
         </>
     );
