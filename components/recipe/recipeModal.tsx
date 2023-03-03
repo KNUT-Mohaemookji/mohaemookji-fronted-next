@@ -6,124 +6,50 @@ import { IRecipeData } from './types/interface';
 import Image from 'next/image';
 import Mart from './mart';
 import { useRecipeModalState } from './hooks/useRecipeModalData';
+import * as S from './style/recipeModal';
 
 // ㅠㅜ 결국.. any
 const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
     const { menualImg, menual, recipeModalData } = useRecipeModalState(clickRecipeData);
     useEffect(() => {
+        console.log(recipeModalData);
         menualImg.sort();
         menual.sort();
-    }, [menual, menualImg]);
+    }, [menual, menualImg, recipeModalData]);
     return (
         <>
-            <div className="modal_content" >
-                <div className="modal_inner">
-                    <p className="close" onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></p>
-                    <p className="recipe_name">{ recipeModalData.RCP_NM} ({recipeModalData.RCP_PAT2})</p>
+            <S.ModalContent>
+                <S.ModalInner>
+                    <S.Close onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></S.Close>
+                    <S.RecipeName>{ recipeModalData.RCP_NM} ({recipeModalData.RCP_PAT2})</S.RecipeName>
                     <div className="recipe_details">
-                        <p className="recipe_details_title">요리에 필요한 재료</p>
-                        <p className="recipe_dtails_content">{ recipeModalData.RCP_PARTS_DTLS } </p>
+                        <S.RecipeDetailsTitle>요리에 필요한 재료</S.RecipeDetailsTitle>
+                        <S.RecipeDetailsContent>{ recipeModalData.RCP_PARTS_DTLS } </S.RecipeDetailsContent>
                     </div>
 
-                    <ul className="menuals">
+                    <S.Menuals>
                     {
                         menualImg.sort().map((item, index) => {
                             return (
-                                <li className="menual" key={index}>
-                                    <div className="menual_img">
+                                <S.Menual key={index}>
+                                    <S.MenualImg>
                                         <Image src={ item }
                                             width="250"
                                             height="150"
                                         alt="요리"/>
-                                    </div>
-                                    <p className="menual_content">{menual[index]}</p>
-                                </li>
+                                    </S.MenualImg>
+                                    <S.MenualContent>{menual[index]}</S.MenualContent>
+                                </S.Menual>
                             )
                         })
                     }
-                    </ul>
-                    <div className="mart_contain">
+                    </S.Menuals>
+                    <S.MartContain>
                         <Mart/>
-                    </div>
-                </div>
-            </div>
-            <style jsx>{`
-            *{
-                list-style: none;
-            }
-            .modal_content {
-                position: relative;
-                text-align: center;
-                overflow-y: scroll;
-                width: 80vw;
-                height: 80vh;
-                background-color: rgb(249, 249, 249);
-                box-shadow: 2px 3px 3px 1px rgb(203, 209, 209);
-                border: 0;
-                border-radius: 20px;
-                .modal_inner{
-                    position: absolute;
-                    width: 50%;
-                    margin: auto;
-                    right: 0;
-                    left: 0;
-                    .close {
-                        position: absolute;
-                        cursor: pointer;
-                        right: 0;
-                        font-size: 30px;
-                        font-weight: 700;
-                    }
-                    .recipe_name{
-                        font-size: 30px;
-                        font-weight: 700;
-                        color: #333;
-                    }
-                    .recipe_details{
-                        .recipe_details_title{
-                            font-size: 25px;
-                            font-weight: 700;
-                            color: #333;
-                        }
-                        .recipe_dtails_content{
-                            font-size: 18px;
-                            font-weight: 600;
-                            color: grey;
-                        }
-                    }
-                    .menuals{
-                        display: flex;
-                        padding: 24px;
-                        overflow-x: scroll;
-                        // 스크롤 안되는 문제 해결
-                        transform: translateZ(0);
-                        scroll-snap-type: x mandatory;
-                        scroll-padding: 24px;
-                        gap: 10%;
-                        .menual{
-                            flex: 0 0 30%;
-                            scroll-snap-align: start;
-                            .menual_img{
-                                overflow: hidden;
-                                image-rendering: -webkit-optimize-contrast;
-                                backface-visibility: hidden;
-                                transform: translateZ(0);
-                                border-radius: 10px;
-                            }
-                            .menual_content{
-                                font-size: 18px;
-                                font-weight: 600;
-                                color: #333;
-                            }
-                        }
-                    }
-                    .mart_contain{
-                        width: 100%;
-                    }
-                }
-            }
-            `}</style>
+                    </S.MartContain>
+                </S.ModalInner>
+            </S.ModalContent>
         </>
     );
 };

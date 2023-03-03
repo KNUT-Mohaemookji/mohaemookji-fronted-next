@@ -5,6 +5,7 @@ import { RootState } from '../../store/reducers';
 import { useRecipeModalState } from './hooks/useRecipeModalState';
 import { IRecipeData } from './types/interface';
 import RecipeItem from './recipeItem';
+import * as S from './style/recipeList';
 
 import Loading from '../common/loading';
 
@@ -16,8 +17,8 @@ const RecipeListView = ({ recipeData }: IRecipeData & any) => {
     
     return (
         <>
-            <div className="recipelist_contain">
-                <div className="inner">
+            <S.RecipeListContain>
+                <S.RecipeListInner>
                     {
                         getRecipeData.map((data, index) => {
                             return (
@@ -25,60 +26,18 @@ const RecipeListView = ({ recipeData }: IRecipeData & any) => {
                             )
                         })
                     }
-                    <button className="more_button" onClick={() => { }}>더 보기</button>
+                    <S.MoreButton onClick={() => { }}>더 보기</S.MoreButton>
                     {
                         state.recipeState === true
                         ?
-                        <div className="recipe_modal" >
-                            <div className="background-black"/>
+                        <S.RecipeModal >
+                            <S.BackgroundBlack/>
                             <RecipeModal clickRecipeData={ clickRecipeData } />
-                        </div>
+                        </S.RecipeModal>
                        : null
                     }
-                </div>
-            </div>
-            <style jsx>{`
-                *{
-                    list-style: none;
-                }
-                .background-black{
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: 100vh;
-                    background: rgba(0, 0, 0, .7);
-                }
-                .recipelist_contain{
-                    position: relative;
-                    width: 100vw;
-                    height: 100vh;
-                    .inner{
-                        display: flex;
-                        justify-content: space-around;
-                        margin: 3% auto;
-                        flex-wrap: wrap;
-                        gap: 50px;
-                        width: 70vw;
-                    }
-                    .more_button{
-                        width: 300px;
-                        height: 50px;
-                        color: #fff;
-                        background-color: #A6BB8D;
-                        border: 0;
-                        border-radius: 10px;
-                        margin: auto;
-                        font-size: 18px;
-                        font-weight: 700;
-                    }
-                    .recipe_modal{
-                        position: fixed;
-                        display: flex;
-                        justify-content: center;
-                    }
-                }
-            `}</style>
+                </S.RecipeListInner>
+            </S.RecipeListContain>
         </>
     );
 };

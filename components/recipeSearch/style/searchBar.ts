@@ -6,6 +6,9 @@ export const SearchBar = styled.div`
     justify-content: space-around;
     width: 40vw;
     margin: auto;
+    @media (max-width: 900px){
+        width: 85%;
+    }
 `
 export const SearchInput = styled.input`
     width: 90%;
@@ -15,6 +18,10 @@ export const SearchInput = styled.input`
     font-size: 18px;
     font-weight: 700;
     border-radius: 10px;
+    @media (max-width: 900px){
+        height: 50px;
+        font-size: 16px;
+    }
 `
 
 export const SearchButton = styled.button`
@@ -27,4 +34,10 @@ export const SearchButton = styled.button`
     background: lightgrey;
     color: #fff;
     cursor: pointer;
+    @media (max-width: 900px){
+        font-size: 16px;
+        width: 20%;
+        height: 50px;
+        margin-left: 10px;
+    }
 `

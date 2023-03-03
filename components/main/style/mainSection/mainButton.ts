@@ -7,6 +7,9 @@ interface IButtonStyle {
 export const MainButtonContain = styled.div`
     position: relative;
     display: flex;
+    @media (max-width: 900px){
+        justify-content: space-around;
+    }
 `
 export const Button = styled.button`
     position: relative;

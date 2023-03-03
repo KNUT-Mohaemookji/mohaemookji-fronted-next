@@ -19,6 +19,9 @@ export const MainTextContent = styled.div`
     overflow: hidden;
     height: 49px;
     padding: 0 40px;
+    @media (max-width: 900px){
+        justify-content: center;
+    }
 `
 
 export const ContentText = styled.p`
@@ -32,6 +35,7 @@ export const ContainerLists = styled.ul`
     margin-top: 0;
     text-align: left;
     list-style: none;
+    
 `
 
 export const ContainerList = styled.li`
@@ -48,6 +52,10 @@ export const Text = styled.p`
     left: 40px;
     font-size: 50px;
     font-weight: 700;
+    @media (max-width: 900px){
+        left: 0;
+        right: 0;
+    }
 `
 
 export const SubText = styled.p`

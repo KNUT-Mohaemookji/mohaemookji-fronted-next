@@ -20,6 +20,9 @@ export const SearchItems = styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    @media (max-width: 900px){
+        width: 85%;
+    }
 `
 
 export const SearchItemClose = styled.p`
@@ -35,13 +38,13 @@ export const SearchItemClose = styled.p`
     padding: 3px;
     background-color: #fff;
     color: #333;
-    z-index: !important;
 `
 
 export const SearchItem = styled.li`
     position: relative;
     z-index: 1;
     padding: 20px;
+    // width: 200px;
     max-height: 50px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -57,8 +60,23 @@ export const SearchItem = styled.li`
             display: block;
         }
     }
+    @media (max-width: 900px){
+        font-size: 14px;
+        margin: auto;
+    }
+`
+
+export const SearchText = styled.p`
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 `
 
 export const NotItemTitle = styled.h3`
     color: #333;
+    @media (max-width: 900px){
+        font-size: 14px;
+        margin: auto;
+    }
 `
