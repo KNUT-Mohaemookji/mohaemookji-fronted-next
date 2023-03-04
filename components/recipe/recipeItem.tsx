@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { recipeItemProps } from './types/interface';
 import * as S from './style/recipeItem';
-
+import { useRecipeModalState } from './hooks/useRecipeModalData';
 
 const recipeItem = ({data, index, clickModal}: recipeItemProps) => {
+    const { menualImg } = useRecipeModalState(data);
     return (
         <>
             <S.RecipeList key={index} style={{ backgroundImage: `url(${data.ATT_FILE_NO_MK})` }}
@@ -17,7 +18,7 @@ const recipeItem = ({data, index, clickModal}: recipeItemProps) => {
                         <S.Ingredient>{data.RCP_PARTS_DTLS}</S.Ingredient>
                         <S.CookingImgs>
                         {
-                            [data.MANUAL_IMG01, data.MANUAL_IMG02, data.MANUAL_IMG03].map((item, index) => {
+                            menualImg.map((item, index) => {
                                 return (
                                     <li key={index}>
                                         <S.CookingImg>

@@ -9,4 +9,7 @@ export const NoticeTitle = styled.p`
     font-size: 25px;
     font-weight: 700;
     color: #333;
+    @media (max-width: 900px){
+        font-size: 20px;
+    }
 `

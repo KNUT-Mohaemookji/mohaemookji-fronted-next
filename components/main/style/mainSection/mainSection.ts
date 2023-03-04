@@ -9,8 +9,11 @@ export const MainSectionContain = styled.div`
     margin-top: 5%;
     @media (max-width: 900px){
         flex-direction: column;
-        height: 130vh;
+        height: 120vh;
         overflow: hidden;
+    }
+    @media (max-width: 500px){
+        height: 150vh;
     }
 `
 export const MainLeft = styled.div`
@@ -26,7 +29,7 @@ export const MainRight = styled.div`
     overflow: hidden;
     margin-top: -5%;
     @media (max-width: 900px){
-        margin: 40% auto;
+        margin: 30% auto;
         text-align: center;
     }
 `

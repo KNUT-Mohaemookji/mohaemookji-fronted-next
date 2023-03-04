@@ -11,6 +11,9 @@ export const MainTextContain = styled.div`
     font-size: 35px;
     line-height: 40px;
     color: #333;
+    @media (max-width: 900px) {
+        left: 0px;
+    }
 `
 
 export const MainTextContent = styled.div`
@@ -29,13 +32,15 @@ export const ContentText = styled.p`
     font-size: 50px;
     float: left;
     margin: 6px 0;
+    @media (max-width: 900px){
+        font-size: 40px;
+    }
 `
 
 export const ContainerLists = styled.ul`
     margin-top: 0;
     text-align: left;
     list-style: none;
-    
 `
 
 export const ContainerList = styled.li`
@@ -44,6 +49,9 @@ export const ContainerList = styled.li`
     line-height: 1;
     width: 130px;
     text-align: center;
+    @media (max-width: 900px){
+        font-size: 50px;
+    }
 `
 
 export const Text = styled.p`
@@ -55,6 +63,7 @@ export const Text = styled.p`
     @media (max-width: 900px){
         left: 0;
         right: 0;
+        font-size: 40px;
     }
 `
 

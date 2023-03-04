@@ -21,6 +21,9 @@ export const SubLine = styled.hr`
     width: 500px;
     height: 1px;
     background-color: #f8f9fa;
+    @media (max-width: 900px) {
+        height: 0px;
+    }
 `
 
 export const Notice = styled.li`
@@ -28,6 +31,9 @@ export const Notice = styled.li`
     font-size: 20px;
     font-weight: 600;
     color: #333;
+    @media(max-width: 900px) {
+        font-size: 16px;
+    }
 `
 
 export const NoticeExplanation = styled.p`

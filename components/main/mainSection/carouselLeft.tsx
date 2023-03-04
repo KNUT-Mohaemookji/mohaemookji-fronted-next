@@ -31,15 +31,16 @@ const CarouselLeft = () => {
                     }
                 }
                 .left_carousel{
-                    margin-top: -25%;
+                    @media (max-width: 500px){
+                        margin-top: 5%;
+                    }
                     
                     .left_carousels {
-                        height: 100vh;
+                        height: 30vh;
                         .left_carousel{
                             background-color: lightgrey;
                         }
                         @media (max-width: 900px){
-                            height: 100vh;
                             display: flex;
                             align-items: end;
                             gap: 50px;

@@ -17,7 +17,8 @@ const MainTextView = () => {
         const loopSetInterval = setInterval(() => {
             setLoop(loop++);
             // eslint-disable-next-line react-hooks/exhaustive-deps
-            listElement.current!.style.transform = `translateY(${yAxis -= 49}px)`
+            // listElement.current!.style.transform = `translateY(${yAxis -= 49}px)`
+            listElement.current!.style.transform = `translateY(${yAxis -= 350}%)`
             listElement.current!.style.transition = '1s';
             if (loop === 4) {
                 // setLoop(0);

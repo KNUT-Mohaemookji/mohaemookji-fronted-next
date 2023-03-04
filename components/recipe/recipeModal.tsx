@@ -13,7 +13,7 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
     const { menualImg, menual, recipeModalData } = useRecipeModalState(clickRecipeData);
     useEffect(() => {
-        console.log(recipeModalData);
+        console.log(menualImg);
         menualImg.sort();
         menual.sort();
     }, [menual, menualImg, recipeModalData]);
