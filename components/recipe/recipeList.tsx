@@ -7,8 +7,6 @@ import { IRecipeData } from './types/interface';
 import RecipeItem from './recipeItem';
 import * as S from './style/recipeList';
 
-import Loading from '../common/loading';
-
 const RecipeListView = ({ recipeData }: IRecipeData & any) => {
     const recipe = recipeData.COOKRCP01.row;
     const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipe);

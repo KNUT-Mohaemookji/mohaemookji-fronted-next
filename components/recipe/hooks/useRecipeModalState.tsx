@@ -10,7 +10,6 @@ export const useRecipeModalState = (recipeData: IRecipeData[]) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('recipeData step 1', recipeData)
         setRecipeData(recipeData)
         
     }, [recipeData]);

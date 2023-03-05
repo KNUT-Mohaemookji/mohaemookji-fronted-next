@@ -9,6 +9,7 @@ const SearchBar = ({search, setSearch, searched}: ISearchBarProps) => {
 
     const handleOnKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
+            sessionStorage.setItem('currentSearch', search);
             searched(e.currentTarget.value);
         }
     }

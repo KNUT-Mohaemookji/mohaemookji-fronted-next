@@ -1,7 +1,7 @@
 import Loading from '../common/loading';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import useFindMyLocation from './hooks/useFindMyLocation';
-import { useKakaomapMartLocation } from './hooks/useKakaomapMartLocation';
+import useFindMyLocation from './hooks/kakaomap/useFindMyLocation';
+import { useKakaomapMartLocation } from './hooks/kakaomap/useKakaomapMartLocation';
 import martLocationImg from '../../public/img/markerImg/martLocation.png';
 import myLocationImg from '../../public/img/markerImg/myLocation.png';
 import { IMarkers } from './types/interface';

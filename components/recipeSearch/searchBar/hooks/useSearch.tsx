@@ -2,27 +2,33 @@ import React, { useEffect, useState } from 'react';
 
 const useSearch = () => {
     const [search, setSearch] = useState('');
-    const [searchDatas, setSearchDatas] = useState<string[]>([]);
+    const searchDatas = typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('search')) : null;
+    let [afterChangeDatas, setAfterChangeDatas] = useState<string[]>([]);
 
+    useEffect(() => {
+        
+    }, []);
     const searched = (search: string) => {
         if(!searchDatas.includes(search)) {
             sessionStorage.setItem('currentSearch', search);
-            setSearchDatas([...searchDatas, search]);
+            searchDatas.push(search);
             sessionStorage.setItem('search', JSON.stringify(searchDatas));
             setSearch('');
         }else {
-            let searchItemIndx = searchDatas.indexOf(search);
-            searchDatas.splice(searchItemIndx, 1);
-            setSearchDatas([search, ...searchDatas]);
-            // setSearchDatas(searchDatas.filter((item, i) => item !== searchDatas[index]))
-            // setSearchDatas(searchDatas.splice(0, 1, search));
+            let searchItemIndex = searchDatas.indexOf(search);
+            const fromItem = searchDatas.splice(searchItemIndex, 1);
+            const changedSearchData = fromItem.concat(...searchDatas)
+            setAfterChangeDatas([...afterChangeDatas, fromItem]);
+            sessionStorage.setItem('search', JSON.stringify(changedSearchData));
             setSearch('');
         }
     }
 
     const deleteSearched = (index: number) => {
-        setSearchDatas(searchDatas.filter((item, i) => item !== searchDatas[index]))
-        sessionStorage.setItem('search', JSON.stringify(searchDatas));
+        const changedSearchData = searchDatas.filter((item: string, i: number) => item !== searchDatas[index]);
+        // 나중에 수정하기 (재렌더링 문제 임시로 해결결)
+        setAfterChangeDatas([...afterChangeDatas, changedSearchData]);
+        sessionStorage.setItem('search', JSON.stringify(changedSearchData));
     }
 
     return {
@@ -31,7 +37,6 @@ const useSearch = () => {
         setSearch, 
         searched,
         searchDatas, 
-        setSearchDatas
     }
 };
 

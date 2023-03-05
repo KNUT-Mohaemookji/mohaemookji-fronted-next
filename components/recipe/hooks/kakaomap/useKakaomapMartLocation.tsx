@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useMyLocationAddress } from './useMyLocationAddress';
-import { IMarker, IMarkers } from '../types/interface';
+import { IMarker, IMarkers } from '../../types/interface';
 
 export const useKakaomapMartLocation = () => {
   const {myAddress} = useMyLocationAddress();

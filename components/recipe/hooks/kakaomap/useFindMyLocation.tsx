@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ILocationType } from '../types/interface';
+import { ILocationType } from '../../types/interface';
 
 const useFindMyLocation = () => {
     const [myLocation, setMyLocation] = useState<ILocationType>({
