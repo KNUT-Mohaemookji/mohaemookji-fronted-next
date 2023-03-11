@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const useSearch = () => {
     const [search, setSearch] = useState('');
     const searchDatas = typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('search')) : null;
+    const router = useRouter();
     let [afterChangeDatas, setAfterChangeDatas] = useState<string[]>([]);
 
     useEffect(() => {
-        
+        setAfterChangeDatas([]);
     }, []);
+
     const searched = (search: string) => {
-        if(!searchDatas.includes(search)) {
-            sessionStorage.setItem('currentSearch', search);
-            searchDatas.push(search);
-            sessionStorage.setItem('search', JSON.stringify(searchDatas));
+        if(searchDatas === null || !searchDatas.includes(search)) {
+            afterChangeDatas.push(search);
+            // sessionStorage.setItem('currentSearch', search);
+            sessionStorage.setItem('search', JSON.stringify(afterChangeDatas));
             setSearch('');
-        }else {
-            let searchItemIndex = searchDatas.indexOf(search);
-            const fromItem = searchDatas.splice(searchItemIndex, 1);
-            const changedSearchData = fromItem.concat(...searchDatas)
-            setAfterChangeDatas([...afterChangeDatas, fromItem]);
-            sessionStorage.setItem('search', JSON.stringify(changedSearchData));
+            // router.push(`/recipe/${search}` , undefined, { shallow: true });
+        } else {
+            let searchItemIndex = afterChangeDatas.indexOf(search);
+            const fromItem = afterChangeDatas.splice(searchItemIndex, 1);
+            setAfterChangeDatas([...fromItem, ...afterChangeDatas]);
+            sessionStorage.setItem('search', JSON.stringify(afterChangeDatas));
             setSearch('');
+            // router.push(`/recipe/${search}`);
         }
     }
 

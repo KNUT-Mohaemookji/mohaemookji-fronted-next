@@ -4,7 +4,7 @@ import SearchBar from './searchBar/SearchBar';
 import SearchList from './searchList/SearchList';
 
 const RecipeSearchMain = () => {
-    const {deleteSearched, search ,setSearch, searched, searchDatas, setSearchDatas} = useSearch();
+    const {deleteSearched, search ,setSearch, searched, searchDatas} = useSearch();
     return (
         <div>
             <SearchBar setSearch={setSearch} searched={searched} search={search}/>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiArrowUpRight } from "react-icons/fi";
+import * as S from '../style/recipeSection/roundExplanation';
 
 const RoundExplanationContent = () => {
     const contentTitle = '다양한 레시피를 보면서 완벽한 요리를 만들어 봐요!';
@@ -7,12 +8,12 @@ const RoundExplanationContent = () => {
     
     return (
         <>
-          <div className="back_black_color"/>
-            <div className="text">
-                <h1 className="title">{contentTitle}</h1>
-                <p className="explanation">{explanation}</p>
-                <button className="explanation_button"><FiArrowUpRight/></button>
-            </div>
+          <S.BackBlackColor/>
+            <S.Text>
+                <S.Title>{contentTitle}</S.Title>
+                <S.Explanation>{explanation}</S.Explanation>
+                <S.ExplanationButton><FiArrowUpRight/></S.ExplanationButton>
+            </S.Text>
         </>
     );
 };

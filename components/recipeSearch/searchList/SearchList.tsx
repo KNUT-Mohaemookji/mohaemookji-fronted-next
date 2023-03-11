@@ -8,9 +8,7 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
     const [domLoaded, setDomLoaded] = useState(false);
 
     useEffect(() => {
-        console.log(searchDatas.length);
-        
-      setDomLoaded(true);
+        setDomLoaded(true);
     }, []);
     
     return (
@@ -18,7 +16,7 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
             <S.SearchItems>
                 {
                     domLoaded &&
-                    searchDatas.length !== 0
+                    searchDatas !== null
                     ? searchDatas.map((item: string, index: number) => (
                             <S.SearchItem key={index}>
                                 <S.SearchItemClose onClick={() => {deleteSearched(index)}}>X</S.SearchItemClose>
