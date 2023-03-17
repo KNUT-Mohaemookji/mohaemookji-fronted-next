@@ -14,14 +14,23 @@ import { ICookingVideo, IVideoModalProps } from '../../../components/video/types
 */
 
 export async function getServerSideProps(){
-    console.log('apiUrl', apiUrl);
+    console.log('aaapiUrl', apiUrl);
     const cookingData: ICookingVideo = await (
-        await fetch(apiUrl.getCookingVideo)
+        await fetch(apiUrl.getCookingVideo, {
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
     ).json();
+    
 
     // 카테고리 별로 영상 뽑아오기
     const categoryCookingData: ICookingVideo = await (
-        await fetch(apiUrl.getCookingCategory)
+        await fetch(apiUrl.getCookingCategory, {
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
     ).json();
 
     return {

@@ -9,7 +9,6 @@ const RoundExplanation = () => {
             <div className="round_explanation_contain">
                 <S.Content>
                     <S.ContentItem>
-                        {/* <S.BackBlackColor /> */}
                         <RoundExplanationContent/>
                         <RoundExplnationImage/>
                     </S.ContentItem>

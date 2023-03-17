@@ -21,6 +21,9 @@ export const Title = styled.h1`
     margin-top: 150px;
     color: #fff;
     z-index: 10;
+    @media (max-width: 900) {
+        
+    }
 `
 
 export const ExplanationButton = styled.button`
@@ -58,7 +61,6 @@ export const Text = styled.div`
     @media screen and (max-width: 1200px){
         width: 50%;
         margin: auto;
-        margin-top: 60%;
     }
 `
 export const ContentImage = styled.div`
@@ -70,8 +72,7 @@ export const ContentImage = styled.div`
     transition: .5s;
     border-radius: 50%;
     @media screen and (max-width: 1200px){
-        // width: 100%;
-        // height: 300px;
+        width: 100;
         text-align: center;
     }
 `
@@ -112,7 +113,8 @@ export const ContentItem = styled.div`
         background-color: #E6E2C3;
         & > ${ContentImage} {
             margin: 50px 30px;
-            width: 400px;
+            // width: 400px;
+            width: 100%;
             height: 500px;
             transition: .5s;
             border-radius: 10px;
@@ -141,12 +143,31 @@ export const ContentItem = styled.div`
                 animation: 1s infinite alternate ${Bounce};
             }
         }
+        @media (max-width: 1200px) {
+            height: 800px;
+            & > ${ContentImage} {
+                margin: 50% auto;
+            }
+            & > ${Text} {
+                width: 100%;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                margin: 5% auto;
+                & > ${Title} {
+                    font-size: 30px;
+                    text-align: center;
+                    margin: 8% auto;
+                    width: 80%;
+                }
+                & > ${ExplanationButton} {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 20px;
+                    margin: 0px 20px;
+                }
+            }
+        }
     }
-    @media screen and (max-width: 900px){
-        width: 100%;
-        height: 800px;
-        flex-direction: column;
-    }
-    // &:hover ~ .playListHover
 `
 // & > ${변수명} {}

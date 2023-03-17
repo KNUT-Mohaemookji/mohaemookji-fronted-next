@@ -1,38 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const useSearch = () => {
     const [search, setSearch] = useState('');
-    const searchDatas = typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('search')) : null;
-    const router = useRouter();
+    const searchDatas = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('search') as string) : null;
     let [afterChangeDatas, setAfterChangeDatas] = useState<string[]>([]);
 
     useEffect(() => {
-        setAfterChangeDatas([]);
+        if(searchDatas !== null) {
+            setAfterChangeDatas(searchDatas)
+        }
     }, []);
 
     const searched = (search: string) => {
-        if(searchDatas === null || !searchDatas.includes(search)) {
+        if(searchDatas === null || !afterChangeDatas.includes(search)) {
             afterChangeDatas.push(search);
-            // sessionStorage.setItem('currentSearch', search);
-            sessionStorage.setItem('search', JSON.stringify(afterChangeDatas));
+            localStorage.setItem('search', JSON.stringify(afterChangeDatas));
             setSearch('');
-            // router.push(`/recipe/${search}` , undefined, { shallow: true });
         } else {
             let searchItemIndex = afterChangeDatas.indexOf(search);
-            const fromItem = afterChangeDatas.splice(searchItemIndex, 1);
-            setAfterChangeDatas([...fromItem, ...afterChangeDatas]);
-            sessionStorage.setItem('search', JSON.stringify(afterChangeDatas));
+            afterChangeDatas.splice(searchItemIndex, 1);
+            afterChangeDatas.unshift(search)
+            localStorage.setItem('search', JSON.stringify(afterChangeDatas));
             setSearch('');
-            // router.push(`/recipe/${search}`);
         }
     }
 
     const deleteSearched = (index: number) => {
         const changedSearchData = searchDatas.filter((item: string, i: number) => item !== searchDatas[index]);
-        // 나중에 수정하기 (재렌더링 문제 임시로 해결결)
+        // 나중에 수정하기 (재렌더링 문제 임시로 해결)
         setAfterChangeDatas([...afterChangeDatas, changedSearchData]);
-        sessionStorage.setItem('search', JSON.stringify(changedSearchData));
+        localStorage.setItem('search', JSON.stringify(changedSearchData));
     }
 
     return {

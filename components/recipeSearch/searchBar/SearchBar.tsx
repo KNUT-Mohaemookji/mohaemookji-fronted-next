@@ -1,14 +1,16 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import * as S from '../style/searchBar';
 import { ISearchBarProps } from '../types/interface';
 
 const SearchBar = ({search, setSearch, searched}: ISearchBarProps) => {
+    const router = useRouter();
 
     const handleOnKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             searched(search);
-            // router.push(`/recipe/${search}`);
+            router.push(`/recipe/${search}`);
         }
     }
 
