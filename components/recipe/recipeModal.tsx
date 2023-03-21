@@ -5,13 +5,13 @@ import { FiX } from 'react-icons/fi';
 import { IRecipeData } from './types/interface';
 import Image from 'next/image';
 import Mart from './mart';
-import { useRecipeModalState } from './hooks/useRecipeModalData';
+import { useRecipeModalData } from './hooks/useRecipeModalData';
 import * as S from './style/recipeModal';
 
 // ㅠㅜ 결국.. any
 const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
-    const { menualImg, menual, recipeModalData } = useRecipeModalState(clickRecipeData);
+    const { menualImg, menual, recipeModalData } = useRecipeModalData(clickRecipeData);
     useEffect(() => {
         console.log(menualImg);
         menualImg.sort();
@@ -22,22 +22,22 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
             <S.ModalContent>
                 <S.ModalInner>
                     <S.Close onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></S.Close>
-                    <S.RecipeName>{ recipeModalData.RCP_NM} ({recipeModalData.RCP_PAT2})</S.RecipeName>
+                    <S.RecipeName>{ clickRecipeData.RCP_NM} ({clickRecipeData.RCP_PAT2})</S.RecipeName>
                     <div className="recipe_details">
                         <S.RecipeDetailsTitle>요리에 필요한 재료</S.RecipeDetailsTitle>
-                        <S.RecipeDetailsContent>{ recipeModalData.RCP_PARTS_DTLS } </S.RecipeDetailsContent>
+                        <S.RecipeDetailsContent>{ clickRecipeData.RCP_PARTS_DTLS } </S.RecipeDetailsContent>
                     </div>
 
                     <S.Menuals>
                     {
-                        menualImg.sort().map((item, index) => {
+                        menualImg && menualImg.sort().map((item, index) => {
                             return (
                                 <S.Menual key={index}>
                                     <S.MenualImg>
                                         <Image src={ item }
                                             width="250"
                                             height="150"
-                                        alt="요리"/>
+                                        alt="레시피"/>
                                     </S.MenualImg>
                                     <S.MenualContent>{menual[index]}</S.MenualContent>
                                 </S.Menual>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { IRecipeData } from '../types/interface';
 
-export function useRecipeModalState(clickRecipeData: IRecipeData) {
+export function useRecipeModalData(clickRecipeData: IRecipeData) {
     const [menual] = useState<string[]>([]);
     const [menualImg] = useState<string[]>([]);
     const [recipeModalData, setRecipeModalData] = useState({});
+
     useEffect(() => {
         for(let data in clickRecipeData){
             if (data.includes('MANUAL_IMG')) {
@@ -14,7 +15,7 @@ export function useRecipeModalState(clickRecipeData: IRecipeData) {
                 clickRecipeData[data] && menual.push(clickRecipeData[data]);
                 
             }
-        }   
+        }
         setRecipeModalData(clickRecipeData);
     }, [clickRecipeData, menual, menualImg]);
 

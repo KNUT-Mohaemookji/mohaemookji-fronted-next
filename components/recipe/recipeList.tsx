@@ -24,7 +24,6 @@ const RecipeListView = ({ recipeData }: IRecipeData & any) => {
                             )
                         })
                     }
-                    <S.MoreButton onClick={() => { }}>더 보기</S.MoreButton>
                     {
                         state.recipeState === true
                         ?
