@@ -1,3 +1,4 @@
+/*global kakao*/ 
 import Loading from '../common/loading';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import useFindMyLocation from './hooks/kakaomap/useFindMyLocation';

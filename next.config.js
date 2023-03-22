@@ -15,7 +15,26 @@ const nextConfig = {
   },
   env: {
     BASE_URL: process.env.BASE_URL
-  }
+  },
+  reactStrictMode: true,
+  swcMinify: true,
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://127.0.0.1:16261/:path*"
+      },
+    ];
+  },
 }
 
-module.exports = nextConfig
+// const rewrite = async () => {
+//   return [
+//     {
+//       source: "/:path*",
+//       destination: "http://127.0.0.1:16261/:path*"
+//     },
+//   ];
+// }
+
+module.exports = nextConfig;

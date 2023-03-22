@@ -6,14 +6,15 @@ import { IRecipeData } from './types/interface';
 import Image from 'next/image';
 import Mart from './mart';
 import { useRecipeModalData } from './hooks/useRecipeModalData';
+import { useRecipeVideoData } from './hooks/useRecipeVideoData';
 import * as S from './style/recipeModal';
 
 // ㅠㅜ 결국.. any
 const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
     const { menualImg, menual, recipeModalData } = useRecipeModalData(clickRecipeData);
+    const { videoData } = useRecipeVideoData();
     useEffect(() => {
-        console.log(menualImg);
         menualImg.sort();
         menual.sort();
     }, [menual, menualImg, recipeModalData]);
@@ -45,9 +46,21 @@ const RecipeModal = ({ clickRecipeData }: IRecipeData | any) => {
                         })
                     }
                     </S.Menuals>
-                    <S.MartContain>
+                    <S.RecommendationVideoTitle>추천 영상</S.RecommendationVideoTitle>
+                    <S.RecommendationVideoContain>
+                        <S.RecommendationVideos>
+                        {
+                            ['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((video, index) => {
+                                return (
+                                    <S.RecommendationVideo key={index}>{video}</S.RecommendationVideo>
+                                )
+                            })
+                        }
+                        </S.RecommendationVideos>
+                    </S.RecommendationVideoContain>
+                    {/* <S.MartContain>
                         <Mart/>
-                    </S.MartContain>
+                    </S.MartContain> */}
                 </S.ModalInner>
             </S.ModalContent>
         </>
