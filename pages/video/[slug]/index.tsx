@@ -51,7 +51,7 @@ const Video = ({cookingData}: IVideoModalProps) => {
     }
     return (
         <>
-            <VideoListView {...props}/>
+            {/* <VideoListView {...props}/> */}
         </>
     );
 };

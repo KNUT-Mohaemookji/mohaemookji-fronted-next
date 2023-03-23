@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import useFindMyLocation from './useFindMyLocation';
-import { ICallbackResult } from '../../types/interface';
+import { ICallbackResult } from '../../types/kakaomap/interface';
 
 export const useMyLocationAddress = () => {
     const myLocation = useFindMyLocation();

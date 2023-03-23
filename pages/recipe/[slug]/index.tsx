@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import RecipeTitle from '../../../components/recipe/recipeTitle';
 import RecipeListView from '../../../components/recipe/recipeList';
-import { IRecipeProps } from '../../../components/recipe/types/interface';
+import { IRecipeProps } from '../../../components/recipe/types/recipe/interface';
 import { RecipeApiUrl, apiUrl } from '../../../utils/constants';
 
 

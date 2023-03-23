@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
 export const MartContain = styled.div`
+    margin-top: 15%;
+`
+
+export const MartInner = styled.div`
     position: relative;
     border: 5px solid lightgrey;
+    margin-bottom: 10%;
     border-radius: 10px;
     width: 100%;
     height: 360px;
+`
+
+export const MartTitle = styled.h2`
+    color: #333;   
 `
 
 export const Marker = styled.div`
@@ -18,4 +27,13 @@ export const Marker = styled.div`
     height: 20px;
     background: #fff;
     border-radius: 10px;
+`
+
+export const MartSpinner = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
 `

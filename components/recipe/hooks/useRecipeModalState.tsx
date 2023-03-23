@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { IRecipeData } from '../types/interface';
+import { IRecipeData } from '../types/recipe/interface';
 import { actions } from '../../../store/reducers/recipe';
 
 export const useRecipeModalState = (recipeData: IRecipeData[]) => {

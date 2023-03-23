@@ -18,6 +18,6 @@
       "kakao.maps.d.ts"
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/recipe/recipeDetailModal"],
   "exclude": ["node_modules"]
 }

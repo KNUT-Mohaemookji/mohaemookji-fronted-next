@@ -1,12 +1,12 @@
 /*global kakao*/ 
-import Loading from '../common/loading';
+import Loading from '../../common/innerLoading';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import useFindMyLocation from './hooks/kakaomap/useFindMyLocation';
-import { useKakaomapMartLocation } from './hooks/kakaomap/useKakaomapMartLocation';
-import martLocationImg from '../../public/img/markerImg/martLocation.png';
-import myLocationImg from '../../public/img/markerImg/myLocation.png';
-import { IMarkers } from './types/interface';
-import * as S from './style/mart';
+import useFindMyLocation from '../hooks/kakaomap/useFindMyLocation';
+import { useKakaomapMartLocation } from '../hooks/kakaomap/useKakaomapMartLocation';
+import martLocationImg from '../../../public/img/markerImg/martLocation.png';
+import myLocationImg from '../../../public/img/markerImg/myLocation.png';
+import { IMarkers } from '../types/kakaomap/interface';
+import * as S from '../style/martModal';
 
 const Mart = () => {
   const myLocation = useFindMyLocation();
@@ -15,8 +15,10 @@ const Mart = () => {
   return (
     <>
       <S.MartContain>
-      {
-        
+        <S.MartTitle>마트 정보</S.MartTitle>
+        <S.MartInner>
+        {
+          
           myLocation.loaded === true 
           ?
             <Map
@@ -40,7 +42,7 @@ const Mart = () => {
                 >
                   {info && info.content === marker.content && (
                     <S.Marker>{marker.content}</S.Marker>
-                      )}
+                  )}
 
                 </MapMarker>
               ))}
@@ -58,11 +60,12 @@ const Mart = () => {
               </MapMarker>
             </Map>
             :
-            <div className="spinner">
+            <S.MartSpinner>
               <Loading />
-            </div>
+            </S.MartSpinner>
         }
-        </S.MartContain>
+        </S.MartInner>
+      </S.MartContain>
     </>
   )
 };

@@ -28,13 +28,4 @@ const nextConfig = {
   },
 }
 
-// const rewrite = async () => {
-//   return [
-//     {
-//       source: "/:path*",
-//       destination: "http://127.0.0.1:16261/:path*"
-//     },
-//   ];
-// }
-
 module.exports = nextConfig;

@@ -8,11 +8,9 @@ const Loading = () => {
             </div>
             <style jsx>{`
                 .lds-default {
+                    position: relative;
                     z-index: 100;
-                    position: fixed;
                     display: inline-block;
-                    margin: auto;
-                    top:0; bottom: 0; right: 0; left: 0;
                     width: 80px;
                     height: 80px;
                   }

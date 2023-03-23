@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { recipeItemProps } from './types/interface';
+import { recipeItemProps } from './types/recipe/interface';
 import * as S from './style/recipeItem';
 import { useRecipeModalData as RecipeModalDataHook } from './hooks/useRecipeModalData';
 

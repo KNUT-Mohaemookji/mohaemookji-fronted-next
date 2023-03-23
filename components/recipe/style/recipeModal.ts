@@ -105,8 +105,10 @@ export const RecommendationVideoTitle = styled.h2`
 
 export const RecommendationVideoContain = styled.div`
     width: 100%;
-    height: 70vh;
+    height: 40vh;
+    padding: 30px;
     background-color: #eeeeee;
+    border-radius: 20px;
     overflow: scroll;
 `
 
@@ -114,12 +116,12 @@ export const RecommendationVideos = styled.ul`
     min-width: 150%;
     display: flex;
     flex-shrink: 0;
+    margin-top: 5%;
     gap: 20px;
 `
 
 export const RecommendationVideo = styled.li`
-    width: 250px;
-    height: 250px;
+    width: 35%;
     flex-shrink: 0; // 가로사이즈가 width 값에 영향 받지 않도록 하기위해 사용.
     border-radius: 10px;
     background-color: #333;
@@ -127,4 +129,5 @@ export const RecommendationVideo = styled.li`
 
 export const MartContain = styled.div`
     width: 100%;
+    margin-top: 20px;
 `

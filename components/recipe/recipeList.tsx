@@ -1,9 +1,9 @@
 import React from 'react';
-import RecipeModal from './recipeModal';
+import RecipeModal from './recipeDetailModal/mainModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
 import { useRecipeModalState } from './hooks/useRecipeModalState';
-import { IRecipeData } from './types/interface';
+import { IRecipeData } from './types/recipe/interface';
 import RecipeItem from './recipeItem';
 import * as S from './style/recipeList';
 
