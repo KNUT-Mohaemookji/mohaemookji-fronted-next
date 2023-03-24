@@ -5,10 +5,11 @@ export const RecipeList = styled.div`
     display: flex;
     width: 80%;
     height: 50vh;
-    border-radius: 20px;
+    border-radius: 70px 150px;
     box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
     @media (max-width: 900px) {
         flex-direction: column;
+        border-radius: 20px;
         width: 100%;
         height: 80vh;
     }
@@ -16,8 +17,9 @@ export const RecipeList = styled.div`
 
 export const RecipeMainImage = styled.img`
     width: 50%;
-    border-radius: 20px;
+    border-radius: 70px 150px;
     @media (max-width: 900px) {
+        border-radius: 20px;
         width: 100%;
     }
 `

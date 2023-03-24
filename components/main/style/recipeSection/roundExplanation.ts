@@ -48,6 +48,7 @@ export const ExplanationButton = styled.button`
 `
 
 export const Explanation = styled.p`
+    margin-top: 20px;
     opacity: 0;
     font-size: 20px;
     font-weight: 600;
@@ -67,12 +68,12 @@ export const ContentImage = styled.div`
     position: absolute;
     overflow: hidden;
     top: 0;
-    width: 400px;
-    height: 400px;
+    // width: 400px;
+    width: 100%;
     transition: .5s;
     border-radius: 50%;
     @media screen and (max-width: 1200px){
-        width: 100;
+        // height: 80%;
         text-align: center;
     }
 `
@@ -84,6 +85,10 @@ export const BackBlackColor = styled.div`
     border-radius: 50%;
     z-index: 10;
     background: rgba(0, 0, 0, .5);
+    @media (max-width: 900px){
+        width: 100%;
+        // height: 80%;
+    }
 `
 
 export const Content = styled.div`
