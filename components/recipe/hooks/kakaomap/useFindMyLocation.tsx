@@ -36,7 +36,6 @@ const useFindMyLocation = () => {
             })
         }
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     return myLocation;

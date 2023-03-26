@@ -10,7 +10,6 @@ import * as S from './style/recipeList';
 const RecipeListView = ({ recipeData }: IRecipeData & any) => {
     const recipe = recipeData.COOKRCP01.row;
     const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipe);
-
     const state = useSelector((state: RootState) => state.recipe);
     
     return (

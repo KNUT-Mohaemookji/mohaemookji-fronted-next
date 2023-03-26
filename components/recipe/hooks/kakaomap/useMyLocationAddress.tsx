@@ -5,6 +5,7 @@ import { ICallbackResult } from '../../types/kakaomap/interface';
 export const useMyLocationAddress = () => {
     const myLocation = useFindMyLocation();
     const [myAddress, setMyAddress] = useState('');
+    
     function getAddr(lat: number, lng: number) {
         let geocoder = new window.kakao.maps.services.Geocoder();
         let coord = new kakao.maps.LatLng(lat, lng);

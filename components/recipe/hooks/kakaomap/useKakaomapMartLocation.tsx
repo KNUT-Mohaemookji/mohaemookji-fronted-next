@@ -32,5 +32,6 @@ export const useKakaomapMartLocation = () => {
         }
     })
   }, [map, myAddress]);
+  
   return {setInfo, markers, setMap, info}
 }

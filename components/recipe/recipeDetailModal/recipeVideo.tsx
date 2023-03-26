@@ -7,12 +7,14 @@ import ReactPlayer from 'react-player';
 const RecipeVideo = () => {
     const [videoDataRes, setVideoDataRes] = useState([]);
     const youtubeVideoData = useRecipeVideoData();
+
     useEffect(() => {
         youtubeVideoData.then(res => {
             setVideoDataRes(res);
         })
         console.log(videoDataRes);
     }, []);
+    
     return (
         <>
             <S.RecommendationVideoTitle>추천 영상</S.RecommendationVideoTitle>

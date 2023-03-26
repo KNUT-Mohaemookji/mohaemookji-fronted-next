@@ -11,7 +11,7 @@ export const useGetVideoData = ({ cookingData, categoryCookingData }: IVideoList
 
     useEffect(() => {
         console.log(cookingData);
-        fetch('/api/category')
+        fetch('http://127.0.0.1:16261/video-data')
             .then(res => res.json())
             .then(data => setCategorys(data.item))
         // slug 기준으로 영상 랜덤으로 불러오기

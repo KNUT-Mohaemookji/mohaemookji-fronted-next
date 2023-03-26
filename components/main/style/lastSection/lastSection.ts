@@ -1,14 +1,5 @@
 import styled, {keyframes} from 'styled-components';
 
-const BackImageAnimation = keyframes`
-    from {
-        transform: scale(1.3);
-    }
-    to {
-        transform: scale(0);
-    }
-`
-
 export const LastSectionContainer = styled.div`
     position: relative;
     width: 100vw;
@@ -16,7 +7,6 @@ export const LastSectionContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    // transition: .3s;
 `
 
 export const DarkBackground = styled.div`
@@ -34,7 +24,6 @@ export const LastSectionContent = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // animation: ${BackImageAnimation} 2s;
 
 `
 export const TitleText = styled.h1`
