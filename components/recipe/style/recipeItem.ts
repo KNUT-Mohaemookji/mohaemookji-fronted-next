@@ -24,12 +24,14 @@ export const RecipeMainImage = styled.img`
     }
 `
 export const RecipeContentContainer = styled.div`
-    padding: 20px;
     width: 50%;
     height: 70vh;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: start;
+    gap: 3%;
     @media (max-width: 900px) {
         width: 100%;
         padding: 0;

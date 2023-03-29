@@ -9,7 +9,7 @@ const AboutMohaemookji = () => {
         <>
             <S.MohaemookjiContainer>
                 <S.VideoContain>
-                    <S.VideoBackground src=''/>
+                    <S.VideoBackground src='/video/aboutVideo.mp4' autoPlay muted loop />
                     <S.DarkBackground/>
                 </S.VideoContain>
                 <S.Content>

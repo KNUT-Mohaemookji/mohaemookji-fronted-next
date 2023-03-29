@@ -32,6 +32,7 @@ export const ModalInner = styled.div`
 export const Close = styled.p`
     position: absolute;
     cursor: pointer;
+    margin-top: 4%;
     right: 0;
     font-size: 30px;
     font-weight: 700;
@@ -44,16 +45,24 @@ export const Close = styled.p`
 export const RecipeName = styled.p`
     font-size: 30px;
     font-weight: 700;
+    margin-top: 5%;
     color: #333;
     @media (max-width: 900px) {
         font-size: 20px;
     }
 `
 
+export const Recipe_details = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+`
+
 export const RecipeDetailsTitle = styled.div`
     font-size: 25px;
     font-weight: 700;
     color: #333;
+    margin-top: 5%;
     @media (max-width: 900px) {
         font-size: 18px;
     }
@@ -63,6 +72,7 @@ export const RecipeDetailsContent = styled.p`
     font-size: 18px;
     font-weight: 600;
     color: grey;
+    margin-top: 5%;
     @media (max-width: 900px) {
         font-size: 12px;
     }
@@ -101,9 +111,11 @@ export const MenualContent = styled.p`
 `
 
 export const RecommendationVideoTitle = styled.h2`
+    margin-top: 10%;
 `
 
 export const RecommendationVideoContain = styled.div`
+    margin-top: 5%;
     width: 100%;
     height: 40vh;
     padding: 30px;

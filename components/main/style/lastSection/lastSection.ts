@@ -24,6 +24,7 @@ export const LastSectionContent = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3%;
 
 `
 export const TitleText = styled.h1`

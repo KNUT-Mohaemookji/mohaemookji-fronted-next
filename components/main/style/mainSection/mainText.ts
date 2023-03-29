@@ -30,8 +30,8 @@ export const MainTextContent = styled.div`
 export const ContentText = styled.p`
     display: inline;
     font-size: 50px;
+    margin-top: 7px;   
     float: left;
-    margin: 6px 0;
     @media (max-width: 900px){
         font-size: 40px;
     }
@@ -40,11 +40,11 @@ export const ContentText = styled.p`
 export const ContainerLists = styled.ul`
     margin-top: 0;
     text-align: left;
-    list-style: none;
+    list-style: none;   
 `
 
 export const ContainerList = styled.li`
-    margin-left: -30px;
+    margin-left: 10px;
     font-size: 50px;
     line-height: 1;
     width: 130px;
@@ -60,6 +60,7 @@ export const Text = styled.p`
     left: 40px;
     font-size: 50px;
     font-weight: 700;
+    margin-top: 50px;
     @media (max-width: 900px){
         left: 0;
         right: 0;

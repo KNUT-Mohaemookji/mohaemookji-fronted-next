@@ -48,7 +48,6 @@ export const ExplanationButton = styled.button`
 `
 
 export const Explanation = styled.p`
-    margin-top: 20px;
     opacity: 0;
     font-size: 20px;
     font-weight: 600;
@@ -73,7 +72,6 @@ export const ContentImage = styled.div`
     transition: .5s;
     border-radius: 50%;
     @media screen and (max-width: 1200px){
-        // height: 80%;
         text-align: center;
     }
 `

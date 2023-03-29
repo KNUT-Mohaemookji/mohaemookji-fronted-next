@@ -18,6 +18,8 @@ const CarouselRight = () => {
             </div>
             <style jsx>{`
                 .carousel{
+                    position: relative;
+                    top: 50px;
                     width: 200px;
                     height: 400px;
                     border-radius: 20px;

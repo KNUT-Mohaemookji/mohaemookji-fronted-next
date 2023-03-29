@@ -16,7 +16,7 @@ const MainTextView = () => {
     useEffect(() => {
         const loopSetInterval = setInterval(() => {
             setLoop(loop++);
-            listElement.current!.style.transform = `translateY(${yAxis -= 350}%)`
+            listElement.current!.style.transform = `translateY(${yAxis -= 100}%)`
             listElement.current!.style.transition = '1s';
             if (loop === 4) {
                 // setLoop(0);

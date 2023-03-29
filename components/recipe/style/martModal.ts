@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const MartContain = styled.div`
-    margin-top: 15%;
+    margin-top: 10%;
+    height: 50vh;
+
 `
 
 export const MartInner = styled.div`
     position: relative;
     border: 5px solid lightgrey;
-    margin-bottom: 10%;
+    margin-top: 3%;
     border-radius: 10px;
     width: 100%;
     height: 360px;

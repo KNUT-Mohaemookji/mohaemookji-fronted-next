@@ -14,12 +14,13 @@ export const Notices = styled.ul`
     animation: ${MainNoticeAnimation} 1s;
     position: absolute;
     margin-top: -10px;
-    left: -40px;
+    left: -20px;
 `
 
 export const SubLine = styled.hr`
     width: 500px;
     height: 1px;
+    margin-top: 10px;
     background-color: #f8f9fa;
     @media (max-width: 900px) {
         height: 0px;
@@ -27,7 +28,7 @@ export const SubLine = styled.hr`
 `
 
 export const Notice = styled.li`
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 20px;
     font-weight: 600;
     color: #333;
@@ -39,4 +40,5 @@ export const Notice = styled.li`
 export const NoticeExplanation = styled.p`
     color: #868e96;
     font-weight: 600;
+    margin-top: 20px;
 `

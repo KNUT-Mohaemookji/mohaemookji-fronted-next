@@ -17,6 +17,7 @@ const MainCarousel = () => {
             .carousel_contain{
                 position: relative;
                 display: flex;
+                gap: 50px;
                 height: calc(400px * 4);
                 animation: main_carousel 10s linear infinite;
                 @media (max-width: 900px){

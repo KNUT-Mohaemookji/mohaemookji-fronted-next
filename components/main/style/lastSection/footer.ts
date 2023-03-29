@@ -4,7 +4,7 @@ export const FooterContainer = styled.div`
     position: relative;
     width: 100vw;
     height: 15vh;
-    background-color: #333;
+    background-color: #eeeeee;
 `
 
 export const Content = styled.div`
@@ -17,6 +17,6 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h2`
-    color: #fff;
+    color: #333;
     text-align: center;
 `
