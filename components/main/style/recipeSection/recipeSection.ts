@@ -8,4 +8,7 @@ export const RecipeSectionContain = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1200px) {
+        background-color: #fff;
+    }
 `

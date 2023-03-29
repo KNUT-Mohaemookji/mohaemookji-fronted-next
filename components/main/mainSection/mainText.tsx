@@ -9,8 +9,6 @@ const MainTextView = () => {
     const [li_text] = useState<string[]>(['간식', '운동식', '건강식', '일반식']);
     let [loop, setLoop] = useState<number>(0);
     const listElement = useRef<HTMLUListElement | null>(null);
-    const router = useRouter();
-    const { pathname } = router;
     let yAxis: number = 0;
 
     useEffect(() => {
@@ -26,7 +24,6 @@ const MainTextView = () => {
                 listElement.current!.style.transform = `translateY(${0}px)`
             }
         }, 3000);
-        console.log('pathname은?', pathname);
         // unmounted되면 setInterval 제거시켜주기.
         return () => {
             clearInterval(loopSetInterval);

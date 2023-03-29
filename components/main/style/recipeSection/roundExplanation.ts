@@ -15,15 +15,11 @@ const Bounce = keyframes`
 
 export const Title = styled.h1`
     position: absolute;
-    width: 400px;
     font-size: 25px;
     text-align: center;
     margin-top: 150px;
     color: #fff;
     z-index: 10;
-    @media (max-width: 900) {
-        
-    }
 `
 
 export const ExplanationButton = styled.button`
@@ -57,9 +53,8 @@ export const Explanation = styled.p`
 export const Text = styled.div`
     position: absolute;
     width: 400px;
-    transition: .3s;
     @media screen and (max-width: 1200px){
-        width: 50%;
+        width: 100%;
         margin: auto;
     }
 `
@@ -67,12 +62,14 @@ export const ContentImage = styled.div`
     position: absolute;
     overflow: hidden;
     top: 0;
-    // width: 400px;
     width: 100%;
     transition: .5s;
     border-radius: 50%;
     @media screen and (max-width: 1200px){
         text-align: center;
+    }
+    @media screen and (max-width: 500px){
+        border-radius: 20px;
     }
 `
 export const BackBlackColor = styled.div`
@@ -85,7 +82,9 @@ export const BackBlackColor = styled.div`
     background: rgba(0, 0, 0, .5);
     @media (max-width: 900px){
         width: 100%;
-        // height: 80%;
+    }
+    @media screen and (max-width: 500px){
+        border-radius: 20px;
     }
 `
 
@@ -94,6 +93,9 @@ export const Content = styled.div`
     display: flex;
     justify-content: center;
     width: 80vw;
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
 `
 
 export const ContentItem = styled.div`
@@ -104,7 +106,12 @@ export const ContentItem = styled.div`
     border-radius: 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: .5s;
+    // transition: .5s;
+    @media (max-width: 500px) {
+        width: 350px;
+        height: 350px;
+        border-radius: 0;
+    }
     &:hover {
         display: flex;
         justify-content: center;
@@ -114,11 +121,10 @@ export const ContentItem = styled.div`
         height: 600px;
         border-radius: 20px;
         background-color: #E6E2C3;
+        transition: .5s;
         & > ${ContentImage} {
             margin: 50px 30px;
-            // width: 400px;
             width: 100%;
-            height: 500px;
             transition: .5s;
             border-radius: 10px;
             display: block;
@@ -147,9 +153,9 @@ export const ContentItem = styled.div`
             }
         }
         @media (max-width: 1200px) {
-            height: 800px;
+            width: 100%;
             & > ${ContentImage} {
-                margin: 50% auto;
+                margin: 30% auto;
             }
             & > ${Text} {
                 width: 100%;
@@ -167,8 +173,13 @@ export const ContentItem = styled.div`
                     width: 50px;
                     height: 50px;
                     font-size: 20px;
-                    margin: 0px 20px;
+                    margin: -5% 20px;
                 }
+            }
+        }
+        @media (max-width: 500px) {
+            & > ${ContentImage} {
+                margin: 50% auto;
             }
         }
     }

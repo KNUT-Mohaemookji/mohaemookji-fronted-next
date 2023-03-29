@@ -31,8 +31,11 @@ const CarouselLeft = () => {
                     }
                 }
                 .left_carousel{
+                    @media (max-width: 1200px){
+                        margin-top: 10%;
+                    }
                     @media (max-width: 500px){
-                        margin-top: 5%;
+                        margin-top: 6%;
                     }
                     
                     .left_carousels {

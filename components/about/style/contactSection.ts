@@ -13,6 +13,9 @@ export const ContactContainer = styled.div`
     color: #333;
     background-color: #eeeeee;
     text-align: center;
+    @media (max-width: 500px) {
+        gap: 3%;
+    }
 `
 
 export const UserImage = styled.img`
@@ -26,7 +29,7 @@ export const UserImage = styled.img`
 export const Title = styled.h1`
     font-size: 50px;
     @media (max-width: 900px){
-        font-size: 30px;
+        font-size: 25px;
     }
 `
 
@@ -35,6 +38,9 @@ export const Line = styled.hr`
     margin-top: -4%;
     height: 1.5px;
     background-color: #539165;
+    @media (max-width: 900px) {
+        display: none;
+    }
 `
 
 export const Members = styled.ul`
@@ -64,7 +70,7 @@ export const Role = styled.h3`
     font-size: 35px;
     font-weight: 700;
     @media (max-width: 900px){
-        font-size: 25px;
+        font-size: 20px;
     }
 `
 
@@ -72,7 +78,7 @@ export const Name = styled.p`
     font-weight: 600;
     font-size: 25px;
     @media (max-width: 900px){
-        font-size: 20px;
+        font-size: 18px;
     }
 `
 
@@ -80,6 +86,6 @@ export const Email = styled.p`
     font-weight: 600;
     font-size: 25px;
     @media (max-width: 900px){
-        font-size: 20px;
+        font-size: 16px;
     }
 `

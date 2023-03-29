@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const MainTextContain = styled.div`
     position: relative;
-    left: -40px;
     margin: auto;
-    width: 500px;
+    width: 100%;
     height: 200px;
     overflow: hidden;
     font-family: 'Lato', sans-serif;
@@ -14,16 +13,20 @@ export const MainTextContain = styled.div`
     @media (max-width: 900px) {
         left: 0px;
     }
+    @media (max-width: 500px) {
+        top: -50px;
+    }
 `
 
 export const MainTextContent = styled.div`
     display: flex;
     font-weight: 600;
     overflow: hidden;
+    min-width: 300px;
     height: 49px;
-    padding: 0 40px;
     @media (max-width: 900px){
         justify-content: center;
+        margin-left: 30px;
     }
 `
 
@@ -48,16 +51,15 @@ export const ContainerList = styled.li`
     font-size: 50px;
     line-height: 1;
     width: 130px;
-    text-align: center;
     @media (max-width: 900px){
-        font-size: 50px;
+        font-size: 40px;
+        margin-top: 6%;
     }
 `
 
 export const Text = styled.p`
     position: absolute;
     top: 30px;
-    left: 40px;
     font-size: 50px;
     font-weight: 700;
     margin-top: 50px;
@@ -72,5 +74,5 @@ export const SubText = styled.p`
     font-size: 20px;
     color: #868e96;
     font-weight: 600;
-    margin: 23% 8%;
+    margin-top: 32%;
 `

@@ -16,6 +16,7 @@ const MissionSection = () => {
     return (
         <>
             <S.MissionContainer>
+                <S.Background/>
                 <S.Inner ref={ watchElement }>
                     <S.Image eventState={eventState} src='/img/about/aboutMission.png'/>
                     <S.Content>

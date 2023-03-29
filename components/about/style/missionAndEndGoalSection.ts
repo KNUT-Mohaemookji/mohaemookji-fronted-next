@@ -21,7 +21,7 @@ export const Title = styled.h1<{eventState: boolean}>`
     animation: ${(props) => props.eventState === true && RightToLeft};
     animation-duration: 1s;
     @media (max-width: 900px) {
-        font-size: 40px;
+        font-size: 30px;
     }
 `
 
@@ -46,7 +46,7 @@ export const Mission = styled.li`
     font-weight: 600;
     transition: 1s;
     @media (max-width: 900px) {
-        font-size: 16ㅐpx;
+        font-size: 16px;
     }
 `
 
@@ -55,14 +55,23 @@ export const MissionContainer = styled.div`
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: #e3e3e3;
+    overflow: hidden;
+    background-color: #eeeeee;
 `
 
 export const EndGoalContainer = styled.div`
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: #ffffff;
+    overflow: hidden;
+`
+
+export const Background = styled.div`
+    // position: absolute;
+    // width: 150vw;
+    // height: 100%;
+    // background-color: #e3e3e3;
+    // transform: skew(3deg,-3deg)
 `
 
 export const Inner = styled.div`

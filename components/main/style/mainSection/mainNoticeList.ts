@@ -13,8 +13,11 @@ const MainNoticeAnimation = keyframes`
 export const Notices = styled.ul`
     animation: ${MainNoticeAnimation} 1s;
     position: absolute;
-    margin-top: -10px;
     left: -20px;
+    @media (max-width: 900px) {
+        left: 0;
+        right: 0;
+    }
 `
 
 export const SubLine = styled.hr`
@@ -24,6 +27,8 @@ export const SubLine = styled.hr`
     background-color: #f8f9fa;
     @media (max-width: 900px) {
         height: 0px;
+        width: 80%;
+        margin: 5% auto;
     }
 `
 

@@ -38,10 +38,10 @@ const CarouselRight = () => {
                             background-color: lightgrey;
                         }
                         @media (max-width: 900px){
-                            // height: 100vh;
                             display: flex;
                             align-items: end;
                             gap: 50px;
+                            margin-top: -3%;
                         }
                     }
                 }
