@@ -1,26 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { member, role, userImage } from '../../utils/about/constants';
 import useScrollEvent from '../common/hooks/useScrollEvent';
 import * as S from './style/contactSection';
 
 const CotactSection = () => {
     const contact = useRef<HTMLDivElement>(null);
     const [eventState, setEventState] = useState(false);
-    const role = ["FrontEnd", "BackEnd"];
-    const member = [
-        {
-            name: 'JGY',
-            email: 'jgy_98@naver.com',
-        },
-        {
-            name: 'YSH',
-            email: 'ysh_98@naver.com'
-        }
-    ]
-    const userImage = [
-        'https://avatars.githubusercontent.com/u/76980526?v=4',
-        'https://avatars.githubusercontent.com/u/33280934?v=4'
-    ];
+
     useScrollEvent(contact, setEventState);
+    
     return (
         <>
             <S.ContactContainer ref={contact}>

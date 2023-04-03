@@ -1,4 +1,3 @@
-import React from 'react';
 import RecipeModal from './recipeDetailModal/mainModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
@@ -6,24 +5,28 @@ import { useRecipeModalState } from './hooks/useRecipeModalState';
 import { IRecipeData } from './types/recipe/interface';
 import RecipeItem from './recipeItem';
 import * as S from './style/recipeList';
+import Loading from '../common/loading';
 
-const RecipeListView = ({ recipeData }: IRecipeData & any) => {
-    const recipe = recipeData.COOKRCP01.row;
-    const { clickRecipeData, getRecipeData, clickModal  } = useRecipeModalState(recipe);
-    const state = useSelector((state: RootState) => state.recipe);
+const RecipeListView = () => {
+    const { pending, clickRecipeData, getRecipeData, clickModal } = useRecipeModalState();
+    const recipeStore = useSelector((state: RootState) => state.recipe);
+
     return (
         <>
             <S.RecipeListContain>
-                <S.RecipeListInner>
+                {
+                    pending === true
+                    ? <Loading/>
+                    : <S.RecipeListInner>
                     {
-                        getRecipeData.map((data, index) => {
+                        getRecipeData && getRecipeData.map((data: IRecipeData, index: number) => {
                             return (
                                 <RecipeItem key={index} data={ data } index={ index } clickModal={clickModal} />
                             )
                         })
                     }
                     {
-                        state.recipeState === true
+                        recipeStore.recipeState === true
                         ?
                         <S.RecipeModal >
                             <S.BackgroundBlack/>
@@ -32,6 +35,7 @@ const RecipeListView = ({ recipeData }: IRecipeData & any) => {
                        : null
                     }
                 </S.RecipeListInner>
+                }
             </S.RecipeListContain>
         </>
     );

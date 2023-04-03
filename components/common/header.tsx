@@ -7,8 +7,8 @@ import logo from '../../public/img/mohaemookgi_logo.png';
 
 const Header = () => {
   // transform 으로 내려오는 작업 해주기
-  const [headerList] = useState(['Home', 'Video', 'Recipe Search', 'About']);
-  const [urlLink] = useState(['/', '/video/all', '/recipeSearch', '/about']);
+  const [headerList] = useState(['Home', 'Recipe Search', 'About']);
+  const [urlLink] = useState(['/', '/recipeSearch', '/about']);
   const [menuState, setMenuState] = useState(false);
   const hamburger = useRef<HTMLDivElement | null>(null);
   const overlay = useRef<HTMLDivElement | null>(null);
@@ -17,7 +17,6 @@ const Header = () => {
 
   const headerMove = () => {
     setMenuState(!menuState);
-    console.log(overlay.current);
     if (menuState === true) {
       overlay.current!.style.transform = 'translateY(100%)';
       document.getElementById('toggle')?.classList.remove('active');
@@ -32,7 +31,6 @@ const Header = () => {
     overlay.current!.style.transform = 'translateY(100%)';
     document.getElementById('toggle')?.classList.remove('active');
     setMenuState(false);
-    console.log(logo)
   }, [router.pathname]);
   return (
       <>

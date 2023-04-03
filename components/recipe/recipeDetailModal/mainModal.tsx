@@ -8,7 +8,6 @@ import RecipeVideo from './recipeVideo';
 import RecipeModal from './recipeModal';
 import * as S from '../style/recipeModal';
 
-// ㅠㅜ 결국.. any
 const MainModal = ({ clickRecipeData }: IRecipeData | any) => {
     const dispatch = useDispatch();
     return (
@@ -18,7 +17,7 @@ const MainModal = ({ clickRecipeData }: IRecipeData | any) => {
                     <S.Close onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></S.Close>
                     <RecipeModal clickRecipeData={clickRecipeData}/>
                     <RecipeVideo/>
-                    <RecipeMart/>
+                    {/* <RecipeMart/> */}
                 </S.ModalInner>
             </S.ModalContent>
         </>

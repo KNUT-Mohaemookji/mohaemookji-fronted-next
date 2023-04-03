@@ -1,7 +1,5 @@
 import React from 'react';
 import * as S from './style/aboutMohaemookji';
-import img from '../../public/img/main/carousel.jpg';
-// import video from './video/aboutVideo.mp4';
 
 
 const AboutMohaemookji = () => {

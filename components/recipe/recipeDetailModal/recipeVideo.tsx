@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ICookingVideo} from '../types/video/interface';
+import {ICookingVideo} from '../types/recipe/interface';
 import {useRecipeVideoData} from '../hooks/useRecipeVideoData';
 import * as S from '../style/recipeModal';
 import ReactPlayer from 'react-player';

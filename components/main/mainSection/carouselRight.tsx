@@ -1,13 +1,14 @@
 import React from 'react';
+import { carouselImageRight } from '../../../utils/main/constants';
 
 const CarouselRight = () => {
-    const rightImg = ['/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg', '/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg'];
+    // const rightImg = ['/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg', '/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg'];
     return (
         <>
             <div className="right_carousel">
                 <ul className="right_carousels">
                 {
-                    rightImg.map((item, index) => {
+                    carouselImageRight.map((item, index) => {
                         return (
                             <li className="left_carousel carousel" key={ index }
                             style={{backgroundImage: `url(${item})`}}></li>

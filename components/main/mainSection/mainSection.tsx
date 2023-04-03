@@ -3,7 +3,6 @@ import MainText from './mainText';
 import MainButton from './mainButton';
 import MainNotice from './mainNotice';
 import MainCarousel from './mainCarousel';
-
 import * as S from '../style/mainSection/mainSection';
 
 const MainSection = () => {

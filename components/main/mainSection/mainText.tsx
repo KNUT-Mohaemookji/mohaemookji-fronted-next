@@ -1,12 +1,11 @@
 import { IMainTextProps } from '../types/interface';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import * as S from '../style/mainSection/mainText';
+import { li_text } from '../../../utils/main/constants';
 
 const MainTextView = () => {
-    const [li_text] = useState<string[]>(['간식', '운동식', '건강식', '일반식']);
     let [loop, setLoop] = useState<number>(0);
     const listElement = useRef<HTMLUListElement | null>(null);
     let yAxis: number = 0;
@@ -32,9 +31,6 @@ const MainTextView = () => {
 
     return (
         <>
-            <Head>
-            {/* <link href="https://fonts.googleapis.com/css?family=Lato+display=optional" rel="stylesheet"/> */}
-            </Head>
             <S.MainTextContain>
                 <S.MainTextContent>
                     <S.ContentText>오늘</S.ContentText>

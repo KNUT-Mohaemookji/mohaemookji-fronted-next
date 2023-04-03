@@ -4,7 +4,9 @@ import React, {useEffect} from 'react';
 const useScrollEvent = (element: React.RefObject<HTMLDivElement>, setEventState:  React.Dispatch<React.SetStateAction<boolean>>) => {
     useEffect(() => {
         const io = new IntersectionObserver(entries => {
+            
             entries.forEach(entry => {
+                // intersectionRatio (노출된 비율)
                 if (entry.intersectionRatio > 0) {                    
                     setEventState(entry.isIntersecting);
                 } else {

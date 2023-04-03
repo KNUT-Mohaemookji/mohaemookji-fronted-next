@@ -16,7 +16,8 @@
     "incremental": true,
     "types": [
       "kakao.maps.d.ts"
-    ]
+    ],
+    "typeRoots": ["./@types',", "./node_modules/@types"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/recipe/recipeDetailModal"],
   "exclude": ["node_modules"]

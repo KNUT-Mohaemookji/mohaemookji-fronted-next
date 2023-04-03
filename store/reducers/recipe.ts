@@ -1,15 +1,15 @@
+import axios from 'axios';
 import {
     createAction,
-    ActionType,
     createReducer
 } from 'typesafe-actions';
 
-interface init {
+interface IRecipeInitialState {
     recipeState: boolean
 }
 
-const initialState: init = {
-    recipeState: false
+const initialState: IRecipeInitialState = {
+    recipeState: false,
 }
 
 export const RECIPE_MODAL = 'recipe/RECIPE_MODAL';
