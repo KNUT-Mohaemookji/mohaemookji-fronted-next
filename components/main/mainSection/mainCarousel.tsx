@@ -19,11 +19,11 @@ const MainCarousel = () => {
                 display: flex;
                 gap: 50px;
                 height: calc(400px * 4);
-                animation: main_carousel 10s linear infinite;
+                animation: main_carousel 15s linear infinite;
                 @media (max-width: 900px){
                     height: 400px;
                     flex-direction: column;
-                    animation: mobile_main_carousel 10s linear infinite;
+                    animation: mobile_main_carousel 15s linear infinite;
                     align-items: center;
                 }
             }

@@ -6,7 +6,7 @@ const Footer = () => {
         <>
             <S.FooterContainer>
                 <S.Content> 
-                    <S.Title>Footer</S.Title>
+                    <S.Title>Mohaemookji</S.Title>
                 </S.Content>
             </S.FooterContainer>
         </>

@@ -22,11 +22,11 @@ const nextConfig = {
     return [
       {
         source: "/video/:path*",
-        destination: "http://127.0.0.1:16261/:path*"
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_API_PATH}/:path*`
       },
       {
         source: "/recipe",
-        destination: "https://openapi.foodsafetykorea.go.kr/api/360e29b086e142e4856b/COOKRCP01/json/0/9"
+        destination: `${process.env.NEXT_PUBLIC_RECIPE_API}/${process.env.NEXT_PUBLIC_RECIPE_API_KEY}/COOKRCP01/json/0/9`
       }
     ];
   },

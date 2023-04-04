@@ -26,6 +26,7 @@ export const ModalInner = styled.div`
     left: 0;
     @media (max-width: 900px) {
         width: 75%;
+        margin-top: 20px;
     }
 `
 
@@ -122,6 +123,9 @@ export const RecommendationVideoContain = styled.div`
     background-color: #eeeeee;
     border-radius: 20px;
     overflow: scroll;
+    @media (max-width: 400px) {
+        height: 60vh;
+    }
 `
 
 export const RecommendationVideos = styled.ul`
@@ -133,10 +137,14 @@ export const RecommendationVideos = styled.ul`
 `
 
 export const RecommendationVideo = styled.li`
-    width: 35%;
     flex-shrink: 0; // 가로사이즈가 width 값에 영향 받지 않도록 하기위해 사용.
     border-radius: 10px;
     background-color: #333;
+    // aspect-ratio: 16 / 9;
+    @media (max-width: 900px) {
+        width: 60%;
+        // aspect-ratio: 3 / 4;
+    }
 `
 
 export const MartContain = styled.div`

@@ -4,7 +4,7 @@ export const FooterContainer = styled.div`
     position: relative;
     width: 100vw;
     height: 15vh;
-    background-color: #eeeeee;
+    background-color: #e3e3e3;
 `
 
 export const Content = styled.div`

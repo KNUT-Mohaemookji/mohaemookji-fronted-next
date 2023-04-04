@@ -16,7 +16,6 @@ const MainTextView = () => {
             listElement.current!.style.transform = `translateY(${yAxis -= 100}%)`
             listElement.current!.style.transition = '1s';
             if (loop === 4) {
-                // setLoop(0);
                 // eslint-disable-next-line react-hooks/exhaustive-deps
                 loop = 0;
                 yAxis = 0;

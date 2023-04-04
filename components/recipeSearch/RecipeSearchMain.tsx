@@ -6,7 +6,9 @@ import SearchList from './searchList/SearchList';
 const RecipeSearchMain = () => {
     const {deleteSearched, search ,setSearch, searched, searchDatas} = useSearch();
     return (
-        <div>
+        <div 
+            style={{ height: "78vh" }}
+        >
             <SearchBar setSearch={setSearch} searched={searched} search={search}/>
             <SearchList deleteSearched={deleteSearched} searchDatas={searchDatas}/>
         </div>

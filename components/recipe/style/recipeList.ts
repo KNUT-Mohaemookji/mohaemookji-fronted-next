@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const RecipeListContain = styled.div`
-    position: relative;
+    position: relaative;
     width: 100vw;
-    height: 100vh;
 `
 
 export const RecipeListInner = styled.div`
@@ -29,8 +28,7 @@ export const MoreButton = styled.button`
 
 export const RecipeModal = styled.div`
     position: fixed;
-    display: flex;
-    justify-content: center;
+    z-index: 10;
 `
 
 export const BackgroundBlack = styled.div`

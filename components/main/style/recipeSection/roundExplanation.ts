@@ -42,6 +42,10 @@ export const ExplanationButton = styled.button`
         animation: 1s infinite alternate ${Bounce};
     }
 `
+export const ButtonIcon = styled.a`
+    text-decoration: none;
+    color: #fff;
+`
 
 export const Explanation = styled.p`
     opacity: 0;

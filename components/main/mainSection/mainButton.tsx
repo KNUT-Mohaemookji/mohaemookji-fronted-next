@@ -1,15 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import * as S from '../style/mainSection/mainButton';
+import Link from 'next/link';
 
 const MainButton = () => {
-    let categoryButton = useRef<HTMLUListElement>(null);
-    useEffect(() => {
-        console.log(categoryButton.current);
-    }, []);
     return (
         <>
             <S.MainButtonContain>
-                <S.Button className="watch_button" marginLeft="20px">찾으러가기!</S.Button>
+                <Link href='/recipeSearch'>
+                    <S.Button className="watch_button" marginLeft="20px">찾으러 가기!</S.Button>
+                </Link>
             </S.MainButtonContain>
         </>
     );

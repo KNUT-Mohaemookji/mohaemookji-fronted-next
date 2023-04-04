@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const RecipeItemContain = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+    @media (max-width: 900px){
+        height: 100vh;
+    }
+`
 export const RecipeList = styled.div`
     position: relative;
     display: flex;
@@ -11,6 +21,9 @@ export const RecipeList = styled.div`
         flex-direction: column;
         border-radius: 20px;
         width: 100%;
+        height: 80vh;
+    }
+    @media (max-width: 500px) {
         height: 80vh;
     }
 `
@@ -33,6 +46,7 @@ export const RecipeContentContainer = styled.div`
     justify-content: start;
     gap: 3%;
     @media (max-width: 900px) {
+        justify-content: space-around;
         width: 100%;
         padding: 0;
     }

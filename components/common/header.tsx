@@ -39,7 +39,7 @@ const Header = () => {
           <Link href="/">
             <div className={styles.logo}>
               <Image 
-                src="/img/mohaemookgi_logo.png"
+                src={logo}
                 width="100"
                 height="100"
                 alt='logo image' />

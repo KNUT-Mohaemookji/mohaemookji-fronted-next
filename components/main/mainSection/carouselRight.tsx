@@ -2,7 +2,6 @@ import React from 'react';
 import { carouselImageRight } from '../../../utils/main/constants';
 
 const CarouselRight = () => {
-    // const rightImg = ['/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg', '/img/main/carousel4.jpg', '/img/main/carousel3.jpg', '/img/main/carousel2.jpg','/img/main/carousel1.jpg'];
     return (
         <>
             <div className="right_carousel">
@@ -31,6 +30,7 @@ const CarouselRight = () => {
                     @media (max-width: 900px){
                         width: 400px;
                         height: 200px;
+                        left: 50px;
                     }
                 }
                 .right_carousel{

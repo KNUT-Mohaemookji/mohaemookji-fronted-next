@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const MartContain = styled.div`
     margin-top: 10%;
     height: 50vh;
-
 `
 
 export const MartInner = styled.div`

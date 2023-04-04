@@ -30,6 +30,9 @@ export const LastSectionContent = styled.div`
 export const TitleText = styled.h1`
     color: #fff;
     font-size: 50px;    
+    @media (max-width: 900px) {
+        font-size: 30px;
+    }
 `
 
 export const SubTitle = styled.p`
@@ -38,6 +41,9 @@ export const SubTitle = styled.p`
     text-align: center;
     line-height: 1.7rem;
     color: grey;
+    @media (max-width: 900px) {
+        font-size: 14px;
+    }
 `
 
 export const LastSectionButton = styled.button`
@@ -54,5 +60,10 @@ export const LastSectionButton = styled.button`
         background-color: transparent;
         border: 3px solid #fff;
         color: #fff;
+    }
+    @media (max-width: 900px) {
+        width: 100px;
+        height: 50px;
+        font-size: 14px;
     }
 `

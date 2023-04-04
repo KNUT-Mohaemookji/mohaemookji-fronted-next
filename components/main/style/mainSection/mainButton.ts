@@ -14,7 +14,7 @@ export const MainButtonContain = styled.div`
 export const Button = styled.button`
     position: relative;
     z-index: 10;
-    width: 50%;
+    width: 250px;
     left: -40px;
     height: 60px;
     font-size: 20px;
@@ -27,7 +27,7 @@ export const Button = styled.button`
     margin-top: 10%;
     margin-left: ${(props: IButtonStyle) => props.marginLeft};
     @media (max-width: 900px){
-        width: 50%;
+        width: 150px;
         height: 50px;
         font-size: 14px;
         left: 0px;

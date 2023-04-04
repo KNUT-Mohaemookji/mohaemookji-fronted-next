@@ -13,5 +13,6 @@ export const NoticeTitle = styled.p`
     color: #333;
     @media (max-width: 900px){
         font-size: 20px;
+        margin-left: 0;
     }
 `

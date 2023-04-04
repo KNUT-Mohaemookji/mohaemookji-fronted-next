@@ -13,7 +13,7 @@ export default function Layout({ children }: ChildrenProps) {
             { progressState && <Loading />} 
             <Header />
             {children}
-            {/* <Footer/> */}
+            <Footer/>
         </>
     )
 }

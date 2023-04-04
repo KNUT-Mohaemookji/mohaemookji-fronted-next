@@ -17,7 +17,8 @@ const RecipeListView = () => {
                 {
                     pending === true
                     ? <Loading/>
-                    : <S.RecipeListInner>
+                    : 
+                    <S.RecipeListInner>
                     {
                         getRecipeData && getRecipeData.map((data: IRecipeData, index: number) => {
                             return (
@@ -32,9 +33,9 @@ const RecipeListView = () => {
                             <S.BackgroundBlack/>
                             <RecipeModal clickRecipeData={ clickRecipeData } />
                         </S.RecipeModal>
-                       : null
+                    : null
                     }
-                </S.RecipeListInner>
+                    </S.RecipeListInner>
                 }
             </S.RecipeListContain>
         </>

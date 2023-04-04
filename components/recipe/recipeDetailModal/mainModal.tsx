@@ -17,7 +17,7 @@ const MainModal = ({ clickRecipeData }: IRecipeData | any) => {
                     <S.Close onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></S.Close>
                     <RecipeModal clickRecipeData={clickRecipeData}/>
                     <RecipeVideo/>
-                    {/* <RecipeMart/> */}
+                    <RecipeMart/>
                 </S.ModalInner>
             </S.ModalContent>
         </>
