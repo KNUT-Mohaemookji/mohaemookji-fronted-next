@@ -74,7 +74,9 @@ export const SearchText = styled.p`
 `
 
 export const NotItemTitle = styled.h3`
+    width: 100%;
     color: #333;
+    text-align: center;
     @media (max-width: 900px){
         font-size: 14px;
         margin: auto;

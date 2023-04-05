@@ -20,8 +20,8 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
                     ? searchDatas.map((item: string, index: number) => (
                             <S.SearchItem key={index}>
                                 <S.SearchItemClose onClick={() => {deleteSearched(index)}}>X</S.SearchItemClose>
-                                
-                                <S.SearchText onClick={() => router.push(`/recipe/${item}`)}>{ item }</S.SearchText>
+                                {/* location.assign 써도 되나..? */}
+                                <S.SearchText onClick={() => location.assign(`/recipe/${item}`)}>{ item }</S.SearchText>
                                 
                             </S.SearchItem>
                         ))

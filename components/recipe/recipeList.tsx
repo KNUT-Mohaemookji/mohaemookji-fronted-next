@@ -6,11 +6,11 @@ import { IRecipeData } from './types/recipe/interface';
 import RecipeItem from './recipeItem';
 import * as S from './style/recipeList';
 import Loading from '../common/loading';
+import { useEffect, useState } from 'react';
 
 const RecipeListView = () => {
     const { pending, clickRecipeData, getRecipeData, clickModal } = useRecipeModalState();
     const recipeStore = useSelector((state: RootState) => state.recipe);
-
     return (
         <>
             <S.RecipeListContain>

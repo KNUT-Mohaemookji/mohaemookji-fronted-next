@@ -34,4 +34,5 @@ export interface IRecipeDataInitialState {
     pending: boolean;
     error: boolean;
     recipeData: any; // 타입 수정하기.
+    menuName: string;
 }

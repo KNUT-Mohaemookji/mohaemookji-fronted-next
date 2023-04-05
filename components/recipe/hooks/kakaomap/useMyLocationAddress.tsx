@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useFindMyLocation from './useFindMyLocation';
 import { ICallbackResult } from '../../types/kakaomap/interface';
 
@@ -24,9 +24,8 @@ export const useMyLocationAddress = () => {
     useEffect(() => {
         kakao.maps.load(() => {
             getAddr( myLocation.coordinates!.lat, myLocation.coordinates!.lng)
-            console.log(myLocation);
         })
-    })
-    
+    });
+
     return {myAddress}
 };

@@ -5,7 +5,8 @@ import { recipeInstance } from '../../utils/api/api';
 const initialState: IRecipeDataInitialState = {
     pending: true,
     error: false,
-    recipeData: []
+    recipeData: [],
+    menuName: '',
 }
 
 const RECIPE_DATA_PENDING = 'getRecipData/RECIPE_DATA_PENDING';
@@ -13,17 +14,20 @@ const RECIPE_DATA_SUCCESS = 'getRecipData/RECIPE_DATA_SUCCESS';
 const RECIPE_DATA_FAIL = 'getRecipData/RECIPE_DATA_FAIL';
 
 // api 불러오는 함수
-async function getRecipeApi() {
-    const getData = await recipeInstance.get('/');
+async function getRecipeApi(menu: string) {
+    const getData = await recipeInstance.get(`/RCP_NM=${menu}`);
+    console.log(getData);
+    
     return getData;
 }
 
 // 데이터를 불러오는 동안 dispatch 실행.
-export const getRcipeData = () => async (dispatch: (arg0: { type: string; payload?: unknown; }) => void) => {
+export const getRcipeData = (menu: any) => async (dispatch: (arg0: { type: string; payload?: unknown; }) => void) => {
     // 불러오는 동안 
     dispatch({type: RECIPE_DATA_PENDING});
+    
     try {
-        const resRecipeData = await getRecipeApi();
+        const resRecipeData = await getRecipeApi(menu);
 
         dispatch({
             type: RECIPE_DATA_SUCCESS,
@@ -50,7 +54,7 @@ export default handleActions({
         return {
             ...state,
             pending: false,
-            recipeData: action.payload.data.COOKRCP01
+            recipeData: action.payload.data.COOKRCP01.row
         }
     },
     [RECIPE_DATA_FAIL]: (state: IRecipeDataInitialState) => {

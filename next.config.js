@@ -25,8 +25,8 @@ const nextConfig = {
         destination: `${process.env.NEXT_PUBLIC_BACKEND_API_PATH}/:path*`
       },
       {
-        source: "/recipe",
-        destination: `${process.env.NEXT_PUBLIC_RECIPE_API}/${process.env.NEXT_PUBLIC_RECIPE_API_KEY}/COOKRCP01/json/0/9`
+        source: "/recipeAPI/:path*",
+        destination: `${process.env.NEXT_PUBLIC_RECIPE_API}/${process.env.NEXT_PUBLIC_RECIPE_API_KEY}/COOKRCP01/json/0/9/:path*`
       }
     ];
   },

@@ -12,11 +12,11 @@ const RoundExplanationContent = () => {
                 <S.Title>{contentTitle}</S.Title>
                 <S.Explanation>{explanation}</S.Explanation>
                     <S.ExplanationButton>
-                        <Link href='/recipeSearch'>
+                        {/* <Link href='/recipeSearch'> */}
                             <S.ButtonIcon>
                                 <FiArrowUpRight/>
                             </S.ButtonIcon>
-                        </Link>
+                        {/* </Link> */}
                     </S.ExplanationButton>
             </S.Text>
         </>

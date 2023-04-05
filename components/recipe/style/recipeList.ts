@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const RecipeListContain = styled.div`
     position: relaative;
     width: 100vw;
+    min-height: 75vh;
 `
 
 export const RecipeListInner = styled.div`
