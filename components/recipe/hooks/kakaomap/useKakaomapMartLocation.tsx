@@ -8,6 +8,13 @@ export const useKakaomapMartLocation = () => {
   const [markers, setMarkers] = useState<IMarkers<string>[]>([]);
   const [map, setMap] = useState<kakao.maps.Map>();
   
+  let timer: string | number | NodeJS.Timeout | undefined ;
+  const kakaomapAPICount = () => {
+    timer = setTimeout(() => {
+      console.log('지도 호출.');
+    }, 1000);
+  }
+  
   useEffect(() => {
       if (!map) return
       
@@ -30,6 +37,14 @@ export const useKakaomapMartLocation = () => {
           }
           setMarkers(markers)
         }
+        // 최적화 1 : 호출 횟수 줄어 듦 bounds_changed -> idle로 변경
+        kakao.maps.event.addListener(map, 'idle', () => {
+          // 최적화 2 : Debounce를 사용해서 지도를 여러 번 이동시킬 때 마다 카운트 안되도록 하기.
+          if(timer){
+            clearTimeout(timer);
+          }
+          kakaomapAPICount();
+        })
     })
   }, [map, myAddress]);
   

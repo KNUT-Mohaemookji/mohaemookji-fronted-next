@@ -20,7 +20,9 @@ export const useRecipeModalState = () => {
             setPending(recipeDataStore.pending);       
             setRecipeData(recipeDataStore.recipeData);   
         } else {
-            dispatch(getRcipeData(router.query.slug));
+            if(typeof router.query.slug === 'string') {
+                dispatch(getRcipeData(router.query.slug));
+            }
         }
     }
     useEffect(() => {

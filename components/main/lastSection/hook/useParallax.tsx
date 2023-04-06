@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 
 
-const useParallax = (setScrollPosition: any) => {
+const useParallax = (setScrollPosition: React.Dispatch<React.SetStateAction<number>>) => {
     const handleScroll = () => {
         setScrollPosition(window.pageYOffset);
     }

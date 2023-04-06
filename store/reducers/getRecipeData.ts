@@ -22,7 +22,7 @@ async function getRecipeApi(menu: string) {
 }
 
 // 데이터를 불러오는 동안 dispatch 실행.
-export const getRcipeData = (menu: any) => async (dispatch: (arg0: { type: string; payload?: unknown; }) => void) => {
+export const getRcipeData = (menu: string) => async (dispatch: (arg0: { type: string; payload?: unknown; }) => void) => {
     // 불러오는 동안 
     dispatch({type: RECIPE_DATA_PENDING});
     

@@ -4,7 +4,7 @@ import * as S from '../style/recipeModal';
 import { IRecipeData } from '../types/recipe/interface';
 import { useRecipeModalData } from '../hooks/useRecipeModalData';
 
-const RecipeModal = ({clickRecipeData}: IRecipeData | any) => {
+const RecipeModal = ({clickRecipeData}: IRecipeData) => {
     const { menualImg, menual, recipeModalData } = useRecipeModalData(clickRecipeData);
     useEffect(() => {
         menualImg.sort();
