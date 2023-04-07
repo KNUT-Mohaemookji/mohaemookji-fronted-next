@@ -1,14 +1,18 @@
 import RecipeModal from './recipeDetailModal/mainModal';
+import NotRecipe from './notRecipe';
+import RecipeModalContain from './recipeModalContain';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
 import { useRecipeModalState } from './hooks/useRecipeModalState';
+import { useGetRecipe } from './hooks/useGetRecipe';
 import { IRecipeData } from './types/recipe/interface';
 import RecipeItem from './recipeItem';
 import * as S from './style/recipeList';
 import Loading from '../common/loading';
 
 const RecipeListView = () => {
-    const { pending, clickRecipeData, getRecipeData, clickModal } = useRecipeModalState();
+    const { pending, getRecipeData} = useGetRecipe();
+    const { clickRecipeData, clickModal } = useRecipeModalState();
     const recipeStore = useSelector((state: RootState) => state.recipe);
     return (
         <>
@@ -19,21 +23,15 @@ const RecipeListView = () => {
                     : 
                     <S.RecipeListInner>
                     {
-                        getRecipeData && getRecipeData.map((data: IRecipeData, index: number) => {
+                        getRecipeData && getRecipeData.length !== 0 
+                        ? getRecipeData.map((data: IRecipeData, index: number) => {
                             return (
                                 <RecipeItem key={index} data={ data } index={ index } clickModal={clickModal} />
                             )
                         })
+                        : <NotRecipe/>
                     }
-                    {
-                        recipeStore.recipeState === true
-                        ?
-                        <S.RecipeModal >
-                            <S.BackgroundBlack/>
-                            <RecipeModal clickRecipeData={ clickRecipeData } />
-                        </S.RecipeModal>
-                    : null
-                    }
+                    <RecipeModalContain clickRecipeData={clickRecipeData} recipeState={recipeStore.recipeState}/>
                     </S.RecipeListInner>
                 }
             </S.RecipeListContain>

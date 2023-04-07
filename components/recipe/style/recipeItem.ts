@@ -5,7 +5,7 @@ export const RecipeItemContain = styled.div`
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: 60vh;
+    height: 70vh;
     @media (max-width: 900px){
         height: 100vh;
     }

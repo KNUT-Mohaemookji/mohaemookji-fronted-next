@@ -44,7 +44,6 @@ export const SearchItem = styled.li`
     position: relative;
     z-index: 1;
     padding: 20px;
-    // width: 200px;
     max-height: 50px;
     box-sizing: border-box;
     border-radius: 10px;

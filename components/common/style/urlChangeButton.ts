@@ -15,7 +15,6 @@ export const Button = styled.button`
     position: relative;
     z-index: 10;
     width: 250px;
-    left: -40px;
     height: 60px;
     font-size: 20px;
     font-weight: 700;
@@ -24,8 +23,6 @@ export const Button = styled.button`
     background-color: #E6E2C3;
     border: 0;
     cursor: pointer;
-    margin-top: 10%;
-    margin-left: ${(props: IButtonStyle) => props.marginLeft};
     @media (max-width: 900px){
         width: 150px;
         height: 50px;

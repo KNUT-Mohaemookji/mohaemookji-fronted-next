@@ -28,6 +28,13 @@ export interface ICookingVideo {
     _id?: string,
 };
 
+export interface IRecipeModalContainProps {
+    recipeState: boolean,
+    clickRecipeData: {
+        [key: string]: string
+    }
+}
+
 // redux
 
 export interface IRecipeDataInitialState {

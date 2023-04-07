@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 export const LastSectionContainer = styled.div`
     position: relative;
     width: 100vw;
-    height: 85vh;
+    height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;

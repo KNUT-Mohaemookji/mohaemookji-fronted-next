@@ -1,6 +1,6 @@
 import React from 'react';
 import MainText from './mainText';
-import MainButton from './mainButton';
+import UrlChangeButton from '../../common/urlChangeButton';
 import MainNotice from './mainNotice';
 import MainCarousel from './mainCarousel';
 import * as S from '../style/mainSection/mainSection';
@@ -11,7 +11,7 @@ const MainSection = () => {
             <S.MainSectionContain>
                 <S.MainLeft>
                     <MainText />
-                    <MainButton />
+                    <UrlChangeButton text="요리하러 가기!" url="/recipeSearch" />
                     <MainNotice />
                 </S.MainLeft>
                 <S.MainRight>

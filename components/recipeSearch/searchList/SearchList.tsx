@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react';
 
 const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
-    const router = useRouter();
     const [domLoaded, setDomLoaded] = useState(false);
 
     useEffect(() => {

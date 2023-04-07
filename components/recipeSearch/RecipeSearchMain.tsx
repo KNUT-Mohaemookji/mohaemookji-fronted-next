@@ -7,7 +7,7 @@ const RecipeSearchMain = () => {
     const {deleteSearched, search ,setSearch, searched, searchDatas} = useSearch();
     return (
         <div 
-            style={{ height: "78vh" }}
+            style={{ height: "83vh" }}
         >
             <SearchBar setSearch={setSearch} searched={searched} search={search}/>
             <SearchList deleteSearched={deleteSearched} searchDatas={searchDatas}/>

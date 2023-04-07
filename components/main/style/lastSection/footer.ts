@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FooterContainer = styled.div`
     position: relative;
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     background-color: #e3e3e3;
 `
 

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const RecipeListContain = styled.div`
     position: relaative;
     width: 100vw;
-    min-height: 75vh;
+    min-height: 80vh;
 `
 
-export const RecipeListInner = styled.div`
+export const RecipeListInner = styled.div` 
     display: flex;
     justify-content: space-around;
     margin: 3% auto;

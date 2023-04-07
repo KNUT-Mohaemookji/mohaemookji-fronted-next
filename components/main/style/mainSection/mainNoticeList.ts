@@ -13,7 +13,6 @@ const MainNoticeAnimation = keyframes`
 export const Notices = styled.ul`
     animation: ${MainNoticeAnimation} 1s;
     position: absolute;
-    left: -20px;
     @media (max-width: 900px) {
         left: 0;
         right: 0;
