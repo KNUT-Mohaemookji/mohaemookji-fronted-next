@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../../../store/reducers/recipe';
-import { RootState } from '../../../store/reducers';
+import { RootState } from '../../../store';
 import { getRcipeData } from '../../../store/reducers/getRecipeData';
 import { useRouter } from 'next/router';
+import { IRecipeData } from '../types/recipe/interface';
+import { AppDispatch } from '../types/recipe/type';
 
 export const useGetRecipe = () => {
     const router = useRouter();
-    const [getRecipeData, setRecipeData] = useState([]);
+    const [getRecipeData, setRecipeData] = useState<IRecipeData[]>();
     const recipeDataStore = useSelector((state: RootState) => state.getRecipeData);
-    const dispatch = useDispatch<any>(); // 타입 수정하기.
+    const dispatch = useDispatch<AppDispatch>(); 
     const [pending, setPending] = useState(true);
 
 

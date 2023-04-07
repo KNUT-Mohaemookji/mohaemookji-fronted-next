@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import * as S from '../style/recipeModal';
-import { IRecipeData } from '../types/recipe/interface';
+import { IRecipeDataList } from '../types/recipe/interface';
 import { useRecipeModalData } from '../hooks/useRecipeModalData';
 
-const RecipeModal = ({clickRecipeData}: IRecipeData) => {
+const RecipeModal = ({clickRecipeData}: IRecipeDataList) => {
     const { menualImg, menual, recipeModalData } = useRecipeModalData(clickRecipeData);
     useEffect(() => {
         menualImg.sort();

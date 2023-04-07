@@ -50,7 +50,13 @@ export default handleActions({
             error: false,
         }
     },
-    [RECIPE_DATA_SUCCESS]: (state: IRecipeDataInitialState, action: { payload: { data: { COOKRCP01: IRecipeData; }; } }) => {
+    [RECIPE_DATA_SUCCESS]: (state: IRecipeDataInitialState, action: 
+        { payload: { 
+            data: { COOKRCP01: { 
+                row: IRecipeData[] 
+            }; }; 
+        } 
+    }) => {
         return {
             ...state,
             pending: false,

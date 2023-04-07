@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRecipeModalState } from './hooks/useRecipeModalState';
 import RecipeModal from './recipeDetailModal/mainModal';
 import * as S from './style/recipeModalContain';
 import { IRecipeModalContainProps } from './types/recipe/interface';

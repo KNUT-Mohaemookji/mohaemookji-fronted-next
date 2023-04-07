@@ -1,8 +1,7 @@
-import RecipeModal from './recipeDetailModal/mainModal';
 import NotRecipe from './notRecipe';
 import RecipeModalContain from './recipeModalContain';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/reducers';
+import { RootState } from '../../store';
 import { useRecipeModalState } from './hooks/useRecipeModalState';
 import { useGetRecipe } from './hooks/useGetRecipe';
 import { IRecipeData } from './types/recipe/interface';

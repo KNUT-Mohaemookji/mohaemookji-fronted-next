@@ -1,7 +1,10 @@
 // recipe
 export interface IRecipeData {
     [key: string]: string,
-    clickRecipeData: any,
+}
+
+export interface IRecipeDataList {
+    clickRecipeData: IRecipeData
 }
 
 export interface IRecipeProps {
@@ -16,7 +19,6 @@ export interface recipeItemProps {
 }
 
 export interface ICookingVideo { 
-    then(arg0: (res: any) => any): unknown;
     channelId: string,
     keyword: string,
     theme: string,
@@ -29,17 +31,14 @@ export interface ICookingVideo {
 };
 
 export interface IRecipeModalContainProps {
-    recipeState: boolean,
-    clickRecipeData: {
-        [key: string]: string
-    }
+    recipeState?: boolean,
+    clickRecipeData: IRecipeData
 }
 
 // redux
-
 export interface IRecipeDataInitialState {
     pending: boolean;
     error: boolean;
-    recipeData: any; // 타입 수정하기.
+    recipeData: IRecipeData[];
     menuName: string;
 }

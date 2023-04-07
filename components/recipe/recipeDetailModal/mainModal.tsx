@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
-import { IRecipeData } from '../types/recipe/interface';
+import { IRecipeData, IRecipeModalContainProps } from '../types/recipe/interface';
 import RecipeMart from './martModal';
 import RecipeVideo from './recipeVideo';
 import RecipeModal from './recipeModal';
 import * as S from '../style/recipeModal';
 
-const MainModal = ({ clickRecipeData }: IRecipeData | any) => {
+const MainModal = ({ clickRecipeData }: IRecipeModalContainProps) => {
+    useEffect(() => {
+        console.log(clickRecipeData);
+        
+    }, []);
     const dispatch = useDispatch();
     return (
         <>

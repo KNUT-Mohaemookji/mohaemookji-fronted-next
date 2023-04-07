@@ -27,7 +27,7 @@ const Mart = () => {
               level={5}
               onCreate={setMap}
             >
-              {markers.map((marker: IMarkers<any>) => (
+              {markers.map((marker: IMarkers<string>) => (
                 <MapMarker
                   image={{
                     src: martLocationImg.src,
@@ -36,9 +36,9 @@ const Mart = () => {
                       height: 25
                     }
                   }}
-                    key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
-                    position={marker.position}
-                    onClick={() => setInfo(marker)}
+                  key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+                  position={marker.position}
+                  onClick={() => setInfo(marker)}
                 >
                   {info && info.content === marker.content && (
                     <S.Marker>{marker.content}</S.Marker>

@@ -1,7 +1,11 @@
 // -----kakaomap-----
+interface IKakaomap {
+    [key: string]: string,
+}
+
 declare global {
     interface Window {
-      kakao: any;
+      kakao: IKakaomap;
     }
 }
 
@@ -27,8 +31,8 @@ export interface IMarkers<T> {
     position: {
         lat: T;
         lng: T;
-        x?: number;
-        y?: number;
+        x: number;
+        y: number;
     }
 }
 
@@ -39,3 +43,4 @@ export interface IMarker {
     };
     content?: string;
 }
+

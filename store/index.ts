@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import recipe from './recipe';
-import getRecipeData from './getRecipeData';
+import recipe from './reducers/recipe';
+import getRecipeData from './reducers/getRecipeData';
 
 const rootReducer = combineReducers({
     recipe, 
