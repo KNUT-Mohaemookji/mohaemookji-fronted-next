@@ -35,7 +35,7 @@ export const useKakaomapMartLocation = () => {
             // @ts-ignore
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
           }
-          setMarkers(markers)
+          setMarkers(markers as any)
         }
         // 최적화 1 : 호출 횟수 줄어 듦 bounds_changed -> idle로 변경
         kakao.maps.event.addListener(map, 'idle', () => {

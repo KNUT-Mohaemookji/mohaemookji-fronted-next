@@ -1,6 +1,8 @@
-import test from '../../../components/test';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
+import { NextApiRequest, NextApiResponse } from 'next/types';
+
 export default async function handler(req: NextApiRequest, res:NextApiResponse) {
-    const responseData = await test();
-    res.status(200).json({responseData});
+    let response = await (await axios.get('https://openapi.foodsafetykorea.go.kr/api/sample/COOKRCP01/json/1/5')).data;
+    
+    res.status(200).json({response});
 }

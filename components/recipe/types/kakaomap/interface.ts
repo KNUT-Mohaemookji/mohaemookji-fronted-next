@@ -16,14 +16,10 @@ export interface ILocationType {
 }
 
 export interface ICallbackResult {
-    0: {
-        address: {
-            [key: string]: string
-        },
-        road_address: {
-            [key: string]: string,
-        }
-    }
+    [key: number]: {
+        address: IKakaomap | null,
+        road_address: IKakaomap | null
+    },
 }
 
 export interface IMarkers<T> {

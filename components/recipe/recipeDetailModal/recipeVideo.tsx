@@ -12,7 +12,6 @@ const RecipeVideo = () => {
         youtubeVideoData.then(res => {
             setVideoDataRes(res);
         })
-        console.log(videoDataRes);
     }, []);
     
     return (
@@ -24,7 +23,7 @@ const RecipeVideo = () => {
                     videoDataRes.map((video: ICookingVideo, index: number) => {
                         return (
                             // 임시로 1개
-                            index === 1 &&
+                            // index === 1 &&
                             <S.RecommendationVideo key={index}>
                                 <ReactPlayer  
                                     videoId={video.videoId}

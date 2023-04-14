@@ -14,11 +14,6 @@ import axios from 'axios';
     recipeInstance.interceptors.response.use(
         response => {
             // url 값 넘겨주기.
-            const [beforeData, afterData] = ['', ''];
-            if(beforeData !== afterData) {
-            // location.reload();
-            }
-            console.log(response);
             
             return response;
         },

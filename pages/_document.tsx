@@ -34,8 +34,8 @@ class MyDocument extends Document {
             <>
                 <Html>
                     <Head>
-                    <script type="text/javascript" src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_API_KEY}&libraries=services,clusterer&autoload=false`} async></script>
-                    </Head>
+                        <script type="text/javascript" src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_API_KEY}&libraries=services,services&autoload=false`} async></script>
+                    </Head> 
                     <body>
                         <Main />
                         <NextScript />

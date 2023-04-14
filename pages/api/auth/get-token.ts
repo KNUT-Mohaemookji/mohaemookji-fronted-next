@@ -4,7 +4,6 @@ import jwtDecode from 'jwt-decode';
 async function getToken(credential: string){
     const decoded = jwtDecode(credential)
     try {
-        console.log(decoded);
         return decoded;
     }catch (error) {
         console.error(error);

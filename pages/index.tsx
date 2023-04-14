@@ -2,7 +2,7 @@ import MainSection from '../components/main/mainSection/mainSection';
 import RecipeSection from '../components/main/recipeSection/recipeSection';
 import LastSection from '../components/main/lastSection/lastSection';
 
-export default function Home() {
+export function Home() {
   return (
     <>
       <MainSection/>
@@ -11,3 +11,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;

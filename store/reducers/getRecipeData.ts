@@ -16,7 +16,6 @@ const RECIPE_DATA_FAIL = 'getRecipData/RECIPE_DATA_FAIL';
 // api 불러오는 함수
 async function getRecipeApi(menu: string) {
     const getData = await recipeInstance.get(`/RCP_NM=${menu}`);
-    console.log(getData);
     
     return getData;
 }

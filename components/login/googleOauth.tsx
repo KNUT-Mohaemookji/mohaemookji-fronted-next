@@ -7,7 +7,6 @@ const GoogleOauth = () => {
         <>
             {/* <GoogleLogin
                 onSuccess={credentoa;Res[pmse => {
-                    // console.log(credentialResponse);
                     fetch(`/api/auth/get-token/credential=${credentialResponse.credential}`)
                     .then(res => res.json())
                     .then(data => console.log(data))

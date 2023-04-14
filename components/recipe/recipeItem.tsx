@@ -2,11 +2,16 @@ import { recipeItemProps } from './types/recipe/interface';
 import * as S from './style/recipeItem';
 
 const recipeItem = ({data, clickModal}: recipeItemProps) => {
+    
     return (
         <>
             <S.RecipeItemContain>
                 <S.RecipeList>
-                    <S.RecipeMainImage src={data.ATT_FILE_NO_MK} alt="메인 이미지" />
+                    {
+                        data.ATT_FILE_NO_MK !== null
+                        ? <S.RecipeMainImage src={data.ATT_FILE_NO_MK} alt="메인 이미지" />
+                        : <p>bb</p>
+                    }
                     <S.RecipeContentContainer>
                         <S.RecipeTitle>{data.RCP_NM}</S.RecipeTitle>
                         { data.HASH_TAG && <S.HashTag>#{data.HASH_TAG}</S.HashTag> }
