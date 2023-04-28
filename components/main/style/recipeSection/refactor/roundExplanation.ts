@@ -8,7 +8,7 @@ export const RoundExplanationContain = styled.div`
     bottom: 0;
     left: 0;
     overflow: hidden;
-    @media (max-width: 1000px){
+    @media (max-width: 900px){
         order: 2;
     }
 `
@@ -49,10 +49,10 @@ export const RecipeContainImage = styled.div<{eventState: boolean}>`
 
 export const RoundModel = styled.div`
     position: absolute;
-    bottom: -20%;
+    bottom: -40%;
     left: -15%;
-    width: 1000px;
-    height: 900px;
+    width: 100%;
+    height: 90%;
     border-radius: 50%;
     background-color: #7AA874;
     @media (max-width: 900px){

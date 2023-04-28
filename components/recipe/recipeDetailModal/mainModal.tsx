@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../store/reducers/recipe';
 import { FiX } from 'react-icons/fi';
@@ -16,7 +16,7 @@ const MainModal = ({ clickRecipeData }: IRecipeModalContainProps) => {
                 <S.ModalInner>
                     <S.Close onClick={() => { dispatch(actions.recipe_modal()) }}><FiX/></S.Close>
                     <RecipeModal clickRecipeData={clickRecipeData}/>
-                    {/* <RecipeVideo/> */}
+                    <RecipeVideo/>
                     <RecipeMart/>
                 </S.ModalInner>
             </S.ModalContent>

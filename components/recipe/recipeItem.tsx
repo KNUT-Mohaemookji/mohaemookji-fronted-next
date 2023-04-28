@@ -7,11 +7,7 @@ const recipeItem = ({data, clickModal}: recipeItemProps) => {
         <>
             <S.RecipeItemContain>
                 <S.RecipeList>
-                    {
-                        data.ATT_FILE_NO_MK !== null
-                        ? <S.RecipeMainImage src={data.ATT_FILE_NO_MK} alt="메인 이미지" />
-                        : <p>bb</p>
-                    }
+                    <S.RecipeMainImage src={data.ATT_FILE_NO_MK} alt="메인 이미지" />
                     <S.RecipeContentContainer>
                         <S.RecipeTitle>{data.RCP_NM}</S.RecipeTitle>
                         { data.HASH_TAG && <S.HashTag>#{data.HASH_TAG}</S.HashTag> }

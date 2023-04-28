@@ -8,15 +8,16 @@ export function useRecipeModalData(clickRecipeData: IRecipeData) {
 
     useEffect(() => {
         for(let data in clickRecipeData){
-            if (data.includes('MANUAL_IMG')) {
+            if (data.includes('MANUAL_IMG') && !menualImg.includes(clickRecipeData[data])){
                 clickRecipeData[data] && menualImg.push(clickRecipeData[data]);
             }
-            if (data.includes('MANUAL') && !clickRecipeData[data].includes('http')) {
+            // !clickRecipeData[data].includes('http')
+            if (data.includes('MANUAL') && !menual.includes(clickRecipeData[data])) {
                 clickRecipeData[data] && menual.push(clickRecipeData[data]);
-                
             }
         }
         setRecipeModalData(clickRecipeData);
+
     }, [clickRecipeData, menual, menualImg]);
 
     return { menualImg, menual, setRecipeModalData, recipeModalData };

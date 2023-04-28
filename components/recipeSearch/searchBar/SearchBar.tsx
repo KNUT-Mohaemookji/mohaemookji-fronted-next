@@ -13,8 +13,12 @@ const SearchBar = ({search, setSearch, searched}: ISearchBarProps) => {
     return (
         <S.SearchBar>
             <S.SearchInput 
-            onKeyPress={handleOnKeyPress}
-            onChange={(e) => setSearch(e.target.value)} type="text" placeholder='검색어를 입력해주세요.' value={search} />
+                onKeyPress={handleOnKeyPress}
+                onChange={(e) => setSearch(e.target.value)} 
+                type="text" 
+                placeholder='검색어를 입력해주세요.' 
+                value={search} 
+            />
             <S.SearchButton onClick={() => searched(search)}>
                 검색
             </S.SearchButton>

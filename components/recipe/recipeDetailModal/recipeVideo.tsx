@@ -25,6 +25,7 @@ const RecipeVideo = () => {
                             // 임시로 1개
                             // index === 1 &&
                             <S.RecommendationVideo key={index}>
+                                <S.VideoName>{video.title}</S.VideoName>
                                 <ReactPlayer  
                                     videoId={video.videoId}
                                     url={video.url} 

@@ -7,16 +7,18 @@ const useSearch = () => {
 
     useEffect(() => {
         if(searchDatas !== null) {
-            setAfterChangeDatas(searchDatas)
+            setAfterChangeDatas(searchDatas);
         }
     }, []);
 
     const searched = (search: string) => {
+        // 검색 결과가 null 없거나, afterChangeDatas에 포함되지 않으면
         if(searchDatas === null || !afterChangeDatas.includes(search)) {
             afterChangeDatas.push(search);
             localStorage.setItem('search', JSON.stringify(afterChangeDatas));
             setSearch('');
         } else {
+            // 없으면 기존 데이터를 제일 앞으로 이동.
             let searchItemIndex = afterChangeDatas.indexOf(search);
             afterChangeDatas.splice(searchItemIndex, 1);
             afterChangeDatas.unshift(search)

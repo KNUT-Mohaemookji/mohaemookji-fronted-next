@@ -118,7 +118,7 @@ export const RecommendationVideoTitle = styled.h2`
 export const RecommendationVideoContain = styled.div`
     margin-top: 5%;
     width: 100%;
-    height: 40vh;
+    height: 55vh;
     padding: 30px;
     background-color: #eeeeee;
     border-radius: 20px;
@@ -128,21 +128,33 @@ export const RecommendationVideoContain = styled.div`
     }
 `
 
+export const VideoName = styled.p`
+    width: 100%;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #3e3e3e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`
+
 export const RecommendationVideos = styled.ul`
     min-width: 150%;
     display: flex;
     flex-shrink: 0;
     margin-top: 5%;
-    gap: 20px;
+    gap: 100px;
 `
 
 export const RecommendationVideo = styled.li`
     flex-shrink: 0; // 가로사이즈가 width 값에 영향 받지 않도록 하기위해 사용.
     border-radius: 10px;
-    background-color: #333;
-    // aspect-ratio: 16 / 9;
+    width: 50%;
+    aspect-ratio: 16 / 9;
     @media (max-width: 900px) {
-        width: 60%;
+        // width: 60%;
         // aspect-ratio: 3 / 4;
     }
 `

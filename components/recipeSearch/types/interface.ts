@@ -1,10 +1,16 @@
 export interface ISearchBarProps {
-    setSearch: React.Dispatch<React.SetStateAction<string>>;
-    search: string;
-    searched: (search: string) => void;
+    setSearch: React.Dispatch<React.SetStateAction<string>>,
+    search: string,
+    searched: (search: string) => void
 }
 
 export interface ISearchListProps {
-    searchDatas: string[];
+    // searchDatas: ILocalStorageSearch,
+    searchDatas: string[],
     deleteSearched: (index: number) => void;
+}
+
+export interface ILocalStorageSearch {
+    data: string[],
+    expires: number[]
 }

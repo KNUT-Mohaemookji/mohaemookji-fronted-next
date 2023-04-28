@@ -1,6 +1,5 @@
 import * as S from '../style/searchList';
 import { ISearchListProps } from '../types/interface';
-import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react';
 
 const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
@@ -8,14 +7,13 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
 
     useEffect(() => {
         setDomLoaded(true);
-    }, []);
+    }, [searchDatas]);
     
     return (
         <S.SearchListContain>
             <S.SearchItems>
                 {
-                    domLoaded &&
-                    searchDatas !== null
+                    domLoaded && searchDatas !== null
                     ? searchDatas.map((item: string, index: number) => (
                             <S.SearchItem key={index}>
                                 <S.SearchItemClose onClick={() => {deleteSearched(index)}}>X</S.SearchItemClose>
@@ -24,8 +22,7 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
                                 
                             </S.SearchItem>
                         ))
-                        :
-                        <S.NotItemTitle>최근에 검색한 내용이 없습니다.</S.NotItemTitle>
+                    : <S.NotItemTitle>최근에 검색한 내용이 없습니다.</S.NotItemTitle>
                 }
             </S.SearchItems>
         </S.SearchListContain>
