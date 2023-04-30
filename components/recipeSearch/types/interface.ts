@@ -5,12 +5,12 @@ export interface ISearchBarProps {
 }
 
 export interface ISearchListProps {
-    // searchDatas: ILocalStorageSearch,
-    searchDatas: string[],
+    searchDatas: ILocalStorageSearch,
+    // searchDatas: string[],
     deleteSearched: (index: number) => void;
 }
 
 export interface ILocalStorageSearch {
-    data: string[],
+    search: string[],
     expires: number[]
 }

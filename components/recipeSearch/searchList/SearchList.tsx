@@ -14,7 +14,7 @@ const SearchList = ({searchDatas, deleteSearched}: ISearchListProps) => {
             <S.SearchItems>
                 {
                     domLoaded && searchDatas !== null
-                    ? searchDatas.map((item: string, index: number) => (
+                    ? searchDatas.search.map((item: string, index: number) => (
                             <S.SearchItem key={index}>
                                 <S.SearchItemClose onClick={() => {deleteSearched(index)}}>X</S.SearchItemClose>
                                 {/* location.assign 써도 되나..? */}
