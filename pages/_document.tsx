@@ -7,7 +7,7 @@ class MyDocument extends Document {
     ): Promise<DocumentInitialProps> {
         const sheet = new ServerStyleSheet()
         const originalRenderPage = ctx.renderPage
-
+        
         try {
             ctx.renderPage = () =>
                 originalRenderPage({

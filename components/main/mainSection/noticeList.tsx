@@ -9,11 +9,11 @@ const NoticeList = () => {
                 {
                     noticeList.map((item, index) => {
                         return (
-                            <>
-                                <S.Notice key={index}>{item}</S.Notice>
+                            <div key={index}>
+                                <S.Notice>{item}</S.Notice>
                                 <S.NoticeExplanation>{noticeExplanation[index]}</S.NoticeExplanation>
                                 <S.SubLine/>
-                            </>
+                            </div>
                         )
                     })   
                 }

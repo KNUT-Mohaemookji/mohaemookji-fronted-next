@@ -1,17 +1,22 @@
 import { useEffect, useState } from 'react';
+import { ILocalStorageSearch } from '../../types/interface';
 
 const useSearch = () => {
     const [search, setSearch] = useState('');
     const [searchDatas, setSearchDatas] = useState(typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('search') as string) : null);
-    let [afterChangeDatas, setAfterChangeDatas] = useState<any>({
+    let [afterChangeDatas, setAfterChangeDatas] = useState<ILocalStorageSearch>({
         search: [],
         expir: []
     });
 
-    useEffect(() => {
+    useEffect(() => {        
         if(searchDatas !== null) {
-            setAfterChangeDatas(searchDatas);
-            expireSearchData();
+            if(searchDatas.search.length !== 0) {
+                setAfterChangeDatas(searchDatas);
+                expireSearchData();
+            }else {
+                localStorage.removeItem('search');
+            }
         }
     }, [searchDatas]);
 
@@ -25,7 +30,8 @@ const useSearch = () => {
     }
 
     const searched = (search: string) => {
-        let expir = Date.now() + 10000;
+        location.assign(`/recipe/${search}`);
+        let expir = Date.now() + 86400000;
         // 검색 결과가 null 없거나, afterChangeDatas에 포함되지 않으면
         if(searchDatas === null || !afterChangeDatas.search.includes(search)) {
             afterChangeDatas.search.push(search);

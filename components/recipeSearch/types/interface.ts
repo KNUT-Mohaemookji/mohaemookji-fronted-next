@@ -12,5 +12,5 @@ export interface ISearchListProps {
 
 export interface ILocalStorageSearch {
     search: string[],
-    expires: number[]
+    expir: number[]
 }
