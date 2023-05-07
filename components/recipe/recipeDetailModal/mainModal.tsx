@@ -6,7 +6,7 @@ import { IRecipeModalContainProps } from '../types/recipe/interface';
 import RecipeMart from './martModal';
 import RecipeVideo from './recipeVideo';
 import RecipeModal from './recipeModal';
-import * as S from '../style/recipeModal';
+import * as S from '../style/recipeAndVideoModal';
 
 const MainModal = ({ clickRecipeData }: IRecipeModalContainProps) => {
     const dispatch = useDispatch();

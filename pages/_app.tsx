@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import configureStore from '../store/configureStore';
 import {GoogleOAuthProvider} from '@react-oauth/google';
 import { CLIENT_ID } from '../constants/googleAuth';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const store = configureStore();
 

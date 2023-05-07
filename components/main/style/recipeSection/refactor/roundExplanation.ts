@@ -32,15 +32,18 @@ export const RecipeContainImage = styled.div<{eventState: boolean}>`
     animation-duration: 1s;
     display: flex;
     position: absolute;
-    width: 60%;
+    width: 70%;
     height: 40%;
+    object-fit: cover;
     z-index: 10;
     bottom: 30%;
-    left: 30%;
+    left: 20%;
     @media (max-width:900px){
         animation: ${props => props.eventState && BottomToTop};
         animation-duration: 1s;
-        width: 100%;
+        width: 80%;
+        height: 30%;
+        margin: auto;
         left: 0;
         right: 0;
         bottom: 10%;
@@ -54,7 +57,7 @@ export const RoundModel = styled.div`
     width: 100%;
     height: 90%;
     border-radius: 50%;
-    background-color: #7AA874;
+    background-color: #F7E1AE;
     @media (max-width: 900px){
         left: 0;
         right: 0;

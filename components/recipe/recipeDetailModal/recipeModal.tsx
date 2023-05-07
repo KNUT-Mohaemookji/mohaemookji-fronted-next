@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import * as S from '../style/recipeModal';
+import * as S from '../style/recipeAndVideoModal';
 import { IRecipeDataList } from '../types/recipe/interface';
 import { useRecipeModalData } from '../hooks/useRecipeModalData';
 

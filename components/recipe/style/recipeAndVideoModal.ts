@@ -154,8 +154,7 @@ export const RecommendationVideo = styled.li`
     width: 50%;
     aspect-ratio: 16 / 9;
     @media (max-width: 900px) {
-        // width: 60%;
-        // aspect-ratio: 3 / 4;
+        width: 70%;
     }
 `
 

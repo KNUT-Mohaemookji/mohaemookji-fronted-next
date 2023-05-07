@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import { contentTitle } from '../../../../utils/main/constants';
 import * as S from '../../style/recipeSection/refactor/recipeSectionText'
 import MainButton from '../../../common/urlChangeButton';
